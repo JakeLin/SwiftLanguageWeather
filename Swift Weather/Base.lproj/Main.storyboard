@@ -13,6 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="c1W-3s-wEa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1ET-rk-MGx">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFo-WT-chN">
@@ -20,10 +21,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="85" y="262" width="150" height="61"/>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="230" placeholderIntrinsicHeight="220" image="Cloud-Refresh.png" translatesAutoresizingMaskIntoConstraints="NO" id="jY1-M7-UCM">
                                 <rect key="frame" x="100" y="64" width="120" height="120"/>
@@ -36,20 +36,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="70" y="46" width="180" height="44"/>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuS-AZ-bQn">
                                 <rect key="frame" x="70" y="231" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="70" y="271" width="180" height="44"/>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.19639368597580487" green="0.49216635007656306" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,6 +68,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="icon" destination="jY1-M7-UCM" id="nel-6R-FZ4"/>
                         <outlet property="loading" destination="BuS-AZ-bQn" id="eIN-E7-uuo"/>
