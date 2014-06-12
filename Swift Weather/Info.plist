@@ -29,9 +29,9 @@
 		<string>armv7</string>
 	</array>
 	<key>NSLocationUsageDescription</key>
-	<string>Your current location is used to see where you are.</string>
+	<string>Your location is used to tell where you are.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your current location is used to see where you are.</string>
+	<string>Your location is used to tell where you are.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
