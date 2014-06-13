@@ -12,7 +12,9 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager:CLLocationManager = CLLocationManager()
+    var background = UIImage(named: "background.png")
     
+    @IBOutlet var loadingIndicator : UIActivityIndicatorView = nil
     @IBOutlet var icon : UIImageView
     @IBOutlet var temperature : UILabel
     @IBOutlet var loading : UILabel
@@ -20,14 +22,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        self.loadingIndicator.startAnimating()
         
         self.locationManager.delegate = self;
+        self.view.backgroundColor = UIColor(patternImage: background)
+        
+        let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        self.view.addGestureRecognizer(singleFingerTap)
         
         // The app might not work on iOS 8 Simulator (or device?)
         if ( ios8() ) {
             locationManager.requestAlwaysAuthorization()
         }
-        
+        locationManager.startUpdatingLocation()
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
         locationManager.startUpdatingLocation()
     }
 
@@ -38,11 +51,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateWeatherInfo(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let manager = AFHTTPRequestOperationManager()
-        let url = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&cnt=0"
+        let url = "http://api.openweathermap.org/data/2.5/weather"
         println(url)
         
+        let params = ["lat":latitude, "lon":longitude, "cnt":0]
+        println(params)
+        
         manager.GET(url,
-            parameters: nil,
+            parameters: params,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
                 println("JSON: " + responseObject.description!)
@@ -59,6 +75,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateUISuccess(jsonResult: NSDictionary!) {
         self.loading.text = nil
+        self.loadingIndicator.hidden = true
+        self.loadingIndicator.stopAnimating()
         
         var tempResult = jsonResult["main"]?["temp"] as Double
         var temperature: Double
@@ -97,65 +115,73 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func updateWeatherIcon(condition: Int, nightTime: Bool) {
         // Thunderstorm
         if (condition < 300) {
-            self.icon.image = UIImage(named: "Cloud-Lightning")
+            if nightTime {
+                self.icon.image = UIImage(named: "tstorm1_night")
+            } else {
+                self.icon.image = UIImage(named: "tstorm1")
+            }
         }
         // Drizzle
         else if (condition < 500) {
-            self.icon.image = UIImage(named: "Cloud-Drizzle")
+            self.icon.image = UIImage(named: "light_rain")
         }
         // Rain / Freezing rain / Shower rain
         else if (condition < 600) {
-            self.icon.image = UIImage(named: "Cloud-Rain")
+            self.icon.image = UIImage(named: "shower3")
         }
         // Snow
         else if (condition < 700) {
-            self.icon.image = UIImage(named: "Cloud-Snow-Alt")
+            self.icon.image = UIImage(named: "snow4")
         }
         // Fog / Mist / Haze / etc.
         else if (condition < 771) {
-            self.icon.image = UIImage(named: "Cloud-Fog")
+            if nightTime {
+                self.icon.image = UIImage(named: "fog_night")
+            } else {
+                self.icon.image = UIImage(named: "fog")
+            }
         }
         // Tornado / Squalls
         else if (condition < 800) {
-            self.icon.image = UIImage(named: "Cloud-Wind")
+            self.icon.image = UIImage(named: "tstorm3")
         }
         // Sky is clear
         else if (condition == 800) {
             if (nightTime){
-                self.icon.image = UIImage(named: "Moon")
+                self.icon.image = UIImage(named: "sunny_night") // sunny night?
             }
             else {
-                self.icon.image = UIImage(named: "Sun")
+                self.icon.image = UIImage(named: "sunny")
             }
         }
         // few / scattered / broken clouds
         else if (condition < 804) {
             if (nightTime){
-                self.icon.image = UIImage(named: "Cloud-Moon")
+                self.icon.image = UIImage(named: "cloudy2_night")
             }
             else{
-                self.icon.image = UIImage(named: "Cloud-Sun")
+                self.icon.image = UIImage(named: "cloudy2")
             }
         }
         // overcast clouds
         else if (condition == 804) {
-            self.icon.image = UIImage(named: "Cloud")
+            self.icon.image = UIImage(named: "overcast")
         }
         // Extreme
         else if ((condition >= 900 && condition < 903) || (condition > 904 && condition < 1000)) {
-            self.icon.image = UIImage(named: "Cloud-Wind")
+            self.icon.image = UIImage(named: "tstorm3")
         }
         // Cold
         else if (condition == 903) {
-            self.icon.image = UIImage(named: "Thermometer-25")
+            self.icon.image = UIImage(named: "snow5")
         }
         // Hot
         else if (condition == 904) {
-            self.icon.image = UIImage(named: "Thermometer-75")
+            self.icon.image = UIImage(named: "sunny")
         }
         else {
             // Weather condition not available
-            self.icon.image = UIImage(named: "Cloud-Download")
+            self.icon.image = UIImage(named: "dunno")
         }
     }
     
@@ -194,6 +220,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
+        println("hello")
         var location:CLLocation = locations[locations.count-1] as CLLocation
         
         if (location.horizontalAccuracy > 0) {
