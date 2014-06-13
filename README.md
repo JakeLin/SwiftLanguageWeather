@@ -4,10 +4,8 @@ SwiftWeather
 SwiftWeather is a small iOS app developed by Swift language.
 
 ##Screenshots
-![Loading](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Loading-33.png)
-
-![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Swift%20Weather-33.png)
-
+![Loading](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/loading-33.png)
+![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Swift-Weather-33.png)
 
 ## Used features
 * Swift Programming Language
@@ -33,4 +31,4 @@ Because the app uses CocoaPods, we need to run `pod install` to install all the 
 8. Press *Cmd + R* to run the app on Simulator.
 
 ## Credits
-* Thanks to @johnsonjake for adding iOS 8 support and improving the UI/UX.
+* Thanks to [johnsonjake](https://github.com/johnsonjake) for adding iOS 8 support and improving the UI/UX.
