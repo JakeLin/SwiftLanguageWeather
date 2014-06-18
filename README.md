@@ -5,6 +5,7 @@ SwiftWeather is a small iOS app developed by Swift language.
 
 ##Screenshots
 ![Loading](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/loading-33.png)
+
 ![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Swift-Weather-33.png)
 
 ## Used features

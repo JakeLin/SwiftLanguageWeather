@@ -10,104 +10,110 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-
+    
     let locationManager:CLLocationManager = CLLocationManager()
     var background = UIImage(named: "background.png")
-
+    
     @IBOutlet var loadingIndicator : UIActivityIndicatorView = nil
     @IBOutlet var icon : UIImageView
     @IBOutlet var temperature : UILabel
     @IBOutlet var loading : UILabel
     @IBOutlet var location : UILabel
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-
+        
         self.loadingIndicator.startAnimating()
-
+        
         self.view.backgroundColor = UIColor(patternImage: background)
-
+        
         let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
         self.view.addGestureRecognizer(singleFingerTap)
-
+        
         if ( ios8() ) {
             locationManager.requestAlwaysAuthorization()
         }
         locationManager.startUpdatingLocation()
     }
-
+    
     func handleSingleTap(recognizer: UITapGestureRecognizer) {
         locationManager.startUpdatingLocation()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func updateWeatherInfo(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let manager = AFHTTPRequestOperationManager()
         let url = "http://api.openweathermap.org/data/2.5/weather"
         println(url)
-
+        
         let params = ["lat":latitude, "lon":longitude, "cnt":0]
         println(params)
-
+        
         manager.GET(url,
             parameters: params,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
                 println("JSON: " + responseObject.description!)
-
+                
                 self.updateUISuccess(responseObject as NSDictionary!)
             },
             failure: { (operation: AFHTTPRequestOperation!,
                 error: NSError!) in
                 println("Error: " + error.localizedDescription)
-
+                
                 self.loading.text = "Internet appears down!"
             })
     }
-
+    
     func updateUISuccess(jsonResult: NSDictionary!) {
         self.loading.text = nil
         self.loadingIndicator.hidden = true
         self.loadingIndicator.stopAnimating()
-
-        var tempResult = jsonResult["main"]?["temp"] as Double
-        var temperature: Double
-        if (jsonResult["sys"]?["country"] as String == "US") {
-            // Convert temperature to Fahrenheit if user is within the US
-            temperature = round(((tempResult - 273.15) * 1.8) + 32)
+        
+        if let tempResult = (jsonResult["main"]?["temp"]? as? Double) {
+            
+            // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
+            var temperature: Double
+            if (jsonResult["sys"]?["country"]? as String == "US") {
+                // Convert temperature to Fahrenheit if user is within the US
+                temperature = round(((tempResult - 273.15) * 1.8) + 32)
+            }
+            else {
+                // Otherwise, convert temperature to Celsius
+                temperature = round(tempResult - 273.15)
+            }
+            // Is it a bug of Xcode 6? can not set the font size in IB.
+            self.temperature.font = UIFont.boldSystemFontOfSize(60)
+            self.temperature.text = "\(temperature)°"
+            
+            var name = jsonResult["name"]? as String
+            self.location.font = UIFont.boldSystemFontOfSize(25)
+            self.location.text = "\(name)"
+            
+            var condition = (jsonResult["weather"]? as NSArray)[0]?["id"]? as Int
+            var sunrise = jsonResult["sys"]?["sunrise"]? as Double
+            var sunset = jsonResult["sys"]?["sunset"]? as Double
+            
+            var nightTime = false
+            var now = NSDate().timeIntervalSince1970
+            // println(nowAsLong)
+            
+            if (now < sunrise || now > sunset) {
+                nightTime = true
+            }
+            self.updateWeatherIcon(condition, nightTime: nightTime)
         }
         else {
-            // Otherwise, convert temperature to Celsius
-            temperature = round(tempResult - 273.15)
+            self.loading.text = "Weather info is not available!"
         }
-        // Is it a bug of Xcode 6? can not set the font size in IB.
-        self.temperature.font = UIFont.boldSystemFontOfSize(60)
-        self.temperature.text = "\(temperature)°"
-
-        var name = jsonResult["name"]! as String
-        self.location.font = UIFont.boldSystemFontOfSize(25)
-        self.location.text = "\(name)"
-
-        var condition = jsonResult["weather"]?[0]!["id"] as Int
-        var sunrise = jsonResult["sys"]?["sunrise"] as Double
-        var sunset = jsonResult["sys"]?["sunset"] as Double
-
-        var nightTime = false
-        var now = NSDate().timeIntervalSince1970
-        // println(nowAsLong)
-
-        if (now < sunrise || now > sunset) {
-            nightTime = true
-        }
-        self.updateWeatherIcon(condition, nightTime: nightTime)
     }
-
+    
     // Converts a Weather Condition into one of our icons.
     // Refer to: http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
     func updateWeatherIcon(condition: Int, nightTime: Bool) {
@@ -177,12 +183,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         else if (condition == 904) {
             self.icon.image = UIImage(named: "sunny")
         }
+        // Weather condition is not available
         else {
-            // Weather condition not available
             self.icon.image = UIImage(named: "dunno")
         }
     }
-
+    
     /*
     func finishLaunch() {
         //ask for authorization
@@ -194,7 +200,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
-
+    
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if(status == CLAuthorizationStatus.NotDetermined) {
             println("Auth status unkown still!");
@@ -202,33 +208,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     */
-
+    
     /*
     iOS 8 Utility
     */
     func ios8() -> Bool {
         println("iOS " + UIDevice.currentDevice().systemVersion)
+        // There is a problem if Apple upgrades iOS version to 8.1 or something else.
         if ( UIDevice.currentDevice().systemVersion == "8.0" ) {
             return true
         } else {
             return false
         }
-
     }
-
+    
     //CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
-        println("hello")
         var location:CLLocation = locations[locations.count-1] as CLLocation
-
+        
         if (location.horizontalAccuracy > 0) {
             self.locationManager.stopUpdatingLocation()
             println(location.coordinate)
             updateWeatherInfo(location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
-
+    
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println(error)
+        self.loading.text = "Can't get your location!"
     }
 }
