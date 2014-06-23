@@ -80,54 +80,45 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
             var temperature: Double
-            let sys = (jsonResult["sys"]? as NSDictionary)
-            if let country = (sys["country"] as? String) {
-                if (country == "US") {
-                    // Convert temperature to Fahrenheit if user is within the US
-                    temperature = round(((tempResult - 273.15) * 1.8) + 32)
-                }
-                else {
-                    // Otherwise, convert temperature to Celsius
-                    temperature = round(tempResult - 273.15)
+            if let sys = (jsonResult["sys"]? as? NSDictionary) {
+                if let country = (sys["country"] as? String) {
+                    if (country == "US") {
+                        // Convert temperature to Fahrenheit if user is within the US
+                        temperature = round(((tempResult - 273.15) * 1.8) + 32)
+                    }
+                    else {
+                        // Otherwise, convert temperature to Celsius
+                        temperature = round(tempResult - 273.15)
+                    }
+                    
+                    // Is it a bug of Xcode 6? can not set the font size in IB.
+                    self.temperature.font = UIFont.boldSystemFontOfSize(60)
+                    self.temperature.text = "\(temperature)°"
                 }
                 
-                // Is it a bug of Xcode 6? can not set the font size in IB.
-                self.temperature.font = UIFont.boldSystemFontOfSize(60)
-                self.temperature.text = "\(temperature)°"
-            }
-            else {
-                self.loading.text = "Weather info is not available!"
-            }
-            
-            if let name = jsonResult["name"] as? String {
-                self.location.font = UIFont.boldSystemFontOfSize(25)
-                self.location.text = name
-            }
-            else {
-                self.loading.text = "Weather info is not available!"
-            }
-            
-            if let weather = jsonResult["weather"]? as? NSArray {
-                var condition = (weather[0] as NSDictionary)["id"] as Int
-                var sunrise = sys["sunrise"] as Double
-                var sunset = sys["sunset"] as Double
-                
-                var nightTime = false
-                var now = NSDate().timeIntervalSince1970
-                // println(nowAsLong)
-                
-                if (now < sunrise || now > sunset) {
-                    nightTime = true
+                if let name = jsonResult["name"] as? String {
+                    self.location.font = UIFont.boldSystemFontOfSize(25)
+                    self.location.text = name
                 }
-                self.updateWeatherIcon(condition, nightTime: nightTime)
-            }
-            else {
-                self.loading.text = "Weather info is not available!"
+                
+                if let weather = jsonResult["weather"]? as? NSArray {
+                    var condition = (weather[0] as NSDictionary)["id"] as Int
+                    var sunrise = sys["sunrise"] as Double
+                    var sunset = sys["sunset"] as Double
+                    
+                    var nightTime = false
+                    var now = NSDate().timeIntervalSince1970
+                    // println(nowAsLong)
+                    
+                    if (now < sunrise || now > sunset) {
+                        nightTime = true
+                    }
+                    self.updateWeatherIcon(condition, nightTime: nightTime)
+                    return
+                }
             }
         }
-        else {
-            self.loading.text = "Weather info is not available!"
-        }
+        self.loading.text = "Weather info is not available!"
     }
     
     // Converts a Weather Condition into one of our icons.
