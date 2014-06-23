@@ -12,7 +12,6 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager:CLLocationManager = CLLocationManager()
-    var background = UIImage(named: "background.png")
     
     @IBOutlet var loadingIndicator : UIActivityIndicatorView = nil
     @IBOutlet var icon : UIImageView
@@ -27,6 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         self.loadingIndicator.startAnimating()
         
+        let background = UIImage(named: "background.png")
         self.view.backgroundColor = UIColor(patternImage: background)
         
         let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
@@ -76,38 +76,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.loadingIndicator.hidden = true
         self.loadingIndicator.stopAnimating()
         
-        if let tempResult = (jsonResult["main"]?["temp"]? as? Double) {
+        if let tempResult = ((jsonResult["main"]? as NSDictionary)["temp"] as? Double) {
             
             // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
             var temperature: Double
-            if (jsonResult["sys"]?["country"]? as String == "US") {
-                // Convert temperature to Fahrenheit if user is within the US
-                temperature = round(((tempResult - 273.15) * 1.8) + 32)
+            let sys = (jsonResult["sys"]? as NSDictionary)
+            if let country = (sys["country"] as? String) {
+                if (country == "US") {
+                    // Convert temperature to Fahrenheit if user is within the US
+                    temperature = round(((tempResult - 273.15) * 1.8) + 32)
+                }
+                else {
+                    // Otherwise, convert temperature to Celsius
+                    temperature = round(tempResult - 273.15)
+                }
+                
+                // Is it a bug of Xcode 6? can not set the font size in IB.
+                self.temperature.font = UIFont.boldSystemFontOfSize(60)
+                self.temperature.text = "\(temperature)°"
             }
             else {
-                // Otherwise, convert temperature to Celsius
-                temperature = round(tempResult - 273.15)
+                self.loading.text = "Weather info is not available!"
             }
-            // Is it a bug of Xcode 6? can not set the font size in IB.
-            self.temperature.font = UIFont.boldSystemFontOfSize(60)
-            self.temperature.text = "\(temperature)°"
             
-            var name = jsonResult["name"]? as String
-            self.location.font = UIFont.boldSystemFontOfSize(25)
-            self.location.text = "\(name)"
-            
-            var condition = (jsonResult["weather"]? as NSArray)[0]?["id"]? as Int
-            var sunrise = jsonResult["sys"]?["sunrise"]? as Double
-            var sunset = jsonResult["sys"]?["sunset"]? as Double
-            
-            var nightTime = false
-            var now = NSDate().timeIntervalSince1970
-            // println(nowAsLong)
-            
-            if (now < sunrise || now > sunset) {
-                nightTime = true
+            if let name = jsonResult["name"] as? String {
+                self.location.font = UIFont.boldSystemFontOfSize(25)
+                self.location.text = name
             }
-            self.updateWeatherIcon(condition, nightTime: nightTime)
+            else {
+                self.loading.text = "Weather info is not available!"
+            }
+            
+            if let weather = jsonResult["weather"]? as? NSArray {
+                var condition = (weather[0] as NSDictionary)["id"] as Int
+                var sunrise = sys["sunrise"] as Double
+                var sunset = sys["sunset"] as Double
+                
+                var nightTime = false
+                var now = NSDate().timeIntervalSince1970
+                // println(nowAsLong)
+                
+                if (now < sunrise || now > sunset) {
+                    nightTime = true
+                }
+                self.updateWeatherIcon(condition, nightTime: nightTime)
+            }
+            else {
+                self.loading.text = "Weather info is not available!"
+            }
         }
         else {
             self.loading.text = "Weather info is not available!"
