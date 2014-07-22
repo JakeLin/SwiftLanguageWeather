@@ -221,8 +221,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     */
     func ios8() -> Bool {
         println("iOS " + UIDevice.currentDevice().systemVersion)
-        // There is a problem if Apple upgrades iOS version to 8.1 or something else.
-        if ( UIDevice.currentDevice().systemVersion == "8.0" ) {
+        if ( UIDevice.currentDevice().systemVersion >= "8.0" ) {
             return true
         } else {
             return false
