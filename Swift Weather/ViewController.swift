@@ -13,11 +13,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager:CLLocationManager = CLLocationManager()
     
-    @IBOutlet var loadingIndicator : UIActivityIndicatorView = nil
-    @IBOutlet var icon : UIImageView
-    @IBOutlet var temperature : UILabel
-    @IBOutlet var loading : UILabel
-    @IBOutlet var location : UILabel
+    @IBOutlet var loadingIndicator : UIActivityIndicatorView! = nil
+    @IBOutlet var icon : UIImageView!
+    @IBOutlet var temperature : UILabel!
+    @IBOutlet var loading : UILabel!
+    @IBOutlet var location : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
