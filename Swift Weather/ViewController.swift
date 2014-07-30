@@ -220,16 +220,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     iOS 8 Utility
     */
     func ios8() -> Bool {
-        println("iOS " + UIDevice.currentDevice().systemVersion)
-        if ( UIDevice.currentDevice().systemVersion >= "8.0" ) {
-            return true
-        } else {
+        if ( NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1 ) {
             return false
+        } else {
+            return true
         }
     }
     
     //CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var location:CLLocation = locations[locations.count-1] as CLLocation
         
         if (location.horizontalAccuracy > 0) {
