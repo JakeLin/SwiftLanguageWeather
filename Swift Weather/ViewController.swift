@@ -229,7 +229,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var location:CLLocation = locations[locations.count-1] as CLLocation
         
         if (location.horizontalAccuracy > 0) {
