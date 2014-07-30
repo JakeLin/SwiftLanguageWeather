@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swift Weather/ViewController.swift"
-            timestampString = "428335176.358715"
+            timestampString = "428371620.732821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "ios8()"
             landmarkType = "5">
          </BreakpointContent>
