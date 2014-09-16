@@ -8,18 +8,18 @@ SwiftWeather is an iOS app developed in Swift language. The app can support iPho
 
 
 #### iPhone 4s
-![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/4s.png)
+![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/4s-smallsize.png)
 
 #### iPhone 5s
-![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/5s.png)
+![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/5s-smallsize.png)
 
 
 #### iPhone 6
-![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/6.png)
+![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/6-smallsize.png)
 
 
 #### iPhone 6 Plus
-![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/6plus.png)
+![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/6plus-smallsize.png)
 
 ## Notices
 Because Apple keeps changing the Swift compiler, the current version can be compiled in Xcode 6 GM. I will update the code when Apple updates Xcode 6.
