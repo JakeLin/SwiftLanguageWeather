@@ -197,26 +197,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     /*
-    func finishLaunch() {
-        //ask for authorization
-        let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.NotDetermined) {
-            self.locationManager.requestAlwaysAuthorization();
-        }
-        else {
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if(status == CLAuthorizationStatus.NotDetermined) {
-            println("Auth status unkown still!");
-        }
-        locationManager.startUpdatingLocation()
-    }
-    */
-    
-    /*
     iOS 8 Utility
     */
     func ios8() -> Bool {
@@ -241,5 +221,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println(error)
         self.loading.text = "Can't get your location!"
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }

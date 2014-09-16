@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6fQ-Nl-7m6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6fQ-Nl-7m6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,19 +25,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="230" placeholderIntrinsicHeight="220" translatesAutoresizingMaskIntoConstraints="NO" id="jY1-M7-UCM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="230" placeholderIntrinsicHeight="220" translatesAutoresizingMaskIntoConstraints="NO" id="jY1-M7-UCM">
                                 <rect key="frame" x="85" y="98" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="80Q-Pg-CJi"/>
+                                    <constraint firstAttribute="height" constant="150" id="QQr-3L-etW"/>
+                                    <constraint firstAttribute="width" secondItem="jY1-M7-UCM" secondAttribute="height" multiplier="1:1" id="ngm-D1-hs6"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUY-QF-CDf">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUY-QF-CDf">
                                 <rect key="frame" x="20" y="46" width="280" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="GEC-qg-MLy"/>
+                                    <constraint firstAttribute="height" constant="44" id="rvS-a8-ez2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="fHX-FU-RfO">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="fHX-FU-RfO">
                                 <rect key="frame" x="150" y="163" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuS-AZ-bQn">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuS-AZ-bQn">
                                 <rect key="frame" x="20" y="271" width="280" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,6 +55,20 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="fHX-FU-RfO" firstAttribute="centerX" secondItem="jY1-M7-UCM" secondAttribute="centerX" id="1pS-J6-NR5"/>
+                            <constraint firstItem="dUY-QF-CDf" firstAttribute="height" secondItem="BuS-AZ-bQn" secondAttribute="height" id="37b-h5-apY"/>
+                            <constraint firstItem="BuS-AZ-bQn" firstAttribute="centerX" secondItem="jY1-M7-UCM" secondAttribute="centerX" id="5dH-hE-Ee0"/>
+                            <constraint firstItem="dUY-QF-CDf" firstAttribute="centerX" secondItem="jY1-M7-UCM" secondAttribute="centerX" id="eK8-bS-ZuB"/>
+                            <constraint firstAttribute="centerX" secondItem="dUY-QF-CDf" secondAttribute="centerX" id="jvE-gm-EKV"/>
+                            <constraint firstItem="fHX-FU-RfO" firstAttribute="centerX" secondItem="jY1-M7-UCM" secondAttribute="centerX" id="pgE-k7-x6Z"/>
+                            <constraint firstItem="fHX-FU-RfO" firstAttribute="top" secondItem="jY1-M7-UCM" secondAttribute="bottom" constant="-85" id="q7Z-fk-0tk"/>
+                            <constraint firstItem="dUY-QF-CDf" firstAttribute="top" secondItem="aXo-4I-18N" secondAttribute="bottom" constant="26" id="q80-vl-jyL"/>
+                            <constraint firstItem="BuS-AZ-bQn" firstAttribute="top" secondItem="jY1-M7-UCM" secondAttribute="bottom" constant="23" id="tOG-qg-sDM"/>
+                            <constraint firstItem="dUY-QF-CDf" firstAttribute="width" secondItem="BuS-AZ-bQn" secondAttribute="width" id="vb9-dy-s5M"/>
+                            <constraint firstItem="fHX-FU-RfO" firstAttribute="centerY" secondItem="jY1-M7-UCM" secondAttribute="centerY" id="xsC-hy-Svg"/>
+                            <constraint firstItem="jY1-M7-UCM" firstAttribute="top" secondItem="dUY-QF-CDf" secondAttribute="bottom" constant="8" id="yhC-Wx-PeA"/>
+                        </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
