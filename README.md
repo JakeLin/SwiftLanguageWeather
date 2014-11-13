@@ -22,7 +22,7 @@ SwiftWeather is an iOS app developed in Swift language. The app can support iPho
 ![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/6plus-smallsize.png)
 
 ## Notices
-Because Apple keeps changing the Swift compiler, the current version can be compiled in Xcode 6 GM. I will update the code when Apple updates Xcode 6.
+Because Apple keeps changing the Swift compiler, the current version can be compiled in Xcode 6.1. 
  
 ## Used features
 * Swift Programming Language
