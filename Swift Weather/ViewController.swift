@@ -27,7 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.loadingIndicator.startAnimating()
         
         let background = UIImage(named: "background.png")
-        self.view.backgroundColor = UIColor(patternImage: background)
+        self.view.backgroundColor = UIColor(patternImage: background!)
         
         let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
         self.view.addGestureRecognizer(singleFingerTap)
