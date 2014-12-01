@@ -1,7 +1,7 @@
-SwiftWeather
+Swift Weather
 ============
 
-SwiftWeather is an iOS app developed in Swift language. The app can support iPhone 4(s), iPhone 5(s), iPhone 6 and iPhone 6 Plus.
+SwiftWeather is an iOS weather app developed in Swift language. The app can support iPhone 4(s), iPhone 5(s), iPhone 6 and iPhone 6 Plus.
 
 ## Screenshots
 ![Loading](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/loading-33.png)
@@ -45,3 +45,4 @@ Because the app uses CocoaPods, we need to run `pod install` to install all the 
 
 ## Credits
 * Thanks to [johnsonjake](https://github.com/johnsonjake) for adding iOS 8 support and improving the UI/UX.
+* Thanks to [Marc](https://github.com/gizmou) for adding forcast feature.
