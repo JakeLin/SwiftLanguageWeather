@@ -1,23 +1,19 @@
 //
-//  ViewController.swift
-//  Swift Weather
+//  TodayViewController.swift
+//  Swift Weather Instant
 //
-//  Created by Jake Lin on 4/06/2014.
+//  Created by Marc Tarnutzer on 12.12.14.
 //  Copyright (c) 2014 rushjet. All rights reserved.
 //
 
 import UIKit
+import NotificationCenter
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManagerDelegate {
     
     let locationManager:CLLocationManager = CLLocationManager()
     
-    @IBOutlet var loadingIndicator : UIActivityIndicatorView! = nil
-    @IBOutlet var icon : UIImageView!
-    @IBOutlet var temperature : UILabel!
-    @IBOutlet var loading : UILabel!
-    @IBOutlet var location : UILabel!
     @IBOutlet weak var time1: UILabel!
     @IBOutlet weak var time2: UILabel!
     @IBOutlet weak var time3: UILabel!
@@ -30,33 +26,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var temp2: UILabel!
     @IBOutlet weak var temp3: UILabel!
     @IBOutlet weak var temp4: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        self.loadingIndicator.startAnimating()
-        
-        let background = UIImage(named: "background.png")
-        self.view.backgroundColor = UIColor(patternImage: background!)
-        
-        let singleFingerTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
-        self.view.addGestureRecognizer(singleFingerTap)
         
         if ( ios8() ) {
             locationManager.requestAlwaysAuthorization()
         }
         locationManager.startUpdatingLocation()
-    }
-    
-    func handleSingleTap(recognizer: UITapGestureRecognizer) {
-        locationManager.startUpdatingLocation()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func updateWeatherInfo(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -72,7 +52,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             parameters: params,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
-                println("JSON: " + responseObject.description!)
+                //println("JSON: " + responseObject.description!)
                 
                 self.updateUISuccess(responseObject as NSDictionary!)
             },
@@ -80,48 +60,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 error: NSError!) in
                 println("Error: " + error.localizedDescription)
                 
-                self.loading.text = "Internet appears down!"
-            })
+        })
     }
     
     func updateUISuccess(jsonResult: NSDictionary) {
-        self.loading.text = nil
-        self.loadingIndicator.hidden = true
-        self.loadingIndicator.stopAnimating()
         
         if let tempResult = ((jsonResult["list"]? as NSArray)[0]["main"] as NSDictionary)["temp"] as? Double {
-            println("TempResult:", tempResult)
             // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
             var temperature: Double
             var cntry: String
             cntry = ""
-            if let city = (jsonResult["city"]? as? NSDictionary) {
-                if let country = (city["country"] as? String) {
-                    cntry = country
-                    if (country == "US") {
-                        // Convert temperature to Fahrenheit if user is within the US
-                        temperature = round(((tempResult - 273.15) * 1.8) + 32)
-                    }
-                    else {
-                        // Otherwise, convert temperature to Celsius
-                        temperature = round(tempResult - 273.15)
-                    }
-                    
-                    // FIXED: Is it a bug of Xcode 6? can not set the font size in IB.
-                    //self.temperature.font = UIFont.boldSystemFontOfSize(60)
-                    self.temperature.text = "\(temperature)°"
-                }
-                
-                if let name = (city["name"] as? String) {
-                    self.location.font = UIFont.boldSystemFontOfSize(25)
-                    self.location.text = name
-                }
-            }
-            
             
             if let weatherArray = (jsonResult["list"]? as? NSArray) {
-                for index in 0...4 {
-                    println(index)
+                for index in 1...4 {
                     if let perTime = (weatherArray[index] as? NSDictionary) {
                         if let main = (perTime["main"]? as? NSDictionary) {
                             var temp = (main["temp"] as Double)
@@ -134,8 +85,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                                 temperature = round(temp - 273.15)
                             }
                             
-                            // FIXED: Is it a bug of Xcode 6? can not set the font size in IB.
-                            //self.temperature.font = UIFont.boldSystemFontOfSize(60)
                             if (index==1) {
                                 self.temp1.text = "\(temperature)°"
                             }
@@ -184,14 +133,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 }
             }
         }
-        self.loading.text = "Weather info is not available!"
-
     }
     
     func updatePictures(index: Int, name: String) {
-        if (index==0) {
-            self.icon.image = UIImage(named: name)
-        }
+        
         if (index==1) {
             self.image1.image = UIImage(named: name)
         }
@@ -209,7 +154,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func updateWeatherIcon(condition: Int, nightTime: Bool, index: Int) {
         // Thunderstorm
         
-        var images = [self.icon.image, self.image1.image, self.image2.image, self.image3.image, self.image4.image]
+        var images = [self.image1.image, self.image2.image, self.image3.image, self.image4.image]
         
         if (condition < 300) {
             if nightTime {
@@ -282,7 +227,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             self.updatePictures(index, name: "dunno")
         }
     }
-
+    
     /*
     iOS 8 Utility
     */
@@ -293,7 +238,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             return true
         }
     }
-    
+
     //CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var location:CLLocation = locations[locations.count-1] as CLLocation
@@ -307,10 +252,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println(error)
-        self.loading.text = "Can't get your location!"
+    }
+
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+        // Perform any setup necessary in order to update the view.
+
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+
+        locationManager.startUpdatingLocation()
+        completionHandler(NCUpdateResult.NewData)
     }
+    
 }
