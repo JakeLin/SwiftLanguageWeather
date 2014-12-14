@@ -6,6 +6,8 @@ SwiftWeather is an iOS weather app developed in Swift language. The app can supp
 ## Screenshots
 ![Loading](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/loading-33.png)
 
+![Loading](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/6-Today-smallsize.png)
+
 
 #### iPhone 4s
 ![Swift Weather](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/4s-smallsize.png)
@@ -45,4 +47,4 @@ Because the app uses CocoaPods, we need to run `pod install` to install all the 
 
 ## Credits
 * Thanks to [johnsonjake](https://github.com/johnsonjake) for adding iOS 8 support and improving the UI/UX.
-* Thanks to [Marc](https://github.com/gizmou) for adding forcast feature.
+* Thanks to [Marc](https://github.com/gizmou) for adding forcast feature, widget and app icon.
