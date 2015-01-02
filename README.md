@@ -23,10 +23,10 @@ Because Apple keeps changing the Swift compiler, the current version can be comp
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 * Core Location
-* Using Framework to share code between app and widget.
+* Using Framework to share code between targets(app and widget).
 
 
-## Known issus
+## Known issues
 Because we are using [Carthage](https://github.com/Carthage/Carthage) to build the third party packages. There are some build warings like `ld: warning: linking against dylib not safe for use in application extensions: /Build/Products/Debug-iphoneos/Alamofire.framework/Alamofire`
 
 ## How to build
