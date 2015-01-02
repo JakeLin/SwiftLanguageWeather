@@ -9,7 +9,9 @@
 import UIKit
 import NotificationCenter
 import CoreLocation
-
+import Alamofire
+import SwiftyJSON
+import SwiftWeatherService
 class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManagerDelegate {
     
     let locationManager:CLLocationManager = CLLocationManager()
@@ -33,209 +35,107 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        if ( ios8() ) {
-            locationManager.requestAlwaysAuthorization()
-        }
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
     }
     
     func updateWeatherInfo(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        let manager = AFHTTPRequestOperationManager()
-        
         let url = "http://api.openweathermap.org/data/2.5/forecast"
-        println(url)
-        
         let params = ["lat":latitude, "lon":longitude]
         println(params)
         
-        manager.GET(url,
-            parameters: params,
-            success: { (operation: AFHTTPRequestOperation!,
-                responseObject: AnyObject!) in
-                //println("JSON: " + responseObject.description!)
-                
-                self.updateUISuccess(responseObject as NSDictionary!)
-            },
-            failure: { (operation: AFHTTPRequestOperation!,
-                error: NSError!) in
-                println("Error: " + error.localizedDescription)
-                
-        })
+        Alamofire.request(.GET, url, parameters: params)
+            .responseJSON { (request, response, json, error) in
+                if(error != nil) {
+                    println("Error: \(error)")
+                    println(request)
+                    println(response)
+                }
+                else {
+                    println("Success: \(url)")
+                    println(request)
+                    var json = JSON(json!)
+                    self.updateUISuccess(json)
+                }
+        }
     }
     
-    func updateUISuccess(jsonResult: NSDictionary) {
+    func updateUISuccess(json: JSON) {
+        let service = SwiftWeatherService.WeatherService()
         
-        if let tempResult = ((jsonResult["list"]? as NSArray)[0]["main"] as NSDictionary)["temp"] as? Double {
-            // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
-            var temperature: Double
-            var cntry: String
-            cntry = ""
-            
-            if let weatherArray = (jsonResult["list"]? as? NSArray) {
-                for index in 1...4 {
-                    if let perTime = (weatherArray[index] as? NSDictionary) {
-                        if let main = (perTime["main"]? as? NSDictionary) {
-                            var temp = (main["temp"] as Double)
-                            if (cntry == "US") {
-                                // Convert temperature to Fahrenheit if user is within the US
-                                temperature = round(((temp - 273.15) * 1.8) + 32)
-                            }
-                            else {
-                                // Otherwise, convert temperature to Celsius
-                                temperature = round(temp - 273.15)
-                            }
-                            
-                            if (index==1) {
-                                self.temp1.text = "\(temperature)°"
-                            }
-                            if (index==2) {
-                                self.temp2.text = "\(temperature)°"
-                            }
-                            if (index==3) {
-                                self.temp3.text = "\(temperature)°"
-                            }
-                            if (index==4) {
-                                self.temp4.text = "\(temperature)°"
-                            }
-                        }
-                        var dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "HH:mm"
-                        if let date = (perTime["dt"]? as? Double) {
-                            let thisDate = NSDate(timeIntervalSince1970: date)
-                            let forecastTime = dateFormatter.stringFromDate(thisDate)
-                            if (index==1) {
-                                self.time1.text = forecastTime
-                            }
-                            if (index==2) {
-                                self.time2.text = forecastTime
-                            }
-                            if (index==3) {
-                                self.time3.text = forecastTime
-                            }
-                            if (index==4) {
-                                self.time4.text = forecastTime
-                            }
-                        }
-                        if let weather = (perTime["weather"]? as? NSArray) {
-                            var condition = (weather[0] as NSDictionary)["id"] as Int
-                            var icon = (weather[0] as NSDictionary)["icon"] as String
-                            var nightTime = false
-                            if icon.rangeOfString("n") != nil{
-                                nightTime = true
-                            }
-                            self.updateWeatherIcon(condition, nightTime: nightTime, index: index)
-                            if (index==4) {
-                                return
-                            }
-                            
-                        }
+        // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
+        if let tempResult = json["list"][0]["main"]["temp"].double {
+            // Get country
+            let country = json["city"]["country"].stringValue
+
+            // Get forecast
+            for index in 0...3 {
+                println(json["list"][index])
+                if let tempResult = json["list"][index]["main"]["temp"].double {
+                    // Get and convert temperature
+                    var temperature = service.convertTemperature(country, temperature: tempResult)
+                    if (index==0) {
+                        self.temp1.text = "\(temperature)°"
                     }
+                    else if (index==1) {
+                        self.temp2.text = "\(temperature)°"
+                    }
+                    else if (index==2) {
+                        self.temp3.text = "\(temperature)°"
+                    }
+                    else if (index==3) {
+                        self.temp4.text = "\(temperature)°"
+                    }
+                    
+                    // Get forecast time
+                    var dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "HH:mm"
+                    let rawDate = json["list"][index]["dt"].doubleValue
+                    let date = NSDate(timeIntervalSince1970: rawDate)
+                    let forecastTime = dateFormatter.stringFromDate(date)
+                    if (index==0) {
+                        self.time1.text = forecastTime
+                    }
+                    else if (index==1) {
+                        self.time2.text = forecastTime
+                    }
+                    else if (index==2) {
+                        self.time3.text = forecastTime
+                    }
+                    else if (index==3) {
+                        self.time4.text = forecastTime
+                    }
+                    
+                    // Get and set icon
+                    let weather = json["list"][index]["weather"][0]
+                    let condition = weather["id"].intValue
+                    var icon = weather["icon"].stringValue
+                    var nightTime = service.isNightTime(icon)
+                    service.updateWeatherIcon(condition, nightTime: nightTime, index: index, callback: self.updatePictures)
+                }
+                else {
+                    continue
                 }
             }
+        }
+        else {
+            println("Weather info is not available!")
         }
     }
     
     func updatePictures(index: Int, name: String) {
         
-        if (index==1) {
+        if (index==0) {
             self.image1.image = UIImage(named: name)
         }
-        if (index==2) {
+        if (index==1) {
             self.image2.image = UIImage(named: name)
         }
-        if (index==3) {
+        if (index==2) {
             self.image3.image = UIImage(named: name)
         }
-        if (index==4) {
+        if (index==3) {
             self.image4.image = UIImage(named: name)
-        }
-    }
-    
-    func updateWeatherIcon(condition: Int, nightTime: Bool, index: Int) {
-        // Thunderstorm
-        
-        var images = [self.image1.image, self.image2.image, self.image3.image, self.image4.image]
-        
-        if (condition < 300) {
-            if nightTime {
-                self.updatePictures(index, name: "tstorm1_night")
-            } else {
-                self.updatePictures(index, name: "tstorm1")
-            }
-        }
-            // Drizzle
-        else if (condition < 500) {
-            self.updatePictures(index, name: "light_rain")
-            
-        }
-            // Rain / Freezing rain / Shower rain
-        else if (condition < 600) {
-            self.updatePictures(index, name: "shower3")
-        }
-            // Snow
-        else if (condition < 700) {
-            self.updatePictures(index, name: "snow4")
-        }
-            // Fog / Mist / Haze / etc.
-        else if (condition < 771) {
-            if nightTime {
-                self.updatePictures(index, name: "fog_night")
-            } else {
-                self.updatePictures(index, name: "fog")
-            }
-        }
-            // Tornado / Squalls
-        else if (condition < 800) {
-            self.updatePictures(index, name: "tstorm3")
-        }
-            // Sky is clear
-        else if (condition == 800) {
-            if (nightTime){
-                self.updatePictures(index, name: "sunny_night")
-            }
-            else {
-                self.updatePictures(index, name: "sunny")
-            }
-        }
-            // few / scattered / broken clouds
-        else if (condition < 804) {
-            if (nightTime){
-                self.updatePictures(index, name: "cloudy2_night")
-            }
-            else{
-                self.updatePictures(index, name: "cloudy2")
-            }
-        }
-            // overcast clouds
-        else if (condition == 804) {
-            self.updatePictures(index, name: "overcast")
-        }
-            // Extreme
-        else if ((condition >= 900 && condition < 903) || (condition > 904 && condition < 1000)) {
-            self.updatePictures(index, name: "tstorm3")
-        }
-            // Cold
-        else if (condition == 903) {
-            self.updatePictures(index, name: "snow5")
-        }
-            // Hot
-        else if (condition == 904) {
-            self.updatePictures(index, name: "sunny")
-        }
-            // Weather condition is not available
-        else {
-            self.updatePictures(index, name: "dunno")
-        }
-    }
-    
-    /*
-    iOS 8 Utility
-    */
-    func ios8() -> Bool {
-        if ( NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1 ) {
-            return false
-        } else {
-            return true
         }
     }
 

@@ -1,15 +1,15 @@
 //
-//  Swift_Weather_ServiceTests.swift
-//  Swift Weather ServiceTests
+//  SwiftWeatherServiceTests.swift
+//  SwiftWeatherServiceTests
 //
-//  Created by Jake Lin on 16/12/2014.
-//  Copyright (c) 2014 Jake Lin. All rights reserved.
+//  Created by Jake Lin on 30/12/2014.
+//  Copyright (c) 2014 rushjet. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class Swift_Weather_ServiceTests: XCTestCase {
+class SwiftWeatherServiceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
