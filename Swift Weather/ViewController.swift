@@ -200,7 +200,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var location:CLLocation = locations[locations.count-1] as CLLocation
+        var location:CLLocation = locations[locations.count-1] as! CLLocation
         if (location.horizontalAccuracy > 0) {
             self.locationManager.stopUpdatingLocation()
             println(location.coordinate)

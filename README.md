@@ -4,7 +4,7 @@ Swift Weather
 SwiftWeather is an iOS weather app developed in Swift language. The app can support iPhone 4(s), iPhone 5(s), iPhone 6 and iPhone 6 Plus. The app also support Today Widgets.
 
 ## Notices
-Because Apple keeps changing the Swift compiler, I am working on the app to support Xcode Version 6.3 (6D570), and there are some issues with the third party libraries and Carthage. I will update the app as soon as the dependent libraries have been updated. 
+The current version is working with Xcode Version 6.3 (6D570), I have been updating the app to spport the lastest version of Xcode, if you have any issue, please check the Xcode version. If there is still a problem with the supported version, please raise an issue, thanks. 
 
 ## Version 2
 This is version 2. I have ugraded the entire project to use [Carthage](https://github.com/Carthage/Carthage), [Alamofire](https://github.com/Alamofire/Alamofire) and [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON). And the app can only support iOS8+, if you want to support iOS7 or use CocoaPods and AFNetworking. Please have a look at [README.v1.md](https://github.com/JakeLin/SwiftWeather/blob/master/README.v1.md) and Release [Using Cocoapods and AFNetworking](https://github.com/JakeLin/SwiftWeather/releases/tag/V1). Happy coding.

@@ -1,2 +1,2 @@
-github "SwiftyJSON/SwiftyJSON"
-github "ishkawa/Alamofire"
+github "Alamofire/Alamofire"
+github "SwiftyJSON/SwiftyJSON" 

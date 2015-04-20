@@ -17,20 +17,20 @@
 		344C73611A3B92A4002CB13B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344C73601A3B92A4002CB13B /* TodayViewController.swift */; };
 		344C73631A3B92A4002CB13B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 344C73621A3B92A4002CB13B /* MainInterface.storyboard */; };
 		344C73661A3B92A4002CB13B /* Swift Weather Instant.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 344C735A1A3B92A4002CB13B /* Swift Weather Instant.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AEDA2D601AE4DA4D00FB2359 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5A1AE4D93A00FB2359 /* Alamofire.framework */; };
+		AEDA2D611AE4DA4D00FB2359 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5D1AE4D94800FB2359 /* SwiftyJSON.framework */; };
+		AEDA2D621AE4DA6100FB2359 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5A1AE4D93A00FB2359 /* Alamofire.framework */; };
+		AEDA2D631AE4DA6100FB2359 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5D1AE4D94800FB2359 /* SwiftyJSON.framework */; };
+		AEDA2D641AE4DB9800FB2359 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5A1AE4D93A00FB2359 /* Alamofire.framework */; };
+		AEDA2D651AE4DB9800FB2359 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5D1AE4D94800FB2359 /* SwiftyJSON.framework */; };
+		AEDA2D661AE4DC2200FB2359 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5D1AE4D94800FB2359 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AEDA2D671AE4DC2200FB2359 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEDA2D5A1AE4D93A00FB2359 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEFEE9BB1A520D8000AF810C /* SwiftWeatherService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEFEE9BA1A520D8000AF810C /* SwiftWeatherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEFEE9C11A520D8000AF810C /* SwiftWeatherService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9B61A520D7F00AF810C /* SwiftWeatherService.framework */; };
 		CEFEE9CA1A520D8000AF810C /* SwiftWeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEE9C91A520D8000AF810C /* SwiftWeatherServiceTests.swift */; };
 		CEFEE9CE1A520D8000AF810C /* SwiftWeatherService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9B61A520D7F00AF810C /* SwiftWeatherService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEFEE9D71A520DA000AF810C /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEE9D61A520DA000AF810C /* WeatherService.swift */; };
-		CEFEE9DA1A520E1F00AF810C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D81A520E1F00AF810C /* Alamofire.framework */; };
-		CEFEE9DB1A520E1F00AF810C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D91A520E1F00AF810C /* SwiftyJSON.framework */; };
-		CEFEE9DE1A52330100AF810C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D81A520E1F00AF810C /* Alamofire.framework */; };
-		CEFEE9DF1A52330100AF810C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D91A520E1F00AF810C /* SwiftyJSON.framework */; };
-		CEFEE9E41A52356200AF810C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D81A520E1F00AF810C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CEFEE9E51A52356200AF810C /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D91A520E1F00AF810C /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEFEE9E61A5609CE00AF810C /* SwiftWeatherService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9B61A520D7F00AF810C /* SwiftWeatherService.framework */; };
-		CEFEE9E71A5609DE00AF810C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D81A520E1F00AF810C /* Alamofire.framework */; };
-		CEFEE9E81A5609DE00AF810C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9D91A520E1F00AF810C /* SwiftyJSON.framework */; };
 		E10D3FA5194A170F00769A84 /* Cloud-Refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = E10D3FA4194A170F00769A84 /* Cloud-Refresh.png */; };
 		E12DE1EB194A0CFF00056102 /* background_summer.png in Resources */ = {isa = PBXBuildFile; fileRef = E12DE1EA194A0CFF00056102 /* background_summer.png */; };
 		E1A5708D194A11F700708955 /* tstorm1_night.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A5708B194A11F700708955 /* tstorm1_night.png */; };
@@ -107,9 +107,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AEDA2D661AE4DC2200FB2359 /* SwiftyJSON.framework in Embed Frameworks */,
+				AEDA2D671AE4DC2200FB2359 /* Alamofire.framework in Embed Frameworks */,
 				CEFEE9CE1A520D8000AF810C /* SwiftWeatherService.framework in Embed Frameworks */,
-				CEFEE9E41A52356200AF810C /* Alamofire.framework in Embed Frameworks */,
-				CEFEE9E51A52356200AF810C /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +131,8 @@
 		344C735F1A3B92A4002CB13B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		344C73601A3B92A4002CB13B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		344C73621A3B92A4002CB13B /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		AEDA2D5A1AE4D93A00FB2359 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		AEDA2D5D1AE4D94800FB2359 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CEFEE9B61A520D7F00AF810C /* SwiftWeatherService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftWeatherService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFEE9B91A520D8000AF810C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEFEE9BA1A520D8000AF810C /* SwiftWeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftWeatherService.h; sourceTree = "<group>"; };
@@ -138,8 +140,6 @@
 		CEFEE9C81A520D8000AF810C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEFEE9C91A520D8000AF810C /* SwiftWeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWeatherServiceTests.swift; sourceTree = "<group>"; };
 		CEFEE9D61A520DA000AF810C /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
-		CEFEE9D81A520E1F00AF810C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage.build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		CEFEE9D91A520E1F00AF810C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage.build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E10D3FA4194A170F00769A84 /* Cloud-Refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud-Refresh.png"; sourceTree = "<group>"; };
 		E12DE1EA194A0CFF00056102 /* background_summer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_summer.png; sourceTree = "<group>"; };
 		E1A5708B194A11F700708955 /* tstorm1_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm1_night.png; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFEE9DE1A52330100AF810C /* Alamofire.framework in Frameworks */,
-				CEFEE9DF1A52330100AF810C /* SwiftyJSON.framework in Frameworks */,
+				AEDA2D641AE4DB9800FB2359 /* Alamofire.framework in Frameworks */,
+				AEDA2D651AE4DB9800FB2359 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,10 +181,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFEE9E71A5609DE00AF810C /* Alamofire.framework in Frameworks */,
-				CEFEE9E81A5609DE00AF810C /* SwiftyJSON.framework in Frameworks */,
 				CEFEE9E61A5609CE00AF810C /* SwiftWeatherService.framework in Frameworks */,
 				344C735C1A3B92A4002CB13B /* NotificationCenter.framework in Frameworks */,
+				AEDA2D621AE4DA6100FB2359 /* Alamofire.framework in Frameworks */,
+				AEDA2D631AE4DA6100FB2359 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +192,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFEE9DA1A520E1F00AF810C /* Alamofire.framework in Frameworks */,
-				CEFEE9DB1A520E1F00AF810C /* SwiftyJSON.framework in Frameworks */,
+				AEDA2D601AE4DA4D00FB2359 /* Alamofire.framework in Frameworks */,
+				AEDA2D611AE4DA4D00FB2359 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +211,8 @@
 		128ACBBD2E004856867FDAD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEE9D81A520E1F00AF810C /* Alamofire.framework */,
-				CEFEE9D91A520E1F00AF810C /* SwiftyJSON.framework */,
+				AEDA2D5D1AE4D94800FB2359 /* SwiftyJSON.framework */,
+				AEDA2D5A1AE4D93A00FB2359 /* Alamofire.framework */,
 				344C735B1A3B92A4002CB13B /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -477,7 +477,7 @@
 				TargetAttributes = {
 					232FF1AD193F320D007015C4 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 964HJ5SV2F;
+						DevelopmentTeam = 6HLFCRTYQU;
 					};
 					232FF1BF193F320D007015C4 = {
 						CreatedOnToolsVersion = 6.0;
@@ -746,10 +746,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Swift Weather/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -764,10 +765,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Swift Weather/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -826,6 +828,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -850,6 +853,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Swift Weather Instant/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -874,6 +878,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -904,6 +909,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage.build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SwiftWeatherService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
