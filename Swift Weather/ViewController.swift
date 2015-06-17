@@ -15,7 +15,7 @@ import SwiftWeatherService
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    let locationManager:CLLocationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     @IBOutlet var loadingIndicator : UIActivityIndicatorView! = nil
     @IBOutlet var icon : UIImageView!
