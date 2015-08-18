@@ -21,8 +21,8 @@
 		AE7025EA1B831CBA005B57BE /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025E21B831C9D005B57BE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE7025ED1B831CBA005B57BE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025D31B831C24005B57BE /* Alamofire.framework */; };
 		AE7025EE1B831CBA005B57BE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025D31B831C24005B57BE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE7025F11B831D00005B57BE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025D31B831C24005B57BE /* Alamofire.framework */; };
-		AE7025F21B831D00005B57BE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025E21B831C9D005B57BE /* SwiftyJSON.framework */; };
+		AE7025FF1B83209D005B57BE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025D31B831C24005B57BE /* Alamofire.framework */; };
+		AE7026001B83209D005B57BE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7025E21B831C9D005B57BE /* SwiftyJSON.framework */; };
 		CEFEE9BB1A520D8000AF810C /* SwiftWeatherService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEFEE9BA1A520D8000AF810C /* SwiftWeatherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEFEE9C11A520D8000AF810C /* SwiftWeatherService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFEE9B61A520D7F00AF810C /* SwiftWeatherService.framework */; };
 		CEFEE9CA1A520D8000AF810C /* SwiftWeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEE9C91A520D8000AF810C /* SwiftWeatherServiceTests.swift */; };
@@ -258,8 +258,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE7025F11B831D00005B57BE /* Alamofire.framework in Frameworks */,
-				AE7025F21B831D00005B57BE /* SwiftyJSON.framework in Frameworks */,
+				AE7025FF1B83209D005B57BE /* Alamofire.framework in Frameworks */,
+				AE7026001B83209D005B57BE /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,7 +580,7 @@
 					};
 					CEFEE9B51A520D7F00AF810C = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 964HJ5SV2F;
+						DevelopmentTeam = 6HLFCRTYQU;
 					};
 					CEFEE9BF1A520D8000AF810C = {
 						CreatedOnToolsVersion = 6.2;
@@ -918,8 +918,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Swift Weather/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -937,8 +935,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Swift Weather/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -996,8 +992,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1021,8 +1015,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Swift Weather Instant/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1039,6 +1031,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1046,8 +1039,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1070,6 +1061,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1077,8 +1069,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage.build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SwiftWeatherService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
