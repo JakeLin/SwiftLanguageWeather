@@ -17,11 +17,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     
-    @IBOutlet var loadingIndicator : UIActivityIndicatorView! = nil
-    @IBOutlet var icon : UIImageView!
-    @IBOutlet var temperature : UILabel!
-    @IBOutlet var loading : UILabel!
-    @IBOutlet var location : UILabel!
+    @IBOutlet weak var loadingIndicator : UIActivityIndicatorView! = nil
+    @IBOutlet weak var icon : UIImageView!
+    @IBOutlet weak var temperature : UILabel!
+    @IBOutlet weak var loading : UILabel!
+    @IBOutlet weak var location : UILabel!
     @IBOutlet weak var time1: UILabel!
     @IBOutlet weak var time2: UILabel!
     @IBOutlet weak var time3: UILabel!
