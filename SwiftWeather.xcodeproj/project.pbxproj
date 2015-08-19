@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE6C34E91B84742900F726C2 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */; };
 		AECBA5E61B836BF20004A536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBA5E51B836BF20004A536 /* AppDelegate.swift */; };
 		AECBA5E81B836BF20004A536 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBA5E71B836BF20004A536 /* ViewController.swift */; };
 		AECBA5EB1B836BF20004A536 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECBA5E91B836BF20004A536 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		AECBA5E21B836BF20004A536 /* SwiftWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECBA5E51B836BF20004A536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECBA5E71B836BF20004A536 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE6C34E71B84742900F726C2 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */,
+			);
+			name = fonts;
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		AECBA5D91B836BF20004A536 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +108,7 @@
 		AECBA5E41B836BF20004A536 /* SwiftWeather */ = {
 			isa = PBXGroup;
 			children = (
+				AE6C34E71B84742900F726C2 /* fonts */,
 				AECBA5E51B836BF20004A536 /* AppDelegate.swift */,
 				AECBA5E71B836BF20004A536 /* ViewController.swift */,
 				AECBA5E91B836BF20004A536 /* Main.storyboard */,
@@ -230,6 +242,7 @@
 			files = (
 				AECBA5F01B836BF20004A536 /* LaunchScreen.storyboard in Resources */,
 				AECBA5ED1B836BF20004A536 /* Assets.xcassets in Resources */,
+				AE6C34E91B84742900F726C2 /* weathericons-regular-webfont.ttf in Resources */,
 				AECBA5EB1B836BF20004A536 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
