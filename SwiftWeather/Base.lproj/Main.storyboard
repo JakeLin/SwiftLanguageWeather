@@ -12,14 +12,36 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="top" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Y0n-Zr-Uo9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LB-3C-fUZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y0n-Zr-Uo9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lup-R6-kxq"/>
+                            <constraint firstAttribute="trailing" secondItem="Y0n-Zr-Uo9" secondAttribute="trailing" id="Lxh-lT-NeE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="bottom" id="aF2-hB-RxG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Y0n-Zr-Uo9" secondAttribute="bottom" id="clu-5e-vnY"/>
+                            <constraint firstAttribute="trailing" secondItem="8LB-3C-fUZ" secondAttribute="trailing" id="d3v-dA-exc"/>
+                            <constraint firstItem="8LB-3C-fUZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dRv-r2-C2l"/>
+                            <constraint firstItem="Y0n-Zr-Uo9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kV3-08-KTh"/>
+                            <constraint firstItem="8LB-3C-fUZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ldF-IN-Ih6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="1250" height="781"/>
+    </resources>
 </document>
