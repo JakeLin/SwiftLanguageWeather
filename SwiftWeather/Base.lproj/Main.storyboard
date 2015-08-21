@@ -44,7 +44,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-pa-Aur">
-                                                <rect key="frame" x="49.5" y="207.5" width="71" height="93"/>
+                                                <rect key="frame" x="50" y="207.5" width="71" height="93"/>
                                                 <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="64"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -57,6 +57,10 @@
                                     <constraint firstItem="rnC-Hz-RdO" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="50" id="G67-o6-pgd"/>
                                     <constraint firstItem="rnC-Hz-RdO" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="S0H-Jt-LqT"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView">
+                                <rect key="frame" x="244" y="188" width="112" height="224"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
