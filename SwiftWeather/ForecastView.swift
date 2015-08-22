@@ -19,12 +19,12 @@ import UIKit
     // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadViewFromNib()
+        view = loadViewFromNib()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        loadViewFromNib()
+        view = loadViewFromNib()
     }
     
     func loadViewFromNib() -> UIView {
@@ -99,15 +99,15 @@ import UIKit
         }
     }
     
-//    @IBInspectable var bgColor: UIColor {
-//        get {
-//            return view.backgroundColor!
-//        }
-//        
-//        set {
-//            view.backgroundColor = newValue
-//        }
-//    }
+    @IBInspectable var bgColor: UIColor {
+        get {
+            return view.backgroundColor!
+        }
+        
+        set {
+            view.backgroundColor = newValue
+        }
+    }
     
     // MARK: - Private
     private func nibName() -> String {
