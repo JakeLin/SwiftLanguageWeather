@@ -59,6 +59,12 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="12"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="timeColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="temperatureColor">
+                                                <color key="value" red="0.20000000000000001" green="0.2470588235" blue="0.28235294119999998" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
                                                 <color key="value" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>

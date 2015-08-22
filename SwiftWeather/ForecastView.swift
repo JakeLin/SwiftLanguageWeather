@@ -29,7 +29,7 @@ import UIKit
     
     func loadViewFromNib() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "ForecastView", bundle: bundle)
+        let nib = UINib(nibName: nibName(), bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         
         view.frame = bounds
@@ -44,8 +44,8 @@ import UIKit
             return time.text
         }
         
-        set(timeText) {
-            time.text = timeText
+        set {
+            time.text = newValue
         }
     }
     
@@ -54,8 +54,8 @@ import UIKit
             return icon.text
         }
         
-        set(iconText) {
-            icon.text = iconText
+        set {
+            icon.text = newValue
         }
     }
     
@@ -64,11 +64,55 @@ import UIKit
             return temperature.text
         }
         
-        set(temperatureText) {
-            temperature.text = temperatureText
+        set {
+            temperature.text = newValue
         }
     }
-
+    
+    @IBInspectable var timeColor: UIColor {
+        get {
+            return time.textColor
+        }
+        
+        set {
+            time.textColor = newValue
+        }
+    }
+    
+    @IBInspectable var iconColor: UIColor {
+        get {
+            return icon.textColor
+        }
+        
+        set {
+            icon.textColor = newValue
+        }
+    }
+    
+    @IBInspectable var temperatureColor: UIColor {
+        get {
+            return temperature.textColor
+        }
+        
+        set {
+            temperature.textColor = newValue
+        }
+    }
+    
+//    @IBInspectable var bgColor: UIColor {
+//        get {
+//            return view.backgroundColor!
+//        }
+//        
+//        set {
+//            view.backgroundColor = newValue
+//        }
+//    }
+    
+    // MARK: - Private
+    private func nibName() -> String {
+        return self.dynamicType.description().componentsSeparatedByString(".").last!
+    }
 }
 
 
