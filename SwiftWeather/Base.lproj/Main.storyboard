@@ -54,6 +54,14 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
                                         <rect key="frame" x="76" y="368" width="112" height="224"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="14:00"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="12"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="timeColor">
+                                                <color key="value" red="0.89411764709999997" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>

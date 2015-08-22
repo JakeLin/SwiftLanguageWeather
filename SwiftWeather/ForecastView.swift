@@ -12,6 +12,11 @@ import UIKit
     // Our custom view from the XIB file
     var view: UIView!
     
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var icon: UILabel!
+    @IBOutlet weak var temperature: UILabel!
+    
+    // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib()
@@ -32,6 +37,38 @@ import UIKit
         self.addSubview(view);
         return view
     }
+    
+    // MARK: - IBInspectable
+    @IBInspectable var timeText: String? {
+        get {
+            return time.text
+        }
+        
+        set(timeText) {
+            time.text = timeText
+        }
+    }
+    
+    @IBInspectable var iconText: String? {
+        get {
+            return icon.text
+        }
+        
+        set(iconText) {
+            icon.text = iconText
+        }
+    }
+    
+    @IBInspectable var temperatureText: String? {
+        get {
+            return temperature.text
+        }
+        
+        set(temperatureText) {
+            temperature.text = temperatureText
+        }
+    }
+
 }
 
 
