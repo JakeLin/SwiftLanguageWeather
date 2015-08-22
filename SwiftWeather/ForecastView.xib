@@ -22,23 +22,23 @@
             <rect key="frame" x="0.0" y="0.0" width="112" height="224"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-12" translatesAutoresizingMaskIntoConstraints="NO" id="ELO-vl-8wp">
-                    <rect key="frame" x="12" y="9" width="89" height="204.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="doc-GN-AFT">
+                    <rect key="frame" x="11" y="-2.5" width="89" height="229"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWn-ZV-dZz">
-                            <rect key="frame" x="0.0" y="0.0" width="89" height="43"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWn-ZV-dZz">
+                            <rect key="frame" x="0.0" y="0.0" width="89" height="43.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="36"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBM-RY-zwQ">
-                            <rect key="frame" x="0.0" y="31" width="89" height="116"/>
+                            <rect key="frame" x="0.0" y="43.5" width="89" height="116"/>
                             <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="80"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xK-hW-gim">
-                            <rect key="frame" x="0.0" y="135" width="89" height="69.5"/>
+                            <rect key="frame" x="0.0" y="159.5" width="89" height="69.5"/>
                             <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="48"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -46,10 +46,9 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.31372549020000001" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ELO-vl-8wp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5df-0P-dsQ"/>
-                <constraint firstItem="ELO-vl-8wp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7rL-de-C7x"/>
+                <constraint firstItem="doc-GN-AFT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Vw3-In-dRP"/>
+                <constraint firstItem="doc-GN-AFT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="u1C-YF-IVJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
