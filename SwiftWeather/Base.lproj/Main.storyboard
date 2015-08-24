@@ -87,6 +87,9 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="12:00"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <variation key="heightClass=compact" fixedFrame="YES">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="56.5" height="112.5"/>
+                                                                </variation>
                                                             </view>
                                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X03-jw-bPo" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
                                                                 <rect key="frame" x="86" y="0.0" width="56" height="112.5"/>
@@ -98,8 +101,14 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="14:00"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <variation key="heightClass=compact" fixedFrame="YES">
+                                                                    <rect key="frame" x="86.5" y="0.0" width="56" height="112.5"/>
+                                                                </variation>
                                                             </view>
                                                         </subviews>
+                                                        <variation key="heightClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="142.5" height="112.5"/>
+                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6LM-Ly-chv">
                                                         <rect key="frame" x="172" y="0.0" width="142.5" height="112.5"/>
@@ -128,10 +137,11 @@
                                                             </view>
                                                         </subviews>
                                                         <variation key="heightClass=compact" fixedFrame="YES">
-                                                            <rect key="frame" x="172" y="0.0" width="142.5" height="112.5"/>
+                                                            <rect key="frame" x="0.0" y="142.5" width="142.5" height="112.5"/>
                                                         </variation>
                                                     </stackView>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
