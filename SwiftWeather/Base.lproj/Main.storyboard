@@ -51,22 +51,72 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
-                                        <rect key="frame" x="76" y="368" width="112" height="224"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="14:00"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="12"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rzR-3u-MJe">
+                                        <rect key="frame" x="143" y="452.5" width="314.5" height="112.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-Go-iDR">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="112.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="112.5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="10"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="12:00"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X03-jw-bPo" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                        <rect key="frame" x="86" y="0.0" width="56" height="112.5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="8"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="14:00"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6LM-Ly-chv">
+                                                <rect key="frame" x="172" y="0.0" width="142.5" height="112.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8G3-c1-MSy" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="112.5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="12"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="17:00"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-Yg-kU1" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                        <rect key="frame" x="86" y="0.0" width="56.5" height="112.5"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="4"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="20:00"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="rnC-Hz-RdO" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="50" id="G67-o6-pgd"/>
+                                    <constraint firstItem="rzR-3u-MJe" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="PIC-EH-x1N"/>
                                     <constraint firstItem="rnC-Hz-RdO" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="S0H-Jt-LqT"/>
+                                    <constraint firstAttribute="bottom" secondItem="rzR-3u-MJe" secondAttribute="bottom" constant="35" id="dII-O9-w75"/>
                                 </constraints>
                             </view>
                         </subviews>
