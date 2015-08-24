@@ -127,6 +127,9 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
+                                                        <variation key="heightClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="172" y="0.0" width="142.5" height="112.5"/>
+                                                        </variation>
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
