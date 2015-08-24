@@ -29,25 +29,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-22" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-Hz-RdO">
-                                        <rect key="frame" x="215" y="50" width="170.5" height="300.5"/>
+                                        <rect key="frame" x="143" y="50" width="314.5" height="300.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-kZ-hOu">
-                                                <rect key="frame" x="0.0" y="0.0" width="170.5" height="43"/>
+                                                <rect key="frame" x="72" y="0.0" width="170.5" height="43"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
-                                                <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
+                                                <rect key="frame" x="77.5" y="21" width="159.5" height="208.5"/>
                                                 <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="144"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
+                                                </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-pa-Aur">
-                                                <rect key="frame" x="50" y="207.5" width="71" height="93"/>
+                                                <rect key="frame" x="122" y="207.5" width="71" height="93"/>
                                                 <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="64"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="50" y="207.5" width="71" height="93"/>
+                                                </variation>
                                             </label>
                                         </subviews>
                                     </stackView>
@@ -117,6 +123,7 @@
                                     <constraint firstItem="rzR-3u-MJe" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="PIC-EH-x1N"/>
                                     <constraint firstItem="rnC-Hz-RdO" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="S0H-Jt-LqT"/>
                                     <constraint firstAttribute="bottom" secondItem="rzR-3u-MJe" secondAttribute="bottom" constant="35" id="dII-O9-w75"/>
+                                    <constraint firstItem="rnC-Hz-RdO" firstAttribute="width" secondItem="rzR-3u-MJe" secondAttribute="width" id="oEZ-c9-Na5"/>
                                 </constraints>
                             </view>
                         </subviews>
