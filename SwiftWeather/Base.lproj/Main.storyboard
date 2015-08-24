@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="weathericons-regular-webfont.ttf">
@@ -139,13 +140,45 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" multiplier="0.5" id="IaZ-Xz-ubB"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="PHQ-bV-H6K"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" multiplier="1.5" id="ZM4-MB-r1c"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="bYl-78-lqJ"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="mcc-L9-Qag"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="npr-mn-bMe"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="pSB-CF-4aO"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="rGs-EF-HSP"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="udG-OS-Zwt"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="30" id="xSA-30-6j4"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="yl4-IY-Ozg"/>
                                     <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="35" id="yxd-IV-Nys"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IaZ-Xz-ubB"/>
+                                        <exclude reference="PHQ-bV-H6K"/>
+                                        <exclude reference="mcc-L9-Qag"/>
+                                        <exclude reference="ZM4-MB-r1c"/>
+                                        <exclude reference="npr-mn-bMe"/>
+                                        <exclude reference="pSB-CF-4aO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="IaZ-Xz-ubB"/>
+                                        <include reference="PHQ-bV-H6K"/>
+                                        <include reference="mcc-L9-Qag"/>
+                                        <exclude reference="rGs-EF-HSP"/>
+                                        <exclude reference="udG-OS-Zwt"/>
+                                        <exclude reference="xSA-30-6j4"/>
+                                        <include reference="ZM4-MB-r1c"/>
+                                        <exclude reference="bYl-78-lqJ"/>
+                                        <include reference="npr-mn-bMe"/>
+                                        <include reference="pSB-CF-4aO"/>
+                                        <exclude reference="yl4-IY-Ozg"/>
+                                        <exclude reference="yxd-IV-Nys"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
