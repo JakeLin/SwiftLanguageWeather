@@ -9,110 +9,110 @@
 import UIKit
 
 @IBDesignable class ForecastView: UIView {
-    // Our custom view from the XIB file
-    var view: UIView!
+  // Our custom view from the XIB file
+  var view: UIView!
+  
+  @IBOutlet weak var time: UILabel!
+  @IBOutlet weak var icon: UILabel!
+  @IBOutlet weak var temperature: UILabel!
+  
+  // MARK: - init
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    view = loadViewFromNib()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    view = loadViewFromNib()
+  }
+  
+  func loadViewFromNib() -> UIView {
+    let bundle = NSBundle(forClass: self.dynamicType)
+    let nib = UINib(nibName: nibName(), bundle: bundle)
+    let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
     
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var icon: UILabel!
-    @IBOutlet weak var temperature: UILabel!
-    
-    // MARK: - init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        view = loadViewFromNib()
+    view.frame = bounds
+    view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    self.addSubview(view);
+    return view
+  }
+  
+  // MARK: - IBInspectable
+  @IBInspectable var timeText: String? {
+    get {
+      return time.text
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        view = loadViewFromNib()
+    set {
+      time.text = newValue
+    }
+  }
+  
+  @IBInspectable var iconText: String? {
+    get {
+      return icon.text
     }
     
-    func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: nibName(), bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        
-        view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        self.addSubview(view);
-        return view
+    set {
+      icon.text = newValue
+    }
+  }
+  
+  @IBInspectable var temperatureText: String? {
+    get {
+      return temperature.text
     }
     
-    // MARK: - IBInspectable
-    @IBInspectable var timeText: String? {
-        get {
-            return time.text
-        }
-        
-        set {
-            time.text = newValue
-        }
+    set {
+      temperature.text = newValue
+    }
+  }
+  
+  @IBInspectable var timeColor: UIColor {
+    get {
+      return time.textColor
     }
     
-    @IBInspectable var iconText: String? {
-        get {
-            return icon.text
-        }
-        
-        set {
-            icon.text = newValue
-        }
+    set {
+      time.textColor = newValue
+    }
+  }
+  
+  @IBInspectable var iconColor: UIColor {
+    get {
+      return icon.textColor
     }
     
-    @IBInspectable var temperatureText: String? {
-        get {
-            return temperature.text
-        }
-        
-        set {
-            temperature.text = newValue
-        }
+    set {
+      icon.textColor = newValue
+    }
+  }
+  
+  @IBInspectable var temperatureColor: UIColor {
+    get {
+      return temperature.textColor
     }
     
-    @IBInspectable var timeColor: UIColor {
-        get {
-            return time.textColor
-        }
-        
-        set {
-            time.textColor = newValue
-        }
+    set {
+      temperature.textColor = newValue
+    }
+  }
+  
+  @IBInspectable var bgColor: UIColor {
+    get {
+      return view.backgroundColor!
     }
     
-    @IBInspectable var iconColor: UIColor {
-        get {
-            return icon.textColor
-        }
-        
-        set {
-            icon.textColor = newValue
-        }
+    set {
+      view.backgroundColor = newValue
     }
-    
-    @IBInspectable var temperatureColor: UIColor {
-        get {
-            return temperature.textColor
-        }
-        
-        set {
-            temperature.textColor = newValue
-        }
-    }
-    
-    @IBInspectable var bgColor: UIColor {
-        get {
-            return view.backgroundColor!
-        }
-        
-        set {
-            view.backgroundColor = newValue
-        }
-    }
-    
-    // MARK: - Private
-    private func nibName() -> String {
-        return self.dynamicType.description().componentsSeparatedByString(".").last!
-    }
+  }
+  
+  // MARK: - Private
+  private func nibName() -> String {
+    return self.dynamicType.description().componentsSeparatedByString(".").last!
+  }
 }
 
 
