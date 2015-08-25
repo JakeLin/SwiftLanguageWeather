@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AE26CCAB1B875C2400D518CB /* ForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE26CCAA1B875C2400D518CB /* ForecastView.xib */; };
 		AE6C34E91B84742900F726C2 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */; };
+		AEBE643B1B8D1F90004A0814 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE643A1B8D1F90004A0814 /* ForecastViewModel.swift */; };
+		AEBE643E1B8D2108004A0814 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE643D1B8D2108004A0814 /* Forecast.swift */; };
 		AECBA5E61B836BF20004A536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBA5E51B836BF20004A536 /* AppDelegate.swift */; };
 		AECBA5E81B836BF20004A536 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECBA5E71B836BF20004A536 /* ViewController.swift */; };
 		AECBA5EB1B836BF20004A536 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECBA5E91B836BF20004A536 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		AE26CCAA1B875C2400D518CB /* ForecastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastView.xib; sourceTree = "<group>"; };
 		AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
+		AEBE643A1B8D1F90004A0814 /* ForecastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
+		AEBE643D1B8D2108004A0814 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		AECBA5E21B836BF20004A536 /* SwiftWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AECBA5E51B836BF20004A536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AECBA5E71B836BF20004A536 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,17 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		AEBE643C1B8D203C004A0814 /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				AE26CCAA1B875C2400D518CB /* ForecastView.xib */,
+				AED4B2C01B876DF50003D765 /* ForecastView.swift */,
+				AEBE643A1B8D1F90004A0814 /* ForecastViewModel.swift */,
+				AEBE643D1B8D2108004A0814 /* Forecast.swift */,
+			);
+			name = Forecast;
+			sourceTree = "<group>";
+		};
 		AECBA5D91B836BF20004A536 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +133,7 @@
 				AECBA5EC1B836BF20004A536 /* Assets.xcassets */,
 				AECBA5EE1B836BF20004A536 /* LaunchScreen.storyboard */,
 				AECBA5F11B836BF20004A536 /* Info.plist */,
-				AE26CCAA1B875C2400D518CB /* ForecastView.xib */,
-				AED4B2C01B876DF50003D765 /* ForecastView.swift */,
+				AEBE643C1B8D203C004A0814 /* Forecast */,
 			);
 			path = SwiftWeather;
 			sourceTree = "<group>";
@@ -275,8 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AECBA5E81B836BF20004A536 /* ViewController.swift in Sources */,
+				AEBE643B1B8D1F90004A0814 /* ForecastViewModel.swift in Sources */,
 				AECBA5E61B836BF20004A536 /* AppDelegate.swift in Sources */,
 				AED4B2C21B876E8B0003D765 /* ForecastView.swift in Sources */,
+				AEBE643E1B8D2108004A0814 /* Forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
