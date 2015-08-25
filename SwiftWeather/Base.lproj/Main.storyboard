@@ -40,6 +40,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="170.5" height="43"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
                                                         <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
@@ -47,6 +50,9 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="heightClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
+                                                        </variation>
+                                                        <variation key="widthClass=regular" fixedFrame="YES">
                                                             <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
                                                         </variation>
                                                     </label>
@@ -58,6 +64,9 @@
                                                         <variation key="heightClass=compact" fixedFrame="YES">
                                                             <rect key="frame" x="50" y="207.5" width="71" height="93"/>
                                                         </variation>
+                                                        <variation key="widthClass=regular" fixedFrame="YES">
+                                                            <rect key="frame" x="50" y="207.5" width="71" height="93"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -67,6 +76,9 @@
                                             <constraint firstItem="rnC-Hz-RdO" firstAttribute="height" secondItem="gh8-e9-Cg0" secondAttribute="height" id="N91-3q-goe"/>
                                             <constraint firstItem="rnC-Hz-RdO" firstAttribute="centerX" secondItem="gh8-e9-Cg0" secondAttribute="centerX" id="vLK-Vi-TPW"/>
                                         </constraints>
+                                        <variation key="heightClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="30" width="300" height="340"/>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-fc-TZZ" userLabel="Forecast Container View">
                                         <rect key="frame" x="0.0" y="452" width="600" height="112.5"/>
@@ -153,8 +165,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="top" secondItem="gh8-e9-Cg0" secondAttribute="bottom" constant="50" id="CDI-V1-nlg"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" multiplier="0.5" id="IaZ-Xz-ubB"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="PHQ-bV-H6K"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="80" id="Ynk-js-Bww"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" multiplier="1.5" id="ZM4-MB-r1c"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="bYl-78-lqJ"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="mcc-L9-Qag"/>
@@ -162,7 +176,7 @@
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="pSB-CF-4aO"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="rGs-EF-HSP"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="udG-OS-Zwt"/>
-                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="30" id="xSA-30-6j4"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" priority="750" constant="30" id="ufw-gQ-bie"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="yl4-IY-Ozg"/>
                                     <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="35" id="yxd-IV-Nys"/>
                                 </constraints>
@@ -170,7 +184,9 @@
                                     <mask key="constraints">
                                         <exclude reference="IaZ-Xz-ubB"/>
                                         <exclude reference="PHQ-bV-H6K"/>
+                                        <exclude reference="Ynk-js-Bww"/>
                                         <exclude reference="mcc-L9-Qag"/>
+                                        <exclude reference="CDI-V1-nlg"/>
                                         <exclude reference="ZM4-MB-r1c"/>
                                         <exclude reference="npr-mn-bMe"/>
                                         <exclude reference="pSB-CF-4aO"/>
@@ -183,12 +199,22 @@
                                         <include reference="mcc-L9-Qag"/>
                                         <exclude reference="rGs-EF-HSP"/>
                                         <exclude reference="udG-OS-Zwt"/>
-                                        <exclude reference="xSA-30-6j4"/>
                                         <include reference="ZM4-MB-r1c"/>
                                         <exclude reference="bYl-78-lqJ"/>
                                         <include reference="npr-mn-bMe"/>
                                         <include reference="pSB-CF-4aO"/>
                                         <exclude reference="yl4-IY-Ozg"/>
+                                        <exclude reference="yxd-IV-Nys"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Ynk-js-Bww"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="CDI-V1-nlg"/>
                                         <exclude reference="yxd-IV-Nys"/>
                                     </mask>
                                 </variation>
