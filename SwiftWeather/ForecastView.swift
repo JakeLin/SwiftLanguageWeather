@@ -114,5 +114,3 @@ import UIKit
     return self.dynamicType.description().componentsSeparatedByString(".").last!
   }
 }
-
-

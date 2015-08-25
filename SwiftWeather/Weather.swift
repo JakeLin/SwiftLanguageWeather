@@ -1,5 +1,5 @@
 //
-//  Forecast.swift
+//  Weather.swift
 //  SwiftWeather
 //
 //  Created by Jake Lin on 8/26/15.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Forecast {
-  let time: String
+struct Weather {
+  let location: String
   let iconText: String
   let temperature: String
 }
