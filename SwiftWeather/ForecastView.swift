@@ -12,9 +12,9 @@ import UIKit
   // Our custom view from the XIB file
   var view: UIView!
   
-  @IBOutlet weak var time: UILabel!
-  @IBOutlet weak var icon: UILabel!
-  @IBOutlet weak var temperature: UILabel!
+  @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var iconLabel: UILabel!
+  @IBOutlet weak var temperatureLabel: UILabel!
   
   // MARK: - init
   override init(frame: CGRect) {
@@ -39,63 +39,63 @@ import UIKit
   }
   
   // MARK: - IBInspectable
-  @IBInspectable var timeText: String? {
+  @IBInspectable var time: String? {
     get {
-      return time.text
+      return timeLabel.text
     }
     
     set {
-      time.text = newValue
+      timeLabel.text = newValue
     }
   }
   
-  @IBInspectable var iconText: String? {
+  @IBInspectable var icon: String? {
     get {
-      return icon.text
+      return iconLabel.text
     }
     
     set {
-      icon.text = newValue
+      iconLabel.text = newValue
     }
   }
   
-  @IBInspectable var temperatureText: String? {
+  @IBInspectable var temperature: String? {
     get {
-      return temperature.text
+      return temperatureLabel.text
     }
     
     set {
-      temperature.text = newValue
+      temperatureLabel.text = newValue
     }
   }
   
   @IBInspectable var timeColor: UIColor {
     get {
-      return time.textColor
+      return timeLabel.textColor
     }
     
     set {
-      time.textColor = newValue
+      timeLabel.textColor = newValue
     }
   }
   
   @IBInspectable var iconColor: UIColor {
     get {
-      return icon.textColor
+      return iconLabel.textColor
     }
     
     set {
-      icon.textColor = newValue
+      iconLabel.textColor = newValue
     }
   }
   
   @IBInspectable var temperatureColor: UIColor {
     get {
-      return temperature.textColor
+      return temperatureLabel.textColor
     }
     
     set {
-      temperature.textColor = newValue
+      temperatureLabel.textColor = newValue
     }
   }
   

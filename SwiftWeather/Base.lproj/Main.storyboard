@@ -104,6 +104,8 @@
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="12:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="10"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <variation key="heightClass=compact" fixedFrame="YES">
                                                                     <rect key="frame" x="0.0" y="0.0" width="56.5" height="112.5"/>
@@ -118,6 +120,9 @@
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="14:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="time" value="14:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="8"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <variation key="heightClass=compact" fixedFrame="YES">
                                                                     <rect key="frame" x="86.5" y="0.0" width="56" height="112.5"/>
@@ -140,6 +145,9 @@
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="17:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="time" value="17:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="12"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-Yg-kU1" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
@@ -151,6 +159,9 @@
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="20:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="time" value="20:00"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="4"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
@@ -239,13 +250,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="icon" destination="hId-DS-ttH" id="5El-Md-alk"/>
-                        <outlet property="location" destination="COR-kZ-hOu" id="Jfd-NG-sB9"/>
-                        <outlet property="temperature" destination="lFc-pa-Aur" id="vI1-dL-cWd"/>
-                        <outletCollection property="forecasts" destination="y4d-hQ-IEP" collectionClass="NSMutableArray" id="mF5-bA-7Yo"/>
-                        <outletCollection property="forecasts" destination="X03-jw-bPo" collectionClass="NSMutableArray" id="cCg-FO-8S7"/>
-                        <outletCollection property="forecasts" destination="8G3-c1-MSy" collectionClass="NSMutableArray" id="0zT-MU-FbZ"/>
-                        <outletCollection property="forecasts" destination="mjK-Yg-kU1" collectionClass="NSMutableArray" id="wKk-E8-dIH"/>
+                        <outlet property="iconLabel" destination="hId-DS-ttH" id="LPc-4x-ucb"/>
+                        <outlet property="locationLabel" destination="COR-kZ-hOu" id="ksQ-LM-5Vo"/>
+                        <outlet property="temperatureLabel" destination="lFc-pa-Aur" id="3ka-Ce-vTD"/>
+                        <outletCollection property="forecastViews" destination="y4d-hQ-IEP" collectionClass="NSMutableArray" id="lX3-ak-UIi"/>
+                        <outletCollection property="forecastViews" destination="X03-jw-bPo" collectionClass="NSMutableArray" id="4an-ne-Yc5"/>
+                        <outletCollection property="forecastViews" destination="8G3-c1-MSy" collectionClass="NSMutableArray" id="YFy-Ee-oNH"/>
+                        <outletCollection property="forecastViews" destination="mjK-Yg-kU1" collectionClass="NSMutableArray" id="k54-Ye-toO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -10,10 +10,10 @@ import UIKit
 
 class WeatherViewController: UIViewController {
   
-  @IBOutlet weak var location: UILabel!
-  @IBOutlet weak var icon: UILabel!
-  @IBOutlet weak var temperature: UILabel!
-  @IBOutlet var forecasts: [ForecastView]!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var iconLabel: UILabel!
+  @IBOutlet weak var temperatureLabel: UILabel!
+  @IBOutlet var forecastViews: [ForecastView]!
   
   override func viewDidLoad() {
     super.viewDidLoad()

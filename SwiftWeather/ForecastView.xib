@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
             <connections>
-                <outlet property="icon" destination="FBM-RY-zwQ" id="uB8-oG-vxx"/>
-                <outlet property="temperature" destination="6xK-hW-gim" id="PPN-gB-HNZ"/>
-                <outlet property="time" destination="dWn-ZV-dZz" id="gZZ-Tg-TRZ"/>
+                <outlet property="iconLabel" destination="FBM-RY-zwQ" id="lTz-7J-bkC"/>
+                <outlet property="temperatureLabel" destination="6xK-hW-gim" id="fWn-n6-waY"/>
+                <outlet property="timeLabel" destination="dWn-ZV-dZz" id="mpF-lZ-cXC"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
