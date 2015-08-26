@@ -6,7 +6,7 @@ SwiftWeather is an iOS weather app developed in Swift language. The app can supp
 ## Notices
 The current version is working with Xcode Version 6.4 (6E35b). If you have any issue, please check the Xcode version. If there is still a problem with the supported versions, please raise an issue, thanks. 
 
-If you are working on Swift 2 and Xcode 7, please checkout [xcode7 branch]https://github.com/JakeLin/SwiftWeather/tree/xcode7)
+If you are working on Swift 2 and Xcode 7, please checkout [xcode7 branch].(https://github.com/JakeLin/SwiftWeather/tree/xcode7)
 
 ## Version 2.1
 This is version 2.1. I have removed Carthage because some developers don't have a paid Apple iOS developer account and they have issues to build Carthage packages. 
