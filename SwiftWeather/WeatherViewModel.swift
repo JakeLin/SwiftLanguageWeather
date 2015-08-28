@@ -9,13 +9,16 @@
 import Foundation
 
 class WeatherViewModel {
-  var location: String
-  var iconText: String
-  var temperature: String
+  let location: String
+  let iconText: String
+  let temperature: String
+  let forecasts: [Forecast]
   
-  init(weather: Weather) {
+  init(weather: Weather, forecasts: [Forecast]) {
     location = weather.location
     iconText = weather.iconText
     temperature = weather.temperature
+
+    self.forecasts = forecasts
   }
 }

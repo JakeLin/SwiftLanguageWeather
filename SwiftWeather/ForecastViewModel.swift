@@ -9,9 +9,9 @@
 import Foundation
 
 class ForecastViewModel{
-  var time: String
-  var iconText: String
-  var temperature: String
+  let time: String
+  let iconText: String
+  let temperature: String
   
   init(forecast: Forecast) {
     time = forecast.time
