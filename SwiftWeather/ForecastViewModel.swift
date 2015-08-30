@@ -13,7 +13,7 @@ class ForecastViewModel{
   let iconText: String
   let temperature: String
   
-  init(forecast: Forecast) {
+  init(_ forecast: Forecast) {
     time = forecast.time
     iconText = forecast.iconText
     temperature = forecast.temperature

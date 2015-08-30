@@ -12,4 +12,6 @@ struct Weather {
   let location: String
   let iconText: String
   let temperature: String
+
+  let forecasts: [Forecast]
 }
