@@ -9,13 +9,13 @@
 import Foundation
 
 class ForecastViewModel{
-  let time: String
-  let iconText: String
-  let temperature: String
+  let time: Observable<String>
+  let iconText: Observable<String>
+  let temperature: Observable<String>
   
   init(_ forecast: Forecast) {
-    time = forecast.time
-    iconText = forecast.iconText
-    temperature = forecast.temperature
+    time = Observable(forecast.time)
+    iconText = Observable(forecast.iconText)
+    temperature = Observable(forecast.temperature)
   }
 }
