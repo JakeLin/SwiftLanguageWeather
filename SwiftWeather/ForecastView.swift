@@ -37,6 +37,30 @@ import UIKit
     self.addSubview(view);
     return view
   }
+
+  // MARK: - ViewModel
+  var viewModel: ForecastViewModel? {
+    didSet {
+      viewModel?.time.observe {
+        [unowned self] in
+        self.timeLabel.text = $0
+      }
+
+      viewModel?.iconText.observe {
+        [unowned self] in
+        self.iconLabel.text = $0
+      }
+
+      viewModel?.temperature.observe {
+        [unowned self] in
+        self.temperatureLabel.text = $0
+      }
+    }
+  }
+
+  func loadViewModel(viewModel: ForecastViewModel) {
+    self.viewModel = viewModel
+  }
   
   // MARK: - IBInspectable
   @IBInspectable var time: String? {
