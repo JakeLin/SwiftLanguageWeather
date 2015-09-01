@@ -63,6 +63,7 @@
 		AECBA6051B836BF20004A536 /* SwiftWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWeatherUITests.swift; sourceTree = "<group>"; };
 		AECBA6071B836BF20004A536 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED4B2C01B876DF50003D765 /* ForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
+		CAB56F26535BAC16B18B1154 /* WeatherServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +133,7 @@
 				AECBA5E71B836BF20004A536 /* WeatherViewController.swift */,
 				AEBE64421B8D2370004A0814 /* Weather.swift */,
 				AEBE64441B8D23B8004A0814 /* WeatherViewModel.swift */,
+				CAB56F26535BAC16B18B1154 /* WeatherServiceProtocol.swift */,
 			);
 			name = Weather;
 			sourceTree = "<group>";
