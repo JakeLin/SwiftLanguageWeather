@@ -1,11 +1,11 @@
 //
-//  WeatherService.swift
-//  SwiftWeather
-//
-//  Created by Jake Lin on 8/26/15.
-//  Copyright © 2015 Jake Lin. All rights reserved.
+// Created by Jake Lin on 9/2/15.
+// Copyright (c) 2015 Jake Lin. All rights reserved.
 //
 
-protocol WeatherServiceProtocol : NSObject {
+import Foundation
+import CoreLocation
+
+protocol WeatherServiceProtocol {
   func retrieveWeatherInfo(location: CLLocation) -> Weather
 }
