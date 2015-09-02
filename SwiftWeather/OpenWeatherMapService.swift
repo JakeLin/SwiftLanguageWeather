@@ -6,7 +6,9 @@
 import Foundation
 import CoreLocation
 
-class OpenWeatherMapService : WeatherServiceProtocol {
+struct OpenWeatherMapService : WeatherServiceProtocol {
+  let url = "api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}"
+  
   func retrieveWeatherInfo(location: CLLocation) -> Weather {
     let forecasts = [
         Forecast(time: "10:00", iconText: "", temperature: "10"),
