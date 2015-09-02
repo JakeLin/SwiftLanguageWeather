@@ -8,7 +8,7 @@ import CoreLocation
 
 class OpenWeatherMapService : WeatherServiceProtocol {
   func retrieveWeatherInfo(location: CLLocation) -> Weather {
-      let weather: Weather = Weather(location: "Sydney", iconText: "", temperature: "10", forecasts: [])
-      return weather
+    let weather: Weather = Weather(location: "Sydney", iconText: "", temperature: "10", forecasts: [])
+    return weather
   }
 }

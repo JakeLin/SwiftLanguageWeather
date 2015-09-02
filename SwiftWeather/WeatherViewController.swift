@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
   
@@ -15,9 +16,14 @@ class WeatherViewController: UIViewController {
   @IBOutlet weak var temperatureLabel: UILabel!
   @IBOutlet var forecastViews: [ForecastView]!
 
+  private var weatherService: WeatherServiceProtocol?
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    weatherService = OpenWeatherMapService()
+    let weather = weatherService!.retrieveWeatherInfo(CLLocation())
+    viewModel = WeatherViewModel(weather)
+
   }
   
   override func didReceiveMemoryWarning() {
