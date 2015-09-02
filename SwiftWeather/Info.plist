@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is required to retrieve the weather info for your current place.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>weathericons-regular-webfont.ttf</string>

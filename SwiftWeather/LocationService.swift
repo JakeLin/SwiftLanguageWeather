@@ -24,6 +24,10 @@ class LocationService : NSObject, CLLocationManagerDelegate {
     
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+  }
+  
+  func requestLocation() {
+    locationManager.requestWhenInUseAuthorization()
     locationManager.requestLocation()
   }
 
