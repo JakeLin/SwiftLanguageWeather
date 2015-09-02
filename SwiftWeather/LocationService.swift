@@ -9,9 +9,16 @@
 import Foundation
 import CoreLocation
 
-class LocationService : NSObject, CLLocationManagerDelegate {
-  private let locationManager = CLLocationManager()
+protocol LocationServiceDelegate {
+  func locationDidUpdate(service: LocationService, location: CLLocation)
+}
 
+class LocationService : NSObject, CLLocationManagerDelegate {
+  var delegate: LocationServiceDelegate?
+  
+  private let locationManager = CLLocationManager()
+  
+  
   override init() {
     super.init()
     
@@ -23,9 +30,8 @@ class LocationService : NSObject, CLLocationManagerDelegate {
   // MARK: - CLLocationManagerDelegate
   func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let location = locations.first {
-        print("Current location: \(location)")
-    } else {
-
+      print("Current location: \(location)")
+      delegate?.locationDidUpdate(self, location: location);
     }
   }
 
