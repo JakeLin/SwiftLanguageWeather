@@ -7,16 +7,43 @@ import Foundation
 import CoreLocation
 
 struct OpenWeatherMapService : WeatherServiceProtocol {
-  let url = "api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}"
+  private let urlPath = "http://api.openweathermap.org/data/2.5/weather"
   
-  func retrieveWeatherInfo(location: CLLocation) -> Weather {
-    let forecasts = [
-        Forecast(time: "10:00", iconText: "", temperature: "10"),
-        Forecast(time: "12:00", iconText: "", temperature: "8"),
-        Forecast(time: "16:00", iconText: "", temperature: "12"),
-        Forecast(time: "20:00", iconText: "", temperature: "14"),
-    ]
-    let weather = Weather(location: "Sydney", iconText: "", temperature: "10", forecasts: forecasts)
-    return weather
+  func retrieveWeatherInfo(location: CLLocation) -> Weather? {
+    
+    let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+    let session = NSURLSession(configuration: sessionConfig)
+    
+    if let url = generateRequestURL(location) {
+      let request = NSURLRequest(URL: url)
+      
+      let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        do {
+          if let jsonData = data {
+            let parsed = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.AllowFragments)
+            print(parsed)
+            
+          }
+        }
+        catch let error as NSError {
+          // Catch fires here, with an NSErrro being thrown from the JSONObjectWithData method
+          print("A JSON parsing error occurred, here are the details:\n \(error)")
+          
+        }
+      })
+      
+      task.resume()
+    }
+    
+    return nil
+  }
+  
+  private func generateRequestURL(location: CLLocation) -> NSURL? {
+    if let components: NSURLComponents = NSURLComponents(string:urlPath) {
+      components.queryItems = [NSURLQueryItem(name:"lat", value:String(location.coordinate.latitude)),
+                               NSURLQueryItem(name:"lon", value:String(location.coordinate.longitude))]
+      return components.URL
+    }
+    return nil
   }
 }
