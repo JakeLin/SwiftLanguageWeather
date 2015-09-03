@@ -67,8 +67,10 @@ class WeatherViewController: UIViewController, LocationServiceDelegate {
   // MARK: LocationServiceDelegate
   func locationDidUpdate(service: LocationService, location: CLLocation) {
     let weather = weatherService.retrieveWeatherInfo(location)
-    if weather != nil {
-      viewModel = WeatherViewModel(weather!)
+    guard let unwrappedWeather = weather else {
+      // TODO: let the user knows there is an error!!!
+      return
     }
+    viewModel = WeatherViewModel(unwrappedWeather)
   }
 }
