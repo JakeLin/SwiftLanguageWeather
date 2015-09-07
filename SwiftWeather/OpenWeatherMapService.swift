@@ -6,6 +6,8 @@
 import Foundation
 import CoreLocation
 
+import SwiftyJSON
+
 struct OpenWeatherMapService : WeatherServiceProtocol {
   private let urlPath = "http://api.openweathermap.org/data/2.5/weather"
   
@@ -15,19 +17,38 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
     let session = NSURLSession(configuration: sessionConfig)
     
     if let url = generateRequestURL(location) {
+      print(url)
+    
       let request = NSURLRequest(URL: url)
-      
       let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-        do {
-          if let jsonData = data {
-            let parsed = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.AllowFragments)
-            print(parsed)
-            
+        let json = JSON(data: data!)
+        
+        // Get temperature, location and icon
+        if let tempResult = json["list"][0]["main"]["temp"].double,
+               country: String = json["city"]["country"].stringValue,
+               city: String = json["city"]["name"].stringValue,
+               weatherCondition: Int = json["list"][0]["weather"][0]["id"].intValue,
+               weahterIcon: String = json["list"][0]["weather"][0]["icon"].stringValue {
+          print(tempResult)
+          print(country)
+          print(city)
+          print(weatherCondition)
+          print(weahterIcon)
+          
+          // Get forecasts
+          for index in 1...4 {
+            if let forecastTempReslut = json["list"][index]["main"]["temp"].double,
+                   rawDateTime: Double =  json["list"][index]["dt"].doubleValue,
+                   forecastCondition: Int = json["list"][index]["weather"][0]["id"].intValue,
+                   forecastIcon: String = json["list"][index]["weather"][0]["icon"].stringValue {
+              print(forecastTempReslut)
+              print(rawDateTime)
+              print(forecastCondition)
+              print(forecastIcon)
+            }
           }
         }
-        catch let error as NSError {
-          // Catch fires here, with an NSErrro being thrown from the JSONObjectWithData method
-          print("A JSON parsing error occurred, here are the details:\n \(error)")
+        else {
           
         }
       })
