@@ -51,6 +51,9 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
           completionHandler(nil, error)
           return
       }
+//      var weatherbuilder = WeatherBuilder()
+    
+        
       print(tempResult)
       print(country)
       print(city)
