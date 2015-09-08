@@ -9,6 +9,8 @@
 import Foundation
 
 class WeatherViewModel {
+  let EmptyString = ""
+  
   let hasError: Observable<Bool>
   let errorMessage: Observable<String?>
   
@@ -18,8 +20,8 @@ class WeatherViewModel {
   let forecasts: Observable<[ForecastViewModel]>
   
   init(_ weather: Weather) {
-    hasError = Observable(weather.hasError)
-    errorMessage = Observable(weather.errorMessage)
+    hasError = Observable(false)
+    errorMessage = Observable(nil)
     
     location = Observable(weather.location)
     iconText = Observable(weather.iconText)
@@ -31,4 +33,25 @@ class WeatherViewModel {
     }
     forecasts = Observable(tempForecasts)
   }
+  
+  init(_ error: Error) {
+    hasError = Observable(true)
+    
+    switch error.errorCode {
+    case .URLError:
+      errorMessage = Observable("The weather service is not working.")
+    case .NetworkRequestFailed:
+      errorMessage = Observable("The network appears to be down.")
+    case .JSONSerializationFailed:
+      errorMessage = Observable("We're having trouble processing weather data.")
+    case .JSONParsingFailed:
+      errorMessage = Observable("We're having trouble parsing weather data.")
+    }
+    
+    location = Observable(EmptyString)
+    iconText = Observable(EmptyString)
+    temperature = Observable(EmptyString)
+    forecasts = Observable([])
+  }
+
 }

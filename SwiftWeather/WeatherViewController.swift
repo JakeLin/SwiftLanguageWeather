@@ -68,11 +68,17 @@ class WeatherViewController: UIViewController {
 // MARK: LocationServiceDelegate
 extension WeatherViewController: LocationServiceDelegate {
   func locationDidUpdate(service: LocationService, location: CLLocation) {
-    let weather = weatherService.retrieveWeatherInfo(location)
-    guard let unwrappedWeather = weather else {
-      // TODO: let the user know there is an error!!!
-      return
+    weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
+      if let unwrappedError = error {
+        print(unwrappedError)
+      }
+      
+      guard let unwrappedWeather = weather else {
+        // TODO: let the user know there is an error!!!
+        return
+      }
+      
+      self.viewModel = WeatherViewModel(unwrappedWeather)
     }
-    viewModel = WeatherViewModel(unwrappedWeather)
   }
 }

@@ -7,5 +7,5 @@ import Foundation
 import CoreLocation
 
 protocol WeatherServiceProtocol {
-  func retrieveWeatherInfo(location: CLLocation) -> Weather?
+  func retrieveWeatherInfo(location: CLLocation, completionHandler: (Weather?, Error?) -> Void)
 }

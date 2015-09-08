@@ -18,7 +18,6 @@ class LocationService : NSObject {
   
   private let locationManager = CLLocationManager()
   
-  
   override init() {
     super.init()
     
