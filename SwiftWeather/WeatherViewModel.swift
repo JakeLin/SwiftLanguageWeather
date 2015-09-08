@@ -9,8 +9,10 @@
 import Foundation
 
 class WeatherViewModel {
+  // MARK: - Constants
   let EmptyString = ""
   
+  // MARK: - Properties
   let hasError: Observable<Bool>
   let errorMessage: Observable<String?>
   
@@ -19,6 +21,7 @@ class WeatherViewModel {
   let temperature: Observable<String> // https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-XID_314
   let forecasts: Observable<[ForecastViewModel]>
   
+  // MARK: - init
   init(_ weather: Weather) {
     hasError = Observable(false)
     errorMessage = Observable(nil)

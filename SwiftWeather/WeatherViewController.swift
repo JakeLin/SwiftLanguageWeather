@@ -71,13 +71,13 @@ extension WeatherViewController: LocationServiceDelegate {
     weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
       if let unwrappedError = error {
         print(unwrappedError)
-      }
-      
-      guard let unwrappedWeather = weather else {
-        // TODO: let the user know there is an error!!!
+        self.viewModel = WeatherViewModel(unwrappedError)
         return
       }
       
+      guard let unwrappedWeather = weather else {
+        return
+      }
       self.viewModel = WeatherViewModel(unwrappedWeather)
     }
   }
