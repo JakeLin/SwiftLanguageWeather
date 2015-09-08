@@ -10,11 +10,11 @@ import Foundation
 
 struct Error {
   enum Code: Int {
-    case NotAnError               = 0
-    case NetworkRequestFailed     = -6000
-    case JSONSerializationFailed  = -6001
+    case URLError                 = -6000
+    case NetworkRequestFailed     = -6001
+    case JSONSerializationFailed  = -6002
+    case JSONParsingFailed  = -6003
   }
   
-  let hasError: Bool
   let errorCode: Code
 }
