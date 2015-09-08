@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class WeatherViewController: UIViewController, LocationServiceDelegate {
+class WeatherViewController: UIViewController {
   
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var iconLabel: UILabel!
@@ -63,8 +63,10 @@ class WeatherViewController: UIViewController, LocationServiceDelegate {
       }
     }
   }
-  
-  // MARK: LocationServiceDelegate
+}
+
+// MARK: LocationServiceDelegate
+extension WeatherViewController: LocationServiceDelegate {
   func locationDidUpdate(service: LocationService, location: CLLocation) {
     let weather = weatherService.retrieveWeatherInfo(location)
     guard let unwrappedWeather = weather else {
