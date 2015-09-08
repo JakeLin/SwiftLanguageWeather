@@ -68,7 +68,7 @@ class WeatherViewController: UIViewController, LocationServiceDelegate {
   func locationDidUpdate(service: LocationService, location: CLLocation) {
     let weather = weatherService.retrieveWeatherInfo(location)
     guard let unwrappedWeather = weather else {
-      // TODO: let the user knows there is an error!!!
+      // TODO: let the user know there is an error!!!
       return
     }
     viewModel = WeatherViewModel(unwrappedWeather)
