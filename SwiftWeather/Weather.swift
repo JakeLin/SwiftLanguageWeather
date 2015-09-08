@@ -14,4 +14,7 @@ struct Weather {
   let temperature: String
 
   let forecasts: [Forecast]
+  
+  let hasError: Bool
+  let errorMessage: String?
 }
