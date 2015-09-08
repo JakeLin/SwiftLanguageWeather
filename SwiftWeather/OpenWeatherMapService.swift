@@ -11,7 +11,7 @@ import SwiftyJSON
 struct OpenWeatherMapService : WeatherServiceProtocol {
   private let urlPath = "http://api.openweathermap.org/data/2.5/forecast"
   
-  func retrieveWeatherInfo(location: CLLocation, completionHandler: (Weather?, Error?) -> Void) {
+  func retrieveWeatherInfo(location: CLLocation, completionHandler: WeatherCompletionHandler) {
     let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
     let session = NSURLSession(configuration: sessionConfig)
     
