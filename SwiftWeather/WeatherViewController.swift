@@ -40,17 +40,26 @@ class WeatherViewController: UIViewController {
     didSet {
       viewModel?.location.observe {
         [unowned self] in
-        self.locationLabel.text = $0
+        let temp = $0
+        dispatch_async(dispatch_get_main_queue(), {
+          self.locationLabel.text = temp
+        })
       }
 
       viewModel?.iconText.observe {
         [unowned self] in
-        self.iconLabel.text = $0
+        let temp = $0
+        dispatch_async(dispatch_get_main_queue(), {
+          self.iconLabel.text = temp
+        })
       }
 
       viewModel?.temperature.observe {
         [unowned self] in
-        self.temperatureLabel.text = $0
+        let temp = $0
+        dispatch_async(dispatch_get_main_queue(), {
+          self.temperatureLabel.text = temp
+        })
       }
 
       viewModel?.forecasts.observe {

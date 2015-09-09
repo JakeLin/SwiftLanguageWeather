@@ -9,16 +9,16 @@
 import Foundation
 
 struct Temperature {
-  let degrees: Double
+  let degrees: String
   
   init(country: String, openWeatherMapDegrees: Double) {
     if country == "US" {
       // Convert temperature to Fahrenheit if user is within the US
-      degrees = round(((openWeatherMapDegrees - 273.15) * 1.8) + 32)
+      degrees = String(round(((openWeatherMapDegrees - 273.15) * 1.8) + 32)) + "\u{f045}"
     }
     else {
       // Otherwise, convert temperature to Celsius
-      degrees = round(openWeatherMapDegrees - 273.15)
+      degrees = String(round(openWeatherMapDegrees - 273.15)) + "\u{f03c}"
     }
   }
 }

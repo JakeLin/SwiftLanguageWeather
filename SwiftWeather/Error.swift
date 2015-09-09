@@ -13,7 +13,7 @@ struct Error {
     case URLError                 = -6000
     case NetworkRequestFailed     = -6001
     case JSONSerializationFailed  = -6002
-    case JSONParsingFailed  = -6003
+    case JSONParsingFailed        = -6003
   }
   
   let errorCode: Code

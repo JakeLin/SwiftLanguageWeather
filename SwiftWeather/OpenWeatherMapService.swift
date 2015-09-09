@@ -46,21 +46,23 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
         country: String = json["city"]["country"].stringValue,
         city: String = json["city"]["name"].stringValue,
         weatherCondition: Int = json["list"][0]["weather"][0]["id"].intValue,
-        weahterIcon: String = json["list"][0]["weather"][0]["icon"].stringValue else {
+        iconString: String = json["list"][0]["weather"][0]["icon"].stringValue else {
           let error = Error(errorCode: .JSONParsingFailed)
           completionHandler(nil, error)
           return
       }
       
-      var weatherbuilder = WeatherBuilder()
+      var weatherBuilder = WeatherBuilder()
       let temperature = Temperature(country: country, openWeatherMapDegrees:tempDegrees)
-      weatherbuilder.temperature = String(temperature)
-      weatherbuilder.location = city
-//      weatherbuilder.iconText = 
-    
-      print(city)
-      print(weatherCondition)
-      print(weahterIcon)
+      weatherBuilder.temperature = temperature.degrees
+      weatherBuilder.location = city
+      
+      let weatherIcon = WeatherIcon(condition: weatherCondition, iconString: iconString)
+      weatherBuilder.iconText = weatherIcon.iconText
+      
+      weatherBuilder.forecasts = []
+      completionHandler(weatherBuilder.build(), nil)
+
       
       // Get the first four forecasts
       for index in 0...3 {
