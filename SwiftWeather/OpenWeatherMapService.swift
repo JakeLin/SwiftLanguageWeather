@@ -42,7 +42,7 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
       let json = JSON(data: unwrappedData)
       
       // Get temperature, location and icon and check parsing error
-      guard let tempResult = json["list"][0]["main"]["temp"].double,
+      guard let tempDegrees = json["list"][0]["main"]["temp"].double,
         country: String = json["city"]["country"].stringValue,
         city: String = json["city"]["name"].stringValue,
         weatherCondition: Int = json["list"][0]["weather"][0]["id"].intValue,
@@ -51,11 +51,13 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
           completionHandler(nil, error)
           return
       }
-//      var weatherbuilder = WeatherBuilder()
+      
+      var weatherbuilder = WeatherBuilder()
+      let temperature = Temperature(country: country, openWeatherMapDegrees:tempDegrees)
+      weatherbuilder.temperature = String(temperature)
+      weatherbuilder.location = city
+//      weatherbuilder.iconText = 
     
-        
-      print(tempResult)
-      print(country)
       print(city)
       print(weatherCondition)
       print(weahterIcon)
