@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ForecastViewModel{
+struct ForecastViewModel{
   let time: Observable<String>
   let iconText: Observable<String>
   let temperature: Observable<String>
