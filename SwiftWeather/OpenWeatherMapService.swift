@@ -61,23 +61,29 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
       weatherBuilder.iconText = weatherIcon.iconText
       
       weatherBuilder.forecasts = []
-      completionHandler(weatherBuilder.build(), nil)
-
       
       // Get the first four forecasts
       for index in 0...3 {
-        guard let forecastTempReslut = json["list"][index]["main"]["temp"].double,
+        guard let forecastTempDegrees = json["list"][index]["main"]["temp"].double,
           rawDateTime: Double =  json["list"][index]["dt"].doubleValue,
           forecastCondition: Int = json["list"][index]["weather"][0]["id"].intValue,
           forecastIcon: String = json["list"][index]["weather"][0]["icon"].stringValue else {
             break
         }
         
-        print(forecastTempReslut)
-        print(rawDateTime)
-        print(forecastCondition)
-        print(forecastIcon)
+        let forecastTemperature = Temperature(country: country, openWeatherMapDegrees: forecastTempDegrees)
+        let forecastTimeString = ForecastDateTime(rawDateTime).shortTime
+        let weatherIcon = WeatherIcon(condition: forecastCondition, iconString: forecastIcon)
+        let forcastIconText = weatherIcon.iconText
+        
+        let forecast = Forecast(time: forecastTimeString,
+                            iconText: forcastIconText,
+                         temperature: forecastTemperature.degrees)
+        
+        weatherBuilder.forecasts!.append(forecast)
       }
+      
+      completionHandler(weatherBuilder.build(), nil)
     })
     
     task.resume()

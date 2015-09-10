@@ -244,8 +244,8 @@
 		AEF61B291BA23C0500E8F259 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CAB56D46471CA243B1FD646F /* OpenWeatherMapService.swift */,
 				CAB56A3D23F4A93BB599E4BA /* WeatherServiceProtocol.swift */,
+				CAB56D46471CA243B1FD646F /* OpenWeatherMapService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";

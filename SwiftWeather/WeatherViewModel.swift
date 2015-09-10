@@ -18,7 +18,7 @@ class WeatherViewModel {
   
   let location: Observable<String>
   let iconText: Observable<String>
-  let temperature: Observable<String> // https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-XID_314
+  let temperature: Observable<String>
   let forecasts: Observable<[ForecastViewModel]>
   
   // MARK: - init
@@ -30,9 +30,8 @@ class WeatherViewModel {
     iconText = Observable(weather.iconText)
     temperature = Observable(weather.temperature)
 
-    let tempForecasts = weather.forecasts.map {
-      (let f) -> ForecastViewModel in
-      return ForecastViewModel(f)
+    let tempForecasts = weather.forecasts.map { forecast in
+      return ForecastViewModel(forecast)
     }
     forecasts = Observable(tempForecasts)
   }
