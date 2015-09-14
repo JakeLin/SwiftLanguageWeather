@@ -49,37 +49,41 @@ class WeatherViewModel {
   
   // MARK: - private
   private func update(weather: Weather) {
-    hasError = Observable(false)
-    errorMessage = Observable(nil)
-    
-    location = Observable(weather.location)
-    iconText = Observable(weather.iconText)
-    temperature = Observable(weather.temperature)
-
-    let tempForecasts = weather.forecasts.map { forecast in
-      return ForecastViewModel(forecast)
-    }
-    forecasts = Observable(tempForecasts)
+    dispatch_async(dispatch_get_main_queue(), {
+      self.hasError.value = false
+      self.errorMessage.value = nil
+      
+      self.location.value = weather.location
+      self.iconText.value = weather.iconText
+      self.temperature.value = weather.temperature
+      
+      let tempForecasts = weather.forecasts.map { forecast in
+        return ForecastViewModel(forecast)
+      }
+      self.forecasts.value = tempForecasts
+    })
   }
   
   private func update(error: Error) {
-    hasError = Observable(true)
-    
-    switch error.errorCode {
-    case .URLError:
-      errorMessage = Observable("The weather service is not working.")
-    case .NetworkRequestFailed:
-      errorMessage = Observable("The network appears to be down.")
-    case .JSONSerializationFailed:
-      errorMessage = Observable("We're having trouble processing weather data.")
-    case .JSONParsingFailed:
-      errorMessage = Observable("We're having trouble parsing weather data.")
-    }
-    
-    location = Observable(EmptyString)
-    iconText = Observable(EmptyString)
-    temperature = Observable(EmptyString)
-    forecasts = Observable([])
+    dispatch_async(dispatch_get_main_queue(), {
+      self.hasError.value = true
+      
+      switch error.errorCode {
+      case .URLError:
+        self.errorMessage.value = "The weather service is not working."
+      case .NetworkRequestFailed:
+        self.errorMessage.value = "The network appears to be down."
+      case .JSONSerializationFailed:
+        self.errorMessage.value = "We're having trouble processing weather data."
+      case .JSONParsingFailed:
+        self.errorMessage.value = "We're having trouble parsing weather data."
+      }
+      
+      self.location.value = self.EmptyString
+      self.iconText.value = self.EmptyString
+      self.temperature.value = self.EmptyString
+      self.forecasts.value = []
+    })
   }
 }
 
