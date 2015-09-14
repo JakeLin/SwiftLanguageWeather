@@ -7,22 +7,48 @@
 //
 
 import Foundation
+import CoreLocation
 
 class WeatherViewModel {
   // MARK: - Constants
-  let EmptyString = ""
+  private let EmptyString = ""
+  
+  // MARK: - Services
+  private var locationService: LocationService!
+  private var weatherService: WeatherServiceProtocol!
   
   // MARK: - Properties
-  let hasError: Observable<Bool>
-  let errorMessage: Observable<String?>
+  var hasError: Observable<Bool>
+  var errorMessage: Observable<String?>
   
-  let location: Observable<String>
-  let iconText: Observable<String>
-  let temperature: Observable<String>
-  let forecasts: Observable<[ForecastViewModel]>
+  var location: Observable<String>
+  var iconText: Observable<String>
+  var temperature: Observable<String>
+  var forecasts: Observable<[ForecastViewModel]>
   
   // MARK: - init
-  init(_ weather: Weather) {
+  init() {
+    hasError = Observable(false)
+    errorMessage = Observable(nil)
+    
+    location = Observable(EmptyString)
+    iconText = Observable(EmptyString)
+    temperature = Observable(EmptyString)
+    forecasts = Observable([])
+  }
+  
+  // MARK: - public
+  func startLocationService() -> Void {
+    locationService = LocationService()
+    locationService.delegate = self
+    
+    weatherService = OpenWeatherMapService()
+    
+    locationService.requestLocation()
+  }
+  
+  // MARK: - private
+  private func update(weather: Weather) {
     hasError = Observable(false)
     errorMessage = Observable(nil)
     
@@ -36,7 +62,7 @@ class WeatherViewModel {
     forecasts = Observable(tempForecasts)
   }
   
-  init(_ error: Error) {
+  private func update(error: Error) {
     hasError = Observable(true)
     
     switch error.errorCode {
@@ -55,5 +81,22 @@ class WeatherViewModel {
     temperature = Observable(EmptyString)
     forecasts = Observable([])
   }
+}
 
+// MARK: LocationServiceDelegate
+extension WeatherViewModel: LocationServiceDelegate {
+  func locationDidUpdate(service: LocationService, location: CLLocation) {
+    weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
+      if let unwrappedError = error {
+        print(unwrappedError)
+        self.update(unwrappedError)
+        return
+      }
+      
+      guard let unwrappedWeather = weather else {
+        return
+      }
+      self.update(unwrappedWeather)
+    }
+  }
 }

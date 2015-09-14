@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class WeatherViewController: UIViewController {
   
@@ -16,18 +15,10 @@ class WeatherViewController: UIViewController {
   @IBOutlet weak var temperatureLabel: UILabel!
   @IBOutlet var forecastViews: [ForecastView]!
 
-  private var weatherService: WeatherServiceProtocol!
-  private var locationService: LocationService!
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    locationService = LocationService()
-    locationService.delegate = self
-    
-    weatherService = OpenWeatherMapService()
-    
-    locationService.requestLocation()
+    viewModel = WeatherViewModel()
+    viewModel?.startLocationService()
   }
   
   override func didReceiveMemoryWarning() {
@@ -70,24 +61,6 @@ class WeatherViewController: UIViewController {
           }
         }
       }
-    }
-  }
-}
-
-// MARK: LocationServiceDelegate
-extension WeatherViewController: LocationServiceDelegate {
-  func locationDidUpdate(service: LocationService, location: CLLocation) {
-    weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
-      if let unwrappedError = error {
-        print(unwrappedError)
-        self.viewModel = WeatherViewModel(unwrappedError)
-        return
-      }
-      
-      guard let unwrappedWeather = weather else {
-        return
-      }
-      self.viewModel = WeatherViewModel(unwrappedWeather)
     }
   }
 }
