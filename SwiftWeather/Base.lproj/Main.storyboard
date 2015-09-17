@@ -29,10 +29,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-e9-Cg0" userLabel="Weather Container View">
-                                        <rect key="frame" x="0.0" y="30" width="600" height="344.5"/>
+                                        <rect key="frame" x="0.0" y="30" width="600" height="344"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-Hz-RdO">
-                                                <rect key="frame" x="215.5" y="0.0" width="170.5" height="344.5"/>
+                                                <rect key="frame" x="215" y="0.0" width="170.5" height="344.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-kZ-hOu">
                                                         <rect key="frame" x="0.0" y="0.0" width="170.5" height="43"/>
@@ -86,7 +86,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-fc-TZZ" userLabel="Forecast Container View">
-                                        <rect key="frame" x="0.0" y="451.5" width="600" height="114"/>
+                                        <rect key="frame" x="0.0" y="450.5" width="600" height="114.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rzR-3u-MJe">
                                                 <rect key="frame" x="146.5" y="0.0" width="307" height="114.5"/>
@@ -183,10 +183,10 @@
                                 <constraints>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="6ed-kO-L91"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="7Q8-76-OLC"/>
-                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="top" secondItem="gh8-e9-Cg0" secondAttribute="bottom" constant="77.5" id="BFc-Y7-7OH"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="OZQ-dj-JfA"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="30" id="P70-Li-xl4"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="Xsm-BG-UnV"/>
+                                    <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="35" id="ecC-D0-3e1"/>
                                 </constraints>
                             </view>
                         </subviews>
