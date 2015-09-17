@@ -13,18 +13,18 @@ class WeatherViewModel {
   // MARK: - Constants
   private let EmptyString = ""
   
+  // MARK: - Properties
+  let hasError: Observable<Bool>
+  let errorMessage: Observable<String?>
+  
+  let location: Observable<String>
+  let iconText: Observable<String>
+  let temperature: Observable<String>
+  let forecasts: Observable<[ForecastViewModel]>
+  
   // MARK: - Services
   private var locationService: LocationService!
   private var weatherService: WeatherServiceProtocol!
-  
-  // MARK: - Properties
-  var hasError: Observable<Bool>
-  var errorMessage: Observable<String?>
-  
-  var location: Observable<String>
-  var iconText: Observable<String>
-  var temperature: Observable<String>
-  var forecasts: Observable<[ForecastViewModel]>
   
   // MARK: - init
   init() {
