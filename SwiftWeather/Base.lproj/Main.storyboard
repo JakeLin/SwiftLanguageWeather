@@ -166,7 +166,7 @@
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="OZQ-dj-JfA"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" priority="750" constant="30" id="P70-Li-xl4"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="Xsm-BG-UnV"/>
-                                    <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="35" id="ecC-D0-3e1"/>
+                                    <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" priority="750" constant="35" id="ecC-D0-3e1"/>
                                     <constraint firstAttribute="trailing" secondItem="WCS-fc-TZZ" secondAttribute="trailing" id="kcs-hW-uwp"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="leading" secondItem="8LB-3C-fUZ" secondAttribute="leading" id="phd-YU-KsB"/>
                                 </constraints>
