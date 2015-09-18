@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="weathericons-regular-webfont.ttf">
@@ -39,18 +40,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <variation key="heightClass=compact" fixedFrame="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="170.5" height="43"/>
-                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
                                                         <rect key="frame" x="5.5" y="43" width="159.5" height="208.5"/>
                                                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="144"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <variation key="heightClass=compact" fixedFrame="YES">
-                                                            <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
-                                                        </variation>
                                                         <variation key="widthClass=regular" fixedFrame="YES">
                                                             <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
                                                         </variation>
@@ -63,9 +58,6 @@
                                                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="64"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <variation key="heightClass=compact" fixedFrame="YES">
-                                                            <rect key="frame" x="50" y="207.5" width="71" height="93"/>
-                                                        </variation>
                                                         <variation key="widthClass=regular" fixedFrame="YES">
                                                             <rect key="frame" x="50" y="207.5" width="71" height="93"/>
                                                         </variation>
@@ -74,6 +66,9 @@
                                                         </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="66" y="0.0" width="171" height="345"/>
+                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -81,15 +76,12 @@
                                             <constraint firstItem="rnC-Hz-RdO" firstAttribute="centerX" secondItem="gh8-e9-Cg0" secondAttribute="centerX" id="GTq-Sa-V2d"/>
                                             <constraint firstItem="rnC-Hz-RdO" firstAttribute="height" secondItem="gh8-e9-Cg0" secondAttribute="height" id="WXq-yn-P2E"/>
                                         </constraints>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="30" width="300" height="340"/>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-fc-TZZ" userLabel="Forecast Container View">
                                         <rect key="frame" x="0.0" y="450.5" width="600" height="114.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rzR-3u-MJe">
-                                                <rect key="frame" x="146.5" y="0.0" width="307" height="114.5"/>
+                                                <rect key="frame" x="146.5" y="0.5" width="307" height="114.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-Go-iDR">
                                                         <rect key="frame" x="0.0" y="0.0" width="142" height="114.5"/>
@@ -106,8 +98,8 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="10"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=compact" fixedFrame="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="56.5" height="112.5"/>
+                                                                <variation key="heightClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="115"/>
                                                                 </variation>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X03-jw-bPo" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
@@ -123,13 +115,13 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="time" value="14:00"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="8"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=compact" fixedFrame="YES">
-                                                                    <rect key="frame" x="86.5" y="0.0" width="56" height="112.5"/>
+                                                                <variation key="heightClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="88" y="0.0" width="56" height="115"/>
                                                                 </variation>
                                                             </view>
                                                         </subviews>
-                                                        <variation key="heightClass=compact" fixedFrame="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="142.5" height="112.5"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="115"/>
                                                         </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6LM-Ly-chv">
@@ -148,6 +140,9 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="time" value="17:00"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="12"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <variation key="heightClass=compact" ambiguous="YES">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="115"/>
+                                                                </variation>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-Yg-kU1" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
                                                                 <rect key="frame" x="86.5" y="0.0" width="48.5" height="114.5"/>
@@ -162,14 +157,19 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="time" value="20:00"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="4"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                                                    <rect key="frame" x="94" y="0.0" width="50" height="115"/>
+                                                                </variation>
                                                             </view>
                                                         </subviews>
-                                                        <variation key="heightClass=compact" fixedFrame="YES">
-                                                            <rect key="frame" x="0.0" y="142.5" width="142.5" height="112.5"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="145" width="144" height="115"/>
                                                         </variation>
                                                     </stackView>
                                                 </subviews>
-                                                <variation key="heightClass=compact" axis="vertical"/>
+                                                <variation key="heightClass=compact" axis="vertical" misplaced="YES">
+                                                    <rect key="frame" x="79" y="0.0" width="144" height="260"/>
+                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -181,13 +181,33 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="6ed-kO-L91"/>
-                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="7Q8-76-OLC"/>
-                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" id="OZQ-dj-JfA"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="3IU-Kj-HHc"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="6ed-kO-L91"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="7Q8-76-OLC"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="9Cu-xN-W6S"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="OZQ-dj-JfA"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="30" id="P70-Li-xl4"/>
-                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" id="Xsm-BG-UnV"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="Xsm-BG-UnV"/>
                                     <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="35" id="ecC-D0-3e1"/>
+                                    <constraint firstAttribute="trailing" secondItem="WCS-fc-TZZ" secondAttribute="trailing" id="kcs-hW-uwp"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="leading" secondItem="8LB-3C-fUZ" secondAttribute="leading" id="phd-YU-KsB"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9Cu-xN-W6S"/>
+                                        <exclude reference="phd-YU-KsB"/>
+                                        <exclude reference="3IU-Kj-HHc"/>
+                                        <exclude reference="kcs-hW-uwp"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9Cu-xN-W6S"/>
+                                        <include reference="phd-YU-KsB"/>
+                                        <include reference="3IU-Kj-HHc"/>
+                                        <include reference="kcs-hW-uwp"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
