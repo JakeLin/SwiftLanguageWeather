@@ -85,6 +85,9 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="115"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="115" id="SKb-Zc-5Zr"/>
+                                                                </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="10"/>
@@ -95,6 +98,16 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="10"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="SKb-Zc-5Zr"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="SKb-Zc-5Zr"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X03-jw-bPo" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
                                                                 <rect key="frame" x="86" y="0.0" width="56" height="115"/>
@@ -111,6 +124,19 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="y4d-hQ-IEP" firstAttribute="height" secondItem="X03-jw-bPo" secondAttribute="height" id="vRM-4u-kf2"/>
+                                                        </constraints>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="vRM-4u-kf2"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <include reference="vRM-4u-kf2"/>
+                                                            </mask>
+                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6LM-Ly-chv">
                                                         <rect key="frame" x="172" y="0.0" width="137" height="115"/>
@@ -146,7 +172,22 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <variation key="heightClass=compact" axis="vertical"/>
+                                                <constraints>
+                                                    <constraint firstItem="mjK-Yg-kU1" firstAttribute="height" secondItem="y4d-hQ-IEP" secondAttribute="height" id="6cI-BZ-GjX"/>
+                                                    <constraint firstItem="8G3-c1-MSy" firstAttribute="height" secondItem="y4d-hQ-IEP" secondAttribute="height" id="yXc-g5-Yhj"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="yXc-g5-Yhj"/>
+                                                        <exclude reference="6cI-BZ-GjX"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact" axis="vertical">
+                                                    <mask key="constraints">
+                                                        <include reference="yXc-g5-Yhj"/>
+                                                        <include reference="6cI-BZ-GjX"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -163,6 +204,7 @@
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="6ed-kO-L91"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="7Q8-76-OLC"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="9Cu-xN-W6S"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="L9h-Ut-wIn"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="OZQ-dj-JfA"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" priority="750" constant="30" id="P70-Li-xl4"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="Xsm-BG-UnV"/>
@@ -176,6 +218,7 @@
                                         <exclude reference="9Cu-xN-W6S"/>
                                         <exclude reference="phd-YU-KsB"/>
                                         <exclude reference="3IU-Kj-HHc"/>
+                                        <exclude reference="L9h-Ut-wIn"/>
                                         <exclude reference="kcs-hW-uwp"/>
                                     </mask>
                                 </variation>
@@ -185,6 +228,7 @@
                                         <include reference="9Cu-xN-W6S"/>
                                         <include reference="phd-YU-KsB"/>
                                         <include reference="3IU-Kj-HHc"/>
+                                        <include reference="L9h-Ut-wIn"/>
                                         <include reference="kcs-hW-uwp"/>
                                     </mask>
                                 </variation>
