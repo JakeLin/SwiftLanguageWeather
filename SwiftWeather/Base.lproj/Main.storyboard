@@ -29,20 +29,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LB-3C-fUZ" userLabel="Tint View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-e9-Cg0" userLabel="Weather Container View">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-e9-Cg0" userLabel="Weather Container View">
                                         <rect key="frame" x="0.0" y="30" width="600" height="344"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-Hz-RdO">
-                                                <rect key="frame" x="215" y="0.0" width="170.5" height="344.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-Hz-RdO">
+                                                <rect key="frame" x="215" y="0.0" width="171" height="286"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-kZ-hOu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="170.5" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="43"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
-                                                        <rect key="frame" x="5.5" y="43" width="159.5" height="208.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
+                                                        <rect key="frame" x="3" y="43" width="166" height="168"/>
                                                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="144"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -53,8 +53,8 @@
                                                             <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-pa-Aur">
-                                                        <rect key="frame" x="49.5" y="251.5" width="71" height="93"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-pa-Aur">
+                                                        <rect key="frame" x="31" y="211" width="110" height="75"/>
                                                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="64"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -66,9 +66,6 @@
                                                         </variation>
                                                     </label>
                                                 </subviews>
-                                                <variation key="heightClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="66" y="0.0" width="171" height="345"/>
-                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -77,17 +74,17 @@
                                             <constraint firstItem="rnC-Hz-RdO" firstAttribute="height" secondItem="gh8-e9-Cg0" secondAttribute="height" id="WXq-yn-P2E"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-fc-TZZ" userLabel="Forecast Container View">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-fc-TZZ" userLabel="Forecast Container View">
                                         <rect key="frame" x="0.0" y="450.5" width="600" height="114.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rzR-3u-MJe">
-                                                <rect key="frame" x="146.5" y="0.5" width="307" height="114.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rzR-3u-MJe">
+                                                <rect key="frame" x="147" y="1" width="309" height="115"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-Go-iDR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="142" height="114.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-Go-iDR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="142" height="115"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="114.5"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4d-hQ-IEP" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="115"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="10"/>
@@ -98,12 +95,9 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="10"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="115"/>
-                                                                </variation>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X03-jw-bPo" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
-                                                                <rect key="frame" x="86" y="0.0" width="56" height="114.5"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X03-jw-bPo" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                                <rect key="frame" x="86" y="0.0" width="56" height="115"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="8"/>
@@ -115,20 +109,14 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="time" value="14:00"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="8"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="88" y="0.0" width="56" height="115"/>
-                                                                </variation>
                                                             </view>
                                                         </subviews>
-                                                        <variation key="heightClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="115"/>
-                                                        </variation>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6LM-Ly-chv">
-                                                        <rect key="frame" x="172" y="0.0" width="135" height="114.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6LM-Ly-chv">
+                                                        <rect key="frame" x="172" y="0.0" width="137" height="115"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8G3-c1-MSy" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="56.5" height="114.5"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8G3-c1-MSy" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="57" height="115"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="12"/>
@@ -136,16 +124,13 @@
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="17:00"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="time" value="17:00"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="12"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="115"/>
-                                                                </variation>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-Yg-kU1" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
-                                                                <rect key="frame" x="86.5" y="0.0" width="48.5" height="114.5"/>
+                                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-Yg-kU1" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                                <rect key="frame" x="87" y="0.0" width="50" height="115"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="iconText" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperatureText" value="4"/>
@@ -153,23 +138,15 @@
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="timeText" value="20:00"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="time" value="20:00"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="temperature" value="4"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
-                                                                    <rect key="frame" x="94" y="0.0" width="50" height="115"/>
-                                                                </variation>
                                                             </view>
                                                         </subviews>
-                                                        <variation key="heightClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="0.0" y="145" width="144" height="115"/>
-                                                        </variation>
                                                     </stackView>
                                                 </subviews>
-                                                <variation key="heightClass=compact" axis="vertical" misplaced="YES">
-                                                    <rect key="frame" x="79" y="0.0" width="144" height="260"/>
-                                                </variation>
+                                                <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -181,12 +158,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="32j-YN-mOd"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="3IU-Kj-HHc"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="6ed-kO-L91"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="7Q8-76-OLC"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="9Cu-xN-W6S"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="OZQ-dj-JfA"/>
-                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" constant="30" id="P70-Li-xl4"/>
+                                    <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" priority="750" constant="30" id="P70-Li-xl4"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="Xsm-BG-UnV"/>
                                     <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="35" id="ecC-D0-3e1"/>
                                     <constraint firstAttribute="trailing" secondItem="WCS-fc-TZZ" secondAttribute="trailing" id="kcs-hW-uwp"/>
@@ -194,6 +172,7 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="32j-YN-mOd"/>
                                         <exclude reference="9Cu-xN-W6S"/>
                                         <exclude reference="phd-YU-KsB"/>
                                         <exclude reference="3IU-Kj-HHc"/>
@@ -202,6 +181,7 @@
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
+                                        <include reference="32j-YN-mOd"/>
                                         <include reference="9Cu-xN-W6S"/>
                                         <include reference="phd-YU-KsB"/>
                                         <include reference="3IU-Kj-HHc"/>
