@@ -42,19 +42,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     func updateWeatherInfo(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let url = "http://api.openweathermap.org/data/2.5/forecast"
         let params = ["lat":latitude, "lon":longitude]
-        println(params)
+        print(params)
         
         Alamofire.request(.GET, url, parameters: params)
-            .responseJSON { (request, response, json, error) in
-                if(error != nil) {
-                    println("Error: \(error)")
-                    println(request)
-                    println(response)
+            .responseJSON { (request, response, result) in
+                if(result.error != nil) {
+                    print("Error: \(result.error)")
+                    print(request)
+                    print(response)
                 }
                 else {
-                    println("Success: \(url)")
-                    println(request)
-                    var json = JSON(json!)
+                    print("Success: \(url)")
+                    print(request)
+                    let json = JSON(result.value!)
                     self.updateUISuccess(json)
                 }
         }
@@ -64,16 +64,16 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         let service = SwiftWeatherService.WeatherService()
         
         // If we can get the temperature from JSON correctly, we assume the rest of JSON is correct.
-        if let tempResult = json["list"][0]["main"]["temp"].double {
+        if let _ = json["list"][0]["main"]["temp"].double {
             // Get country
             let country = json["city"]["country"].stringValue
 
             // Get forecast
             for index in 0...3 {
-                println(json["list"][index])
+                print(json["list"][index])
                 if let tempResult = json["list"][index]["main"]["temp"].double {
                     // Get and convert temperature
-                    var temperature = service.convertTemperature(country, temperature: tempResult)
+                    let temperature = service.convertTemperature(country, temperature: tempResult)
                     if (index==0) {
                         self.temp1.text = "\(temperature)°"
                     }
@@ -88,7 +88,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
                     }
                     
                     // Get forecast time
-                    var dateFormatter = NSDateFormatter()
+                    let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "HH:mm"
                     let rawDate = json["list"][index]["dt"].doubleValue
                     let date = NSDate(timeIntervalSince1970: rawDate)
@@ -109,8 +109,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
                     // Get and set icon
                     let weather = json["list"][index]["weather"][0]
                     let condition = weather["id"].intValue
-                    var icon = weather["icon"].stringValue
-                    var nightTime = service.isNightTime(icon)
+                    let icon = weather["icon"].stringValue
+                    let nightTime = service.isNightTime(icon)
                     service.updateWeatherIcon(condition, nightTime: nightTime, index: index, callback: self.updatePictures)
                 }
                 else {
@@ -119,7 +119,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             }
         }
         else {
-            println("Weather info is not available!")
+            print("Weather info is not available!")
         }
     }
     
@@ -140,18 +140,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     }
 
     //CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var location:CLLocation = locations[locations.count-1] as! CLLocation
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location:CLLocation = locations[locations.count-1] 
         
         if (location.horizontalAccuracy > 0) {
             self.locationManager.stopUpdatingLocation()
-            println(location.coordinate)
+            print(location.coordinate)
             updateWeatherInfo(location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println(error)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
     }
 
     
@@ -160,7 +160,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed

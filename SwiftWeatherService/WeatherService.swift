@@ -30,23 +30,23 @@ public class WeatherService {
     public func retrieveForecast(latitude: CLLocationDegrees, longitude: CLLocationDegrees, success:(response: Response)->(), failure: (response:Response)->()){
         let url = "http://api.openweathermap.org/data/2.5/forecast"
         let params = ["lat":latitude, "lon":longitude]
-        println(params)
+        print(params)
         
         Alamofire.request(.GET, url, parameters: params)
-            .responseJSON { (request, response, json, error) in
-                if(error != nil) {
-                    println("Error: \(error)")
-                    println(request)
-                    println(response)
-                    var response = Response()
+            .responseJSON { (request, response, result) in
+                if(result.error != nil) {
+                    print("Error: \(result.error)")
+                    print(request)
+                    print(response)
+                    let response = Response()
                     response.status = .failure
-                    response.error = error
+                    //response.error = result.error
                     failure(response: response)
                 }
                 else {
-                    println("Success: \(url)")
-                    var json = JSON(json!)
-                    var response = Response()
+                    print("Success: \(url)")
+                    let json = JSON(result.value!)
+                    let response = Response()
                     response.status = .success
                     response.object = json
                     success(response: response)

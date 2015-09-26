@@ -80,20 +80,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func updateWeatherInfo(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let url = "http://api.openweathermap.org/data/2.5/forecast"
         let params = ["lat":latitude, "lon":longitude]
-        println(params)
+        print(params)
         
         Alamofire.request(.GET, url, parameters: params)
-            .responseJSON { (request, response, json, error) in
-                if(error != nil) {
-                    println("Error: \(error)")
-                    println(request)
-                    println(response)
+            .responseJSON { (request, response, result) in
+                if(result.error != nil) {
+                    print("Error: \(result.error)")
+                    print(request)
+                    print(response)
                     self.loading.text = "Internet appears down!"
                 }
                 else {
-                    println("Success: \(url)")
-                    println(request)
-                    var json = JSON(json!)
+                    print("Success: \(url)")
+                    print(request)
+                    let json = JSON(result.value!)
                     self.updateUISuccess(json)
                 }
         }
@@ -112,7 +112,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let country = json["city"]["country"].stringValue
             
             // Get and convert temperature
-            var temperature = service.convertTemperature(country, temperature: tempResult)
+            let temperature = service.convertTemperature(country, temperature: tempResult)
             self.temperature.text = "\(temperature)°"
             
             // Get city name
@@ -121,16 +121,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // Get and set icon
             let weather = json["list"][0]["weather"][0]
             let condition = weather["id"].intValue
-            var icon = weather["icon"].stringValue
-            var nightTime = service.isNightTime(icon)
+            let icon = weather["icon"].stringValue
+            let nightTime = service.isNightTime(icon)
             service.updateWeatherIcon(condition, nightTime: nightTime, index: 0, callback: self.updatePictures)
             
             // Get forecast
             for index in 1...4 {
-                println(json["list"][index])
+                print(json["list"][index])
                 if let tempResult = json["list"][index]["main"]["temp"].double {
                     // Get and convert temperature
-                    var temperature = service.convertTemperature(country, temperature: tempResult)
+                    let temperature = service.convertTemperature(country, temperature: tempResult)
                     if (index==1) {
                         self.temp1.text = "\(temperature)°"
                     }
@@ -145,7 +145,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     }
 
                     // Get forecast time
-                    var dateFormatter = NSDateFormatter()
+                    let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "HH:mm"
                     let rawDate = json["list"][index]["dt"].doubleValue
                     let date = NSDate(timeIntervalSince1970: rawDate)
@@ -166,8 +166,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     // Get and set icon
                     let weather = json["list"][index]["weather"][0]
                     let condition = weather["id"].intValue
-                    var icon = weather["icon"].stringValue
-                    var nightTime = service.isNightTime(icon)
+                    let icon = weather["icon"].stringValue
+                    let nightTime = service.isNightTime(icon)
                     service.updateWeatherIcon(condition, nightTime: nightTime, index: index, callback: self.updatePictures)
                 }
                 else {
@@ -199,17 +199,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //MARK: - CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var location:CLLocation = locations[locations.count-1] as! CLLocation
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location:CLLocation = locations[locations.count-1] 
         if (location.horizontalAccuracy > 0) {
             self.locationManager.stopUpdatingLocation()
-            println(location.coordinate)
+            print(location.coordinate)
             updateWeatherInfo(location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println(error)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
         self.loading.text = "Can't get your location!"
     }
     
