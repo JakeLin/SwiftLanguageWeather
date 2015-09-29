@@ -1,15 +1,13 @@
 Swift Weather
 ============
 
-SwiftWeather is an iOS weather app developed in Swift 2. The app has been kept upgrading to use the latest features of iOS and Swift language.
+SwiftWeather is an iOS weather app developed in Swift 2. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
 
 ## Notices
 The current version is working with Xcode Version 7. If you are using different Xcode version, please check out the previous versions.
 
-If you are working on Swift 2 and Xcode 7, please checkout [xcode7 branch](https://github.com/JakeLin/SwiftWeather/tree/xcode7).
-
-## Version 2.1
-This is version
+## Version 3
+This version has been upgraded to support iOS 9 only using Swift 2.
 
 There are two major version for the app released before.
 
