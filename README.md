@@ -20,10 +20,29 @@ There are two major version for the app released before.
 
 
 ## Features
-* Swift Programming Language - fully upgraded to 2
-* MVVM - Reactively update `ViewController` UI from `ViewModel`
+* Swift Programming Language - fully upgraded to version 2
+* Design driven development - [Sketch design file ](raw/master/Design/SwiftWeather.sketch)
+
+![Sketch design](raw/master/screenshots/SketchDesign.png)
+ 
 * `@IBDesignable` and `@IBInspectable` - Reusable UI components
+
+![IBDesignable and IBInspectable](raw/master/screenshots/IBDesignable-IBInspectable.png)
+
+* Custom UIView
+
+![Custom UIView](raw/master/screenshots/Custom-UIView.png)
+
+* `UIStackView` 
+
+![UIStackView](raw/master/screenshots/UIStackView.png)
+ 
 * Size Classes - Support different devices with adpative layout
+
+![Size Classes](raw/master/screenshots/UIStackView-with-Size-Classes.png)
+
+* MVVM - Reactively update `ViewController` UI from `ViewModel`
+
 * Protocal oriented programming - Still learning though and finding the best practise of that.
 * Value based programming - Use imutable value anywhere.
 * Icon fonts
