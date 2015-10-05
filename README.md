@@ -25,13 +25,13 @@ There are two major version for the app released before.
 
 ![Sketch design](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/SketchDesign.png)
  
-* `@IBDesignable` and `@IBInspectable` - Reusable UI components
-
-![IBDesignable and IBInspectable](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/IBDesignable-IBInspectable.png)
-
 * Custom UIView
 
 ![Custom UIView](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Custom-UIView.png)
+
+* `@IBDesignable` and `@IBInspectable` - Reusable UI components
+
+![IBDesignable and IBInspectable](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/IBDesignable-IBInspectable.png)
 
 * `UIStackView` 
 
@@ -44,9 +44,13 @@ There are two major version for the app released before.
 * MVVM - Reactively update `ViewController` UI from `ViewModel`
 
 * Protocal oriented programming - Still learning though and finding the best practise of that.
+
 * Value based programming - Use imutable value anywhere.
-* Icon fonts
+
+* Icon fonts － Use [Weather Icons](https://erikflowers.github.io/weather-icons/)
+ 
 * [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+
 * Core Location
 
 ## TODO
