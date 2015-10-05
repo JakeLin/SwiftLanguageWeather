@@ -21,25 +21,25 @@ There are two major version for the app released before.
 
 ## Features
 * Swift Programming Language - fully upgraded to version 2
-* Design driven development - [Sketch design file ](raw.githubusercontent.com/JakeLin/SwiftWeather/master/Design/SwiftWeather.sketch)
+* Design driven development - [Sketch design file ](//raw.githubusercontent.com/JakeLin/SwiftWeather/master/Design/SwiftWeather.sketch)
 
-![Sketch design](raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/SketchDesign.png)
+![Sketch design](//raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/SketchDesign.png)
  
 * `@IBDesignable` and `@IBInspectable` - Reusable UI components
 
-![IBDesignable and IBInspectable](raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/IBDesignable-IBInspectable.png)
+![IBDesignable and IBInspectable](//raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/IBDesignable-IBInspectable.png)
 
 * Custom UIView
 
-![Custom UIView](raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Custom-UIView.png)
+![Custom UIView](//raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/Custom-UIView.png)
 
 * `UIStackView` 
 
-![UIStackView](raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/UIStackView.png)
+![UIStackView](//raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/UIStackView.png)
  
 * Size Classes - Support different devices with adpative layout
 
-![Size Classes](raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/UIStackView-with-Size-Classes.png)
+![Size Classes](//raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/UIStackView-with-Size-Classes.png)
 
 * MVVM - Reactively update `ViewController` UI from `ViewModel`
 
