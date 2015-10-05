@@ -21,25 +21,25 @@ There are two major version for the app released before.
 
 ## Features
 * Swift Programming Language - fully upgraded to version 2
-* Design driven development - [Sketch design file ](raw/master/Design/SwiftWeather.sketch)
+* Design driven development - [Sketch design file ](/master/Design/SwiftWeather.sketch)
 
-![Sketch design](raw/master/screenshots/SketchDesign.png)
+![Sketch design](/master/screenshots/SketchDesign.png)
  
 * `@IBDesignable` and `@IBInspectable` - Reusable UI components
 
-![IBDesignable and IBInspectable](raw/master/screenshots/IBDesignable-IBInspectable.png)
+![IBDesignable and IBInspectable](/master/screenshots/IBDesignable-IBInspectable.png)
 
 * Custom UIView
 
-![Custom UIView](raw/master/screenshots/Custom-UIView.png)
+![Custom UIView](/master/screenshots/Custom-UIView.png)
 
 * `UIStackView` 
 
-![UIStackView](raw/master/screenshots/UIStackView.png)
+![UIStackView](/master/screenshots/UIStackView.png)
  
 * Size Classes - Support different devices with adpative layout
 
-![Size Classes](raw/master/screenshots/UIStackView-with-Size-Classes.png)
+![Size Classes](/master/screenshots/UIStackView-with-Size-Classes.png)
 
 * MVVM - Reactively update `ViewController` UI from `ViewModel`
 
@@ -80,4 +80,5 @@ $ open "SwiftWeather.xcworkspace"
 
 # Requirements
 
-* Xcode 7-* iOS 9
+* Xcode 7
+* iOS 9
