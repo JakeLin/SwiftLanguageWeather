@@ -95,7 +95,9 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
     }
     
     components.queryItems = [NSURLQueryItem(name:"lat", value:String(location.coordinate.latitude)),
-                             NSURLQueryItem(name:"lon", value:String(location.coordinate.longitude))]
+                             NSURLQueryItem(name:"lon", value:String(location.coordinate.longitude)),
+                             NSURLQueryItem(name:"appid", value:String("bd82977b86bf27fb59a04b61b657fb6f"))]
+                             //Please sign up for openweather( http://openweathermap.org/appid ) and put your own appid here.
     return components.URL
   }
 }
