@@ -8,7 +8,7 @@ import CoreLocation
 
 import SwiftyJSON
 
-struct OpenWeatherMapService : WeatherServiceProtocol {
+struct OpenWeatherMapService: WeatherServiceProtocol {
   private let urlPath = "http://api.openweathermap.org/data/2.5/forecast"
   
   func retrieveWeatherInfo(location: CLLocation, completionHandler: WeatherCompletionHandler) {
@@ -43,10 +43,10 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
       
       // Get temperature, location and icon and check parsing error
       guard let tempDegrees = json["list"][0]["main"]["temp"].double,
-        country: String = json["city"]["country"].stringValue,
-        city: String = json["city"]["name"].stringValue,
-        weatherCondition: Int = json["list"][0]["weather"][0]["id"].intValue,
-        iconString: String = json["list"][0]["weather"][0]["icon"].stringValue else {
+        country = json["city"]["country"].string,
+        city = json["city"]["name"].string,
+        weatherCondition = json["list"][0]["weather"][0]["id"].int,
+        iconString = json["list"][0]["weather"][0]["icon"].string else {
           let error = Error(errorCode: .JSONParsingFailed)
           completionHandler(nil, error)
           return
@@ -60,14 +60,14 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
       let weatherIcon = WeatherIcon(condition: weatherCondition, iconString: iconString)
       weatherBuilder.iconText = weatherIcon.iconText
       
-      weatherBuilder.forecasts = []
       
+      var forecasts: [Forecast] = []
       // Get the first four forecasts
       for index in 0...3 {
         guard let forecastTempDegrees = json["list"][index]["main"]["temp"].double,
-          rawDateTime: Double =  json["list"][index]["dt"].doubleValue,
-          forecastCondition: Int = json["list"][index]["weather"][0]["id"].intValue,
-          forecastIcon: String = json["list"][index]["weather"][0]["icon"].stringValue else {
+          rawDateTime = json["list"][index]["dt"].double,
+          forecastCondition = json["list"][index]["weather"][0]["id"].int,
+          forecastIcon = json["list"][index]["weather"][0]["icon"].string else {
             break
         }
         
@@ -80,9 +80,11 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
                             iconText: forcastIconText,
                          temperature: forecastTemperature.degrees)
         
-        weatherBuilder.forecasts!.append(forecast)
+        forecasts.append(forecast)
       }
-      
+        
+      weatherBuilder.forecasts = forecasts
+        
       completionHandler(weatherBuilder.build(), nil)
     })
     
@@ -90,7 +92,7 @@ struct OpenWeatherMapService : WeatherServiceProtocol {
   }
   
   private func generateRequestURL(location: CLLocation) -> NSURL? {
-    guard let components: NSURLComponents = NSURLComponents(string:urlPath) else {
+    guard let components = NSURLComponents(string:urlPath) else {
       return nil
     }
     

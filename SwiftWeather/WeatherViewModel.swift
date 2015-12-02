@@ -38,7 +38,7 @@ class WeatherViewModel {
   }
   
   // MARK: - public
-  func startLocationService() -> Void {
+  func startLocationService() {
     locationService = LocationService()
     locationService.delegate = self
     
@@ -49,7 +49,6 @@ class WeatherViewModel {
   
   // MARK: - private
   private func update(weather: Weather) {
-    dispatch_async(dispatch_get_main_queue(), {
       self.hasError.value = false
       self.errorMessage.value = nil
       
@@ -61,11 +60,9 @@ class WeatherViewModel {
         return ForecastViewModel(forecast)
       }
       self.forecasts.value = tempForecasts
-    })
   }
   
   private func update(error: Error) {
-    dispatch_async(dispatch_get_main_queue(), {
       self.hasError.value = true
       
       switch error.errorCode {
@@ -83,7 +80,6 @@ class WeatherViewModel {
       self.iconText.value = self.EmptyString
       self.temperature.value = self.EmptyString
       self.forecasts.value = []
-    })
   }
 }
 
@@ -91,16 +87,18 @@ class WeatherViewModel {
 extension WeatherViewModel: LocationServiceDelegate {
   func locationDidUpdate(service: LocationService, location: CLLocation) {
     weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
-      if let unwrappedError = error {
-        print(unwrappedError)
-        self.update(unwrappedError)
-        return
-      }
-      
-      guard let unwrappedWeather = weather else {
-        return
-      }
-      self.update(unwrappedWeather)
+      dispatch_async(dispatch_get_main_queue(), {
+        if let unwrappedError = error {
+          print(unwrappedError)
+          self.update(unwrappedError)
+          return
+        }
+        
+        guard let unwrappedWeather = weather else {
+          return
+        }
+        self.update(unwrappedWeather)
+      })
     }
   }
 }

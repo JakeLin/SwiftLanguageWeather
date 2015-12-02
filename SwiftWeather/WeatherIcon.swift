@@ -274,8 +274,7 @@ struct WeatherIcon {
     // if iconString has 'n', it means night time.
     if iconString.rangeOfString("n") != nil {
       rawValue = "night" + String(condition)
-    }
-    else {
+    } else {
       // day time
       rawValue = "day" + String(condition)
     }
