@@ -12,7 +12,7 @@ struct ForecastDateTime {
   let rawDate: Double
   
   init(_ date: Double) {
-      rawDate = date
+    rawDate = date
   }
   
   var shortTime: String {

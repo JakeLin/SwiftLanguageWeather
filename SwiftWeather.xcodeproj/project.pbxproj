@@ -31,6 +31,7 @@
 		AEF61B281BA23B1200E8F259 /* ForecastDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF61B271BA23B1200E8F259 /* ForecastDateTime.swift */; };
 		CAB565DDADB61DF9053BD50F /* WeatherServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB56A3D23F4A93BB599E4BA /* WeatherServiceProtocol.swift */; };
 		CAB56F4267B3BC487990A92D /* OpenWeatherMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB56D46471CA243B1FD646F /* OpenWeatherMapService.swift */; };
+		F3897F7C1C118C4F001609E2 /* ForecastDateTimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3897F7B1C118C4F001609E2 /* ForecastDateTimeSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		AEF61B271BA23B1200E8F259 /* ForecastDateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDateTime.swift; sourceTree = "<group>"; };
 		CAB56A3D23F4A93BB599E4BA /* WeatherServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherServiceProtocol.swift; sourceTree = "<group>"; };
 		CAB56D46471CA243B1FD646F /* OpenWeatherMapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapService.swift; sourceTree = "<group>"; };
+		F3897F7B1C118C4F001609E2 /* ForecastDateTimeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDateTimeSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 		AECBA5F91B836BF20004A536 /* SwiftWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				F3897F7A1C118C4F001609E2 /* UnitTests */,
 				AECBA5FC1B836BF20004A536 /* Info.plist */,
 			);
 			path = SwiftWeatherTests;
@@ -264,6 +267,14 @@
 				AEEDF68A1B9F99F800C6067B /* WeatherBuilder.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		F3897F7A1C118C4F001609E2 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3897F7B1C118C4F001609E2 /* ForecastDateTimeSpec.swift */,
+			);
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +345,7 @@
 		AECBA5DA1B836BF20004A536 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jake Lin";
 				TargetAttributes = {
@@ -520,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3897F7C1C118C4F001609E2 /* ForecastDateTimeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,10 +691,12 @@
 			baseConfigurationReference = 87B15DA306E20104D2A5B62E /* Pods-SwiftWeatherTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftWeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushjet.SwiftWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWeather.app/SwiftWeather";
 			};
 			name = Debug;
@@ -691,6 +706,7 @@
 			baseConfigurationReference = 803F1F87451B52BDDE462C8A /* Pods-SwiftWeatherTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftWeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushjet.SwiftWeatherTests;
