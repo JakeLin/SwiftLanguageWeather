@@ -36,6 +36,7 @@
 		F3897F801C118D7D001609E2 /* ForecastSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3897F7F1C118D7D001609E2 /* ForecastSpec.swift */; };
 		F3897F821C118F0A001609E2 /* TemperatureSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3897F811C118F0A001609E2 /* TemperatureSpec.swift */; };
 		F3897F841C11911B001609E2 /* WeatherIconSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3897F831C11911B001609E2 /* WeatherIconSpec.swift */; };
+		F3FADA1B1C1327CB006D8551 /* WeatherBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FADA1A1C1327CB006D8551 /* WeatherBuilderSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		F3897F7F1C118D7D001609E2 /* ForecastSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastSpec.swift; sourceTree = "<group>"; };
 		F3897F811C118F0A001609E2 /* TemperatureSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSpec.swift; sourceTree = "<group>"; };
 		F3897F831C11911B001609E2 /* WeatherIconSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIconSpec.swift; sourceTree = "<group>"; };
+		F3FADA1A1C1327CB006D8551 /* WeatherBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherBuilderSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 				F3897F7F1C118D7D001609E2 /* ForecastSpec.swift */,
 				F3897F811C118F0A001609E2 /* TemperatureSpec.swift */,
 				F3897F831C11911B001609E2 /* WeatherIconSpec.swift */,
+				F3FADA1A1C1327CB006D8551 /* WeatherBuilderSpec.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				F3897F7C1C118C4F001609E2 /* ForecastDateTimeSpec.swift in Sources */,
 				F3897F821C118F0A001609E2 /* TemperatureSpec.swift in Sources */,
 				F3897F7E1C118C6E001609E2 /* WeatherSpec.swift in Sources */,
+				F3FADA1B1C1327CB006D8551 /* WeatherBuilderSpec.swift in Sources */,
 				F3897F841C11911B001609E2 /* WeatherIconSpec.swift in Sources */,
 				F3897F801C118D7D001609E2 /* ForecastSpec.swift in Sources */,
 			);
