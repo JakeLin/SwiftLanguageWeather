@@ -55,8 +55,8 @@ There are two major version for the app released before.
 * Core Location
 
 ## TODO
-* App indexing like CoreSpotlight ans `NSUserActivity`
-* Unit Tests
+* App indexing like CoreSpotlight and `NSUserActivity`
+* <s>Unit Tests</s>
 * UI Tests
 * Animations  
 
