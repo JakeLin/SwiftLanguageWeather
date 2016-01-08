@@ -1,7 +1,4 @@
 //
-//  ForecastSpec.swift
-//  SwiftWeather
-//
 //  Created by Tran Xuan Hoang on 12/4/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //
@@ -22,7 +19,7 @@ class ForecastSpec: QuickSpec {
         expect(forecast.temperature).to(equal("temperature"))
       }
     }
-    
+
   }
   
 }

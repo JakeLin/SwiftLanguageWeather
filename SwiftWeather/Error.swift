@@ -1,7 +1,4 @@
 //
-//  Error.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 9/8/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //

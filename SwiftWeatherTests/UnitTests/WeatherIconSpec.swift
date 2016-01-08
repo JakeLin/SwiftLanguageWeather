@@ -1,7 +1,4 @@
 //
-//  WeatherIconSpec.swift
-//  SwiftWeather
-//
 //  Created by Tran Xuan Hoang on 12/4/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //

@@ -1,7 +1,4 @@
 //
-//  ForecastDateTime.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 9/11/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //
