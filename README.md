@@ -5,7 +5,7 @@ Swift Weather
 SwiftWeather is an iOS weather app developed in Swift 2. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
 
 ## Notices
-The current version is working with Xcode Version 7. If you are using different Xcode version, please check out the previous versions.
+The current version is working with Xcode Version 7. If you are using different Xcode version, please check out the previous versions. 
 
 ## Version 3
 This version has been upgraded to support iOS 9 only using Swift 2.
@@ -81,7 +81,14 @@ $ pod install
 $ open "SwiftWeather.xcworkspace"
 ```
 
-4) Compile and run the app in your simulator
+4) Sign up on [openweathermap.org/appid](http://openweathermap.org/appid) to get an appid, then replace your one in `OpenWeatherMapService.swift`
+
+```
+private let appId = "your appid from openweathermap.org/appid"
+```
+ 
+5) Compile and run the app in your simulator
+
 
 # Requirements
 
