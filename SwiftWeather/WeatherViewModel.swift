@@ -20,8 +20,8 @@ class WeatherViewModel {
   let forecasts: Observable<[ForecastViewModel]>
   
   // MARK: - Services
-  private var locationService: LocationService!
-  private var weatherService: WeatherServiceProtocol!
+  private var locationService: LocationService
+  private var weatherService: WeatherServiceProtocol
   
   // MARK: - init
   init() {
@@ -32,50 +32,50 @@ class WeatherViewModel {
     iconText = Observable(EmptyString)
     temperature = Observable(EmptyString)
     forecasts = Observable([])
+    
+    // Can put Dependency Injection here
+    locationService = LocationService()
+    weatherService = OpenWeatherMapService()
   }
   
   // MARK: - public
   func startLocationService() {
-    locationService = LocationService()
     locationService.delegate = self
-    
-    weatherService = OpenWeatherMapService()
-    
     locationService.requestLocation()
   }
   
   // MARK: - private
   private func update(weather: Weather) {
-      self.hasError.value = false
-      self.errorMessage.value = nil
+      hasError.value = false
+      errorMessage.value = nil
       
-      self.location.value = weather.location
-      self.iconText.value = weather.iconText
-      self.temperature.value = weather.temperature
+      location.value = weather.location
+      iconText.value = weather.iconText
+      temperature.value = weather.temperature
       
       let tempForecasts = weather.forecasts.map { forecast in
         return ForecastViewModel(forecast)
       }
-      self.forecasts.value = tempForecasts
+      forecasts.value = tempForecasts
   }
   
   private func update(error: Error) {
-      self.hasError.value = true
+      hasError.value = true
       
       switch error.errorCode {
       case .URLError:
-        self.errorMessage.value = "The weather service is not working."
+        errorMessage.value = "The weather service is not working."
       case .NetworkRequestFailed:
-        self.errorMessage.value = "The network appears to be down."
+        errorMessage.value = "The network appears to be down."
       case .JSONSerializationFailed:
-        self.errorMessage.value = "We're having trouble processing weather data."
+        errorMessage.value = "We're having trouble processing weather data."
       case .JSONParsingFailed:
-        self.errorMessage.value = "We're having trouble parsing weather data."
+        errorMessage.value = "We're having trouble parsing weather data."
       }
       
-      self.location.value = self.EmptyString
-      self.iconText.value = self.EmptyString
-      self.temperature.value = self.EmptyString
+      location.value = EmptyString
+      iconText.value = EmptyString
+      temperature.value = EmptyString
       self.forecasts.value = []
   }
 }
