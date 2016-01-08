@@ -31,7 +31,7 @@ import UIKit
     
     view.frame = bounds
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-    self.addSubview(view);
+    addSubview(view);
     return view
   }
 
