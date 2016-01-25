@@ -11,9 +11,6 @@ import SwiftyJSON
 struct OpenWeatherMapService: WeatherServiceProtocol {
   private let urlPath = "http://api.openweathermap.org/data/2.5/forecast"
   
-  // TODO: Please sign up for openweather( http://openweathermap.org/appid ) and put your own appid here.
-  private let appId = "85700717079056954df90e661cfe6d6c"
-  
   func retrieveWeatherInfo(location: CLLocation, completionHandler: WeatherCompletionHandler) {
     let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
     let session = NSURLSession(configuration: sessionConfig)
@@ -98,6 +95,11 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
     guard let components = NSURLComponents(string:urlPath) else {
       return nil
     }
+    
+    // get appId from Info.plist
+    let filePath = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")!
+    let parameters = NSDictionary(contentsOfFile:filePath)
+    let appId = parameters!["OWMAccessToken"]!.description
     
     components.queryItems = [NSURLQueryItem(name:"lat", value:String(location.coordinate.latitude)),
                              NSURLQueryItem(name:"lon", value:String(location.coordinate.longitude)),

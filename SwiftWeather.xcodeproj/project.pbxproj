@@ -305,6 +305,7 @@
 				AECBA5E01B836BF20004A536 /* Resources */,
 				AF42201773A74D7BBAD34ABB /* Embed Pods Frameworks */,
 				F370C5D58E5073D6D3498BDD /* Copy Pods Resources */,
+				ADD0EBFC1C562E52002D8392 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -456,6 +457,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWeatherTests/Pods-SwiftWeatherTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		ADD0EBFC1C562E52002D8392 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "token_file=~/.access_tokens/openweathermap\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace OWMAccessToken -string $token $TARGET_BUILD_DIR/$INFOPLIST_PATH\nelse\necho 'error: Missing OpenWeatherMap access token'\nopen 'http://openweathermap.org/appid'\necho \"error: Get an access token from <http://openweathermap.org/appid>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi";
 		};
 		AF42201773A74D7BBAD34ABB /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
