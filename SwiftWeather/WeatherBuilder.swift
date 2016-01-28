@@ -1,7 +1,4 @@
 //
-//  WeatherBuilder.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 9/9/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //

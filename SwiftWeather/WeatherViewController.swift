@@ -1,7 +1,4 @@
 //
-//  WeatherViewController.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 8/18/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //
@@ -19,11 +16,6 @@ class WeatherViewController: UIViewController {
     super.viewDidLoad()
     viewModel = WeatherViewModel()
     viewModel?.startLocationService()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
   // MARK: ViewModel

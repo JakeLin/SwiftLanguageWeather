@@ -1,7 +1,4 @@
 //
-//  ForecastDateTime.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 9/11/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //
@@ -12,7 +9,7 @@ struct ForecastDateTime {
   let rawDate: Double
   
   init(_ date: Double) {
-      rawDate = date
+    rawDate = date
   }
   
   var shortTime: String {

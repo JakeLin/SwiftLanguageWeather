@@ -78,3 +78,6 @@ Pods/
 Carthage.pkg
 Carthage.build
 Carthage.checkout
+
+# Access keys
+.access_tokens

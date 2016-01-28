@@ -1,7 +1,4 @@
 //
-//  ForecastView.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 8/22/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //
@@ -34,7 +31,7 @@ import UIKit
     
     view.frame = bounds
     view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-    self.addSubview(view);
+    addSubview(view);
     return view
   }
 

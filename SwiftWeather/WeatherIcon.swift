@@ -1,7 +1,4 @@
 //
-//  WeatherIcon.swift
-//  SwiftWeather
-//
 //  Created by Jake Lin on 9/9/15.
 //  Copyright © 2015 Jake Lin. All rights reserved.
 //
@@ -274,8 +271,7 @@ struct WeatherIcon {
     // if iconString has 'n', it means night time.
     if iconString.rangeOfString("n") != nil {
       rawValue = "night" + String(condition)
-    }
-    else {
+    } else {
       // day time
       rawValue = "day" + String(condition)
     }
