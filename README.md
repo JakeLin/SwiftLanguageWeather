@@ -91,6 +91,7 @@ $ echo "your-openweathermap-appid" > .access_tokens/openweathermap
  
 5) Compile and run the app in your simulator
 
+6) If you don't see any data, please check "Simulator" -> "Debug" -> "Location" to change the location.
 
 # Requirements
 
