@@ -132,6 +132,6 @@ import UIKit
   
   // MARK: - Private
   private func nibName() -> String {
-    return self.dynamicType.description().componentsSeparatedByString(".").last!
+    return String(self.dynamicType)
   }
 }
