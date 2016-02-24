@@ -6,7 +6,7 @@
 import XCTest
 
 class SwiftWeatherUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         
@@ -23,9 +23,14 @@ class SwiftWeatherUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testApp() {
+        let app = XCUIApplication()
+        testNumberOfElements(app)
+    }
+    
+    /* Actually test that images load...might want to find a more exact way of doing this... */
+    func testNumberOfElements(app:XCUIApplication){
+        assert(app.staticTexts.count > 0)
     }
     
 }
