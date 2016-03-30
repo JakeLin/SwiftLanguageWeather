@@ -45,7 +45,7 @@ There are two major version for the app released before.
 
 * MVVM - Reactively update `ViewController` UI from `ViewModel`
 
-* Protocal oriented programming - Still learning though and finding the best practise of that.
+* Protocol-Oriented Programming - Still learning though and finding the best practise of that.
 
 * Value based programming - Use imutable value anywhere.
 
