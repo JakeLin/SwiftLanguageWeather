@@ -370,6 +370,7 @@
 				TargetAttributes = {
 					AECBA5E11B836BF20004A536 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 4NL3MF75QP;
 					};
 					AECBA5F51B836BF20004A536 = {
 						CreatedOnToolsVersion = 7.0;
@@ -705,10 +706,13 @@
 			baseConfigurationReference = 2A371C39E28FF7B95B5CF6ED /* Pods-SwiftWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushjet.SwiftWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -717,10 +721,13 @@
 			baseConfigurationReference = 8FA2BD5A062481C5D83CDC17 /* Pods-SwiftWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushjet.SwiftWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
