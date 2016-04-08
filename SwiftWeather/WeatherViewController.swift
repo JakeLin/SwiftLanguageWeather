@@ -11,11 +11,18 @@ class WeatherViewController: UIViewController {
   @IBOutlet weak var iconLabel: UILabel!
   @IBOutlet weak var temperatureLabel: UILabel!
   @IBOutlet var forecastViews: [ForecastView]!
+  @IBOutlet weak var backgorund: UIImageView!
+    
+    var text = "city"
 
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel = WeatherViewModel()
     viewModel?.startLocationService()
+    
+    
+    backgorund.image = UIImage(named:text)!
+    
   }
 
   // MARK: ViewModel
@@ -46,4 +53,6 @@ class WeatherViewController: UIViewController {
       }
     }
   }
+   
+
 }
