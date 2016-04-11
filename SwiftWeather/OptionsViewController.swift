@@ -10,12 +10,27 @@ import Foundation
 
 import UIKit
 
-class OptionsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class OptionsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var images = ["badGrass", "badBeach", "snowy", "clouds" ]
+    var images = ["badGrass", "badBeach", "snowy", "clouds", "city" ]
     var selected = String()
+    var current = String()
+    
     @IBOutlet weak var mylabel: UILabel!
+    
+    
+    @IBOutlet weak var currentBackground: UIImageView!
+    
+    override func viewDidLoad() {
+        // Check if current 
+        if (current != ""){
+            currentBackground.image = UIImage(named: current)!
+        }
+        
+        
+    }
+    
     
     // MARK: - UICollectionViewDataSource protocol
     
@@ -31,25 +46,39 @@ class OptionsViewController: UIViewController, UICollectionViewDataSource, UICol
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MyCollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.myImage.image = UIImage(named:self.images[indexPath.item])!
-        cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
-        
+        cell.myImage.image = UIImage(named:self.images[indexPath.item])! // Fill uiimage with image
         return cell
     }
     
-    // MARK: - UICollectionViewDelegate protocol
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10;
+    }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10;
+    }
+    
+    // MARK: - UICollectionViewDelegate protocol
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // handle tap events
-        selected = images[indexPath.item]
-        print("You selected cell #\(indexPath.item)!")
+        selected = images[indexPath.item] // Get selected photo and store image name to selected
+
+        // Set current pic to selected
+        currentBackground.image = UIImage(named: selected)!
     }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let DestViewController : WeatherViewController = segue.destinationViewController as! WeatherViewController
         
-        DestViewController.text = selected
-        
+        // check if selected was never actualy selected, if so return current
+        if (selected != ""){
+            DestViewController.text = selected
+        }
+        else{
+            DestViewController.text = current
+        }
         
     }
 }
