@@ -11,12 +11,31 @@ class WeatherViewController: UIViewController {
   @IBOutlet weak var iconLabel: UILabel!
   @IBOutlet weak var temperatureLabel: UILabel!
   @IBOutlet var forecastViews: [ForecastView]!
+  @IBOutlet weak var backgorund: UIImageView!
+    
+    var text = "city"
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    viewModel = WeatherViewModel()
-    viewModel?.startLocationService()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel = WeatherViewModel()
+        viewModel?.startLocationService()
+    
+        if (text.isEmpty){
+            
+        }
+
+        let dic:[String: AnyObject] = ["background": text]
+    
+        NSUserDefaults().setObject(dic, forKey: "diction")
+    
+        if let retrievedDict = NSUserDefaults().dictionaryForKey("diction") {
+            text = (retrievedDict["background"] as? String)!
+        }
+    
+        if (text != ""){
+            backgorund.image = UIImage(named:text)!
+        }
+    }
 
   // MARK: ViewModel
   var viewModel: WeatherViewModel? {
@@ -46,4 +65,14 @@ class WeatherViewController: UIViewController {
       }
     }
   }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let DestViewController : OptionsViewController = segue.destinationViewController as! OptionsViewController
+
+        DestViewController.current = text
+        
+    }
+    
+    
+
+    
 }
