@@ -23,10 +23,10 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
     
     print(url)
     let request = NSURLRequest(URL: url)
-    let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, networkError) -> Void in
+    let task = session.dataTaskWithRequest(request, completionHandler: { data, response, networkError in
       
       // Check network error
-      if networkError != nil {
+      guard networkError == nil else {
         let error = Error(errorCode: .NetworkRequestFailed)
         completionHandler(nil, error)
         return
