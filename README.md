@@ -1,5 +1,6 @@
 Swift Weather
 ============
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=562a9aac2492560100211378&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/562a9aac2492560100211378/build/latest)
 ![Language](https://img.shields.io/badge/language-Swift%202-orange.svg)
 ![License](https://img.shields.io/github/license/JakeLin/SwiftWeather.svg?style=flat)
 
