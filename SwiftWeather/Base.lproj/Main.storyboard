@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -32,16 +32,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh8-e9-Cg0" userLabel="Weather Container View">
                                         <rect key="frame" x="0.0" y="30" width="600" height="345"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-Hz-RdO">
-                                                <rect key="frame" x="215" y="0.0" width="171" height="345"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rnC-Hz-RdO">
+                                                <rect key="frame" x="126" y="0.0" width="171" height="345"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-kZ-hOu">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-kZ-hOu">
                                                         <rect key="frame" x="0.0" y="0.0" width="171" height="43"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-DS-ttH">
                                                         <rect key="frame" x="6" y="43" width="160" height="209"/>
                                                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="144"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -50,8 +50,8 @@
                                                             <rect key="frame" x="5.5" y="21" width="159.5" height="208.5"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-pa-Aur">
-                                                        <rect key="frame" x="50" y="252" width="71" height="93"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-pa-Aur">
+                                                        <rect key="frame" x="50" y="252" width="71" height="94"/>
                                                         <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="64"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -146,14 +146,27 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rzR-3u-MJe" secondAttribute="trailing" constant="7" id="0Iv-sH-pu7"/>
+                                            <constraint firstItem="rzR-3u-MJe" firstAttribute="leading" secondItem="WCS-fc-TZZ" secondAttribute="leading" constant="279" id="1mu-Fa-PwL"/>
+                                            <constraint firstItem="rzR-3u-MJe" firstAttribute="centerX" secondItem="WCS-fc-TZZ" secondAttribute="centerX" id="3rw-1V-ACN"/>
                                             <constraint firstItem="rzR-3u-MJe" firstAttribute="centerY" secondItem="WCS-fc-TZZ" secondAttribute="centerY" id="5o3-Cy-AUB"/>
                                             <constraint firstItem="rzR-3u-MJe" firstAttribute="centerX" secondItem="WCS-fc-TZZ" secondAttribute="centerX" id="6QC-7Q-bvD"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rzR-3u-MJe" secondAttribute="trailing" constant="7" id="Z85-5X-7s1"/>
+                                            <constraint firstItem="rzR-3u-MJe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="WCS-fc-TZZ" secondAttribute="leading" constant="143" id="gAL-WY-UUG"/>
                                             <constraint firstItem="rzR-3u-MJe" firstAttribute="height" secondItem="WCS-fc-TZZ" secondAttribute="height" id="un6-gc-Ir3"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1mu-Fa-PwL"/>
+                                                <exclude reference="6QC-7Q-bvD"/>
+                                                <exclude reference="gAL-WY-UUG"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WCS-fc-TZZ" secondAttribute="trailing" id="2W0-cv-lCw"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="32j-YN-mOd"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" multiplier="0.5" id="3IU-Kj-HHc"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="6ed-kO-L91"/>
@@ -162,11 +175,14 @@
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="L9h-Ut-wIn"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="OZQ-dj-JfA"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" priority="750" constant="30" id="P70-Li-xl4"/>
+                                    <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="60" id="XJm-X5-tIU"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="Xsm-BG-UnV"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="top" secondItem="gh8-e9-Cg0" secondAttribute="bottom" constant="50" id="d1P-gu-8uX"/>
                                     <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" priority="250" constant="60" id="ecC-D0-3e1"/>
                                     <constraint firstAttribute="trailing" secondItem="WCS-fc-TZZ" secondAttribute="trailing" id="kcs-hW-uwp"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="leading" secondItem="8LB-3C-fUZ" secondAttribute="leading" id="phd-YU-KsB"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="top" secondItem="gh8-e9-Cg0" secondAttribute="bottom" constant="60" id="vm9-Hc-UkY"/>
+                                    <constraint firstItem="WCS-fc-TZZ" firstAttribute="leading" secondItem="8LB-3C-fUZ" secondAttribute="leading" id="zcD-EO-1Oi"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -175,6 +191,9 @@
                                         <exclude reference="phd-YU-KsB"/>
                                         <exclude reference="3IU-Kj-HHc"/>
                                         <exclude reference="L9h-Ut-wIn"/>
+                                        <exclude reference="OZQ-dj-JfA"/>
+                                        <exclude reference="Xsm-BG-UnV"/>
+                                        <exclude reference="ecC-D0-3e1"/>
                                         <exclude reference="kcs-hW-uwp"/>
                                         <exclude reference="vm9-Hc-UkY"/>
                                     </mask>
