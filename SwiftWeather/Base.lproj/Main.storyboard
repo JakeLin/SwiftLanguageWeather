@@ -175,7 +175,8 @@
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerY" secondItem="8LB-3C-fUZ" secondAttribute="centerY" id="L9h-Ut-wIn"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="width" secondItem="8LB-3C-fUZ" secondAttribute="width" priority="750" id="OZQ-dj-JfA"/>
                                     <constraint firstItem="gh8-e9-Cg0" firstAttribute="top" secondItem="8LB-3C-fUZ" secondAttribute="top" priority="750" constant="30" id="P70-Li-xl4"/>
-                                    <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="60" id="XJm-X5-tIU"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="30" id="TLd-Nw-vYa"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="WCS-fc-TZZ" secondAttribute="bottom" constant="60" id="XJm-X5-tIU"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="centerX" secondItem="8LB-3C-fUZ" secondAttribute="centerX" priority="750" id="Xsm-BG-UnV"/>
                                     <constraint firstItem="WCS-fc-TZZ" firstAttribute="top" secondItem="gh8-e9-Cg0" secondAttribute="bottom" constant="50" id="d1P-gu-8uX"/>
                                     <constraint firstAttribute="bottom" secondItem="WCS-fc-TZZ" secondAttribute="bottom" priority="250" constant="60" id="ecC-D0-3e1"/>
