@@ -8,9 +8,9 @@ import Nimble
 @testable import SwiftWeather
 
 class ForecastSpec: QuickSpec {
-  
+
   override func spec() {
-    
+
     describe("#init") {
       it("should have time, iconText, temperature") {
         let forecast = Forecast(time: "time", iconText: "iconText", temperature: "temperature")
@@ -21,5 +21,5 @@ class ForecastSpec: QuickSpec {
     }
 
   }
-  
+
 }

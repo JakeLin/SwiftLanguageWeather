@@ -8,9 +8,9 @@ import Nimble
 @testable import SwiftWeather
 
 class ForecastDateTimeSpec: QuickSpec {
-  
+
   override func spec() {
-    
+
     describe("#init") {
       it("should init with the rawDate correctly assigned") {
         var forecastDateTime = ForecastDateTime(1234)
@@ -19,7 +19,7 @@ class ForecastDateTimeSpec: QuickSpec {
         expect(forecastDateTime.rawDate).to(beCloseTo(0))
       }
     }
-    
+
     describe("#shortTime") {
       it("should return the correct shortTime string with format HH:mm") {
         var forecastDateTime = ForecastDateTime(60)
@@ -28,6 +28,6 @@ class ForecastDateTimeSpec: QuickSpec {
         expect(forecastDateTime.shortTime).to(equal("10:00"))
       }
     }
-    
+
   }
 }

@@ -12,6 +12,6 @@ struct Error {
     case JSONSerializationFailed  = -6002
     case JSONParsingFailed        = -6003
   }
-  
+
   let errorCode: Code
 }

@@ -8,9 +8,9 @@ import Nimble
 @testable import SwiftWeather
 
 class TemperatureSpec: QuickSpec {
-  
+
   override func spec() {
-    
+
     describe("#init(country:openWeatherMapDegrees:)") {
       context("country is US") {
         it("should convert temperature to Fahrenheit") {
@@ -25,7 +25,7 @@ class TemperatureSpec: QuickSpec {
         }
       }
     }
-    
+
   }
-    
+
 }

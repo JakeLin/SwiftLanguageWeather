@@ -13,19 +13,22 @@ import Foundation
     var caseAndReturnString = '';
     Array.prototype.forEach.call(document.styleSheets[1].cssRules,function(element){
     if (element.selectorText && element.selectorText.startsWith('.wi-owm')) {
-      var caseName = element.selectorText.substring(8, element.selectorText.indexOf('::before')).replace('-', '')
+      var caseName = element.selectorText.substring(8,
+        element.selectorText.indexOf('::before')).replace('-', '')
       caseString += 'case ' + caseName + ' = "' + caseName + '"\n';
-      caseAndReturnString += 'case .' + caseName + ': return "\\u{' + element.style['content'].charCodeAt(1).toString(16) + '}"\n'
+      caseAndReturnString += 'case .' + caseName + ': return "\\u{'
+        + element.style['content'].charCodeAt(1).toString(16) + '}"\n'
     }
     });
     console.log(caseString);
     console.log(caseAndReturnString);
   ```
 */
+// swiftlint:disable type_body_length
 struct WeatherIcon {
   let iconText: String
-  
-  enum IconType : String, CustomStringConvertible {
+
+  enum IconType: String, CustomStringConvertible {
     case day200 = "day200"
     case day201 = "day201"
     case day202 = "day202"
@@ -142,7 +145,7 @@ struct WeatherIcon {
     case night904 = "night904"
     case night906 = "night906"
     case night957 = "night957"
-    
+
     var description: String {
       switch self {
       case .day200: return "\u{f010}"
@@ -264,10 +267,10 @@ struct WeatherIcon {
       }
     }
   }
-  
+
   init(condition: Int, iconString: String) {
     var rawValue: String
-    
+
     // if iconString has 'n', it means night time.
     if iconString.rangeOfString("n") != nil {
       rawValue = "night" + String(condition)
@@ -275,7 +278,7 @@ struct WeatherIcon {
       // day time
       rawValue = "day" + String(condition)
     }
-    
+
     guard let iconType = IconType(rawValue: rawValue) else {
       iconText = ""
       return
@@ -283,3 +286,4 @@ struct WeatherIcon {
     iconText = iconType.description
   }
 }
+// swiftlint:enable type_body_length

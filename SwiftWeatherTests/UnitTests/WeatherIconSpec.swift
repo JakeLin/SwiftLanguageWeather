@@ -8,7 +8,7 @@ import Nimble
 @testable import SwiftWeather
 
 class WeatherIconSpec: QuickSpec {
-  
+
   let dayDictionary = [
     200: "\u{f010}",
     201: "\u{f010}",
@@ -129,16 +129,18 @@ class WeatherIconSpec: QuickSpec {
     906: "\u{f024}",
     957: "\u{f050}"
   ]
-  
+
   override func spec() {
-    
+
     describe("#init(condition:,iconString:)") {
       context("day") {
         context("invalid condition Int") {
-          self.expectWeatherIconWithCondition(999, isDay: true, toHaveIconTextEqualToString: "")        }
+          self.expectWeatherIconWithCondition(999, isDay: true, toHaveIconTextEqualToString: "")
+        }
         context("valid condition Int") {
           for (condition, description) in self.dayDictionary {
-            self.expectWeatherIconWithCondition(condition, isDay: true, toHaveIconTextEqualToString: description)
+            self.expectWeatherIconWithCondition(condition, isDay: true,
+              toHaveIconTextEqualToString: description)
           }
         }
       }
@@ -148,21 +150,23 @@ class WeatherIconSpec: QuickSpec {
         }
         context("valid condition Int") {
           for (condition, description) in self.nightDictionary {
-            self.expectWeatherIconWithCondition(condition, isDay: false, toHaveIconTextEqualToString: description)
+            self.expectWeatherIconWithCondition(condition, isDay: false,
+              toHaveIconTextEqualToString: description)
           }
         }
       }
     }
-    
+
   }
-  
+
 }
 
 extension WeatherIconSpec {
-  
-  func expectWeatherIconWithCondition(condition: Int, isDay: Bool, toHaveIconTextEqualToString description: String) {
+
+  func expectWeatherIconWithCondition(condition: Int, isDay: Bool,
+      toHaveIconTextEqualToString description: String) {
     let weatherIcon = WeatherIcon(condition: condition, iconString: isDay ? "day" : "night")
     expect(weatherIcon.iconText).to(equal(description))
   }
-  
+
 }
