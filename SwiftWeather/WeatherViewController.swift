@@ -6,7 +6,7 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-  
+
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var iconLabel: UILabel!
   @IBOutlet weak var temperatureLabel: UILabel!

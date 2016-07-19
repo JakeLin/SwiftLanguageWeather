@@ -9,7 +9,7 @@ struct WeatherBuilder {
   var location: String?
   var iconText: String?
   var temperature: String?
-  
+
   var forecasts: [Forecast]?
 
   func build() -> Weather {
