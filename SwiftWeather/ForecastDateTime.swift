@@ -13,9 +13,9 @@ struct ForecastDateTime {
   }
 
   var shortTime: String {
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm"
-    let date = NSDate(timeIntervalSince1970: rawDate)
-    return dateFormatter.stringFromDate(date)
+    let date = Date(timeIntervalSince1970: rawDate)
+    return dateFormatter.string(from: date)
   }
 }

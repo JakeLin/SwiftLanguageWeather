@@ -8,7 +8,7 @@ import CoreLocation
 
 class WeatherViewModel {
   // MARK: - Constants
-  private let emptyString = ""
+  fileprivate let emptyString = ""
 
   // MARK: - Properties
   let hasError: Observable<Bool>
@@ -20,8 +20,8 @@ class WeatherViewModel {
   let forecasts: Observable<[ForecastViewModel]>
 
   // MARK: - Services
-  private var locationService: LocationService
-  private var weatherService: WeatherServiceProtocol
+  fileprivate var locationService: LocationService
+  fileprivate var weatherService: WeatherServiceProtocol
 
   // MARK: - init
   init() {
@@ -45,7 +45,7 @@ class WeatherViewModel {
   }
 
   // MARK: - private
-  private func update(weather: Weather) {
+  fileprivate func update(_ weather: Weather) {
       hasError.value = false
       errorMessage.value = nil
 
@@ -59,17 +59,17 @@ class WeatherViewModel {
       forecasts.value = tempForecasts
   }
 
-  private func update(error: Error) {
+  fileprivate func update(_ error: SWError) {
       hasError.value = true
 
       switch error.errorCode {
-      case .URLError:
+      case .urlError:
         errorMessage.value = "The weather service is not working."
-      case .NetworkRequestFailed:
+      case .networkRequestFailed:
         errorMessage.value = "The network appears to be down."
-      case .JSONSerializationFailed:
+      case .jsonSerializationFailed:
         errorMessage.value = "We're having trouble processing weather data."
-      case .JSONParsingFailed:
+      case .jsonParsingFailed:
         errorMessage.value = "We're having trouble parsing weather data."
       }
 
@@ -82,9 +82,9 @@ class WeatherViewModel {
 
 // MARK: LocationServiceDelegate
 extension WeatherViewModel: LocationServiceDelegate {
-  func locationDidUpdate(service: LocationService, location: CLLocation) {
+  func locationDidUpdate(_ service: LocationService, location: CLLocation) {
     weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
-      dispatch_async(dispatch_get_main_queue(), {
+      DispatchQueue.main.async(execute: {
         if let unwrappedError = error {
           print(unwrappedError)
           self.update(unwrappedError)

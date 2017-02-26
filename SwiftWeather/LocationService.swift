@@ -7,13 +7,13 @@ import Foundation
 import CoreLocation
 
 protocol LocationServiceDelegate {
-  func locationDidUpdate(service: LocationService, location: CLLocation)
+  func locationDidUpdate(_ service: LocationService, location: CLLocation)
 }
 
 class LocationService: NSObject {
   var delegate: LocationServiceDelegate?
 
-  private let locationManager = CLLocationManager()
+  fileprivate let locationManager = CLLocationManager()
 
   override init() {
     super.init()
@@ -30,14 +30,14 @@ class LocationService: NSObject {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationService : CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let location = locations.first {
       print("Current location: \(location)")
       delegate?.locationDidUpdate(self, location: location)
     }
   }
 
-  func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("Error finding location: \(error.localizedDescription)")
   }
 }

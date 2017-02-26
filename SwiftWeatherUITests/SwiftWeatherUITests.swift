@@ -32,7 +32,7 @@ class SwiftWeatherUITests: XCTestCase {
     }
 
     /* Actually test that images load...might want to find a more exact way of doing this... */
-    func testNumberOfElements(app: XCUIApplication) {
+    func testNumberOfElements(_ app: XCUIApplication) {
         assert(app.staticTexts.count > 0)
     }
 
