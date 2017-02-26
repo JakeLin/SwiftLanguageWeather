@@ -1,7 +1,7 @@
 PODS:
-  - Nimble (4.0.1)
-  - Quick (0.9.2)
-  - SwiftyJSON (2.3.2)
+  - Nimble (6.0.1)
+  - Quick (1.1.0)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Nimble
@@ -9,10 +9,10 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: 2ec46d3741ab466dee64c9e763366836879c1f6e
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0

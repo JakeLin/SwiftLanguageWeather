@@ -22,10 +22,10 @@ class ForecastDateTimeSpec: QuickSpec {
 
     describe("#shortTime") {
       it("should return the correct shortTime string with format HH:mm") {
-        var forecastDateTime = ForecastDateTime(60)
-        expect(forecastDateTime.shortTime).to(equal("08:01"))
-        forecastDateTime = ForecastDateTime(60 * 60 * 2)
-        expect(forecastDateTime.shortTime).to(equal("10:00"))
+        var forecastDateTime = ForecastDateTime(1488096060)
+        expect(forecastDateTime.shortTime).to(equal("19:01"))
+        forecastDateTime = ForecastDateTime(1488103200)
+        expect(forecastDateTime.shortTime).to(equal("21:00"))
       }
     }
 

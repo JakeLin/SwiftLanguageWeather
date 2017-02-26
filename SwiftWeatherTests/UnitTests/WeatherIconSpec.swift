@@ -163,7 +163,7 @@ class WeatherIconSpec: QuickSpec {
 
 extension WeatherIconSpec {
 
-  func expectWeatherIconWithCondition(condition: Int, isDay: Bool,
+  func expectWeatherIconWithCondition(_ condition: Int, isDay: Bool,
       toHaveIconTextEqualToString description: String) {
     let weatherIcon = WeatherIcon(condition: condition, iconString: isDay ? "day" : "night")
     expect(weatherIcon.iconText).to(equal(description))

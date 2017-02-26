@@ -5,12 +5,12 @@
 
 import Foundation
 
-struct Error {
+struct SWError {
   enum Code: Int {
-    case URLError                 = -6000
-    case NetworkRequestFailed     = -6001
-    case JSONSerializationFailed  = -6002
-    case JSONParsingFailed        = -6003
+    case urlError                 = -6000
+    case networkRequestFailed     = -6001
+    case jsonSerializationFailed  = -6002
+    case jsonParsingFailed        = -6003
   }
 
   let errorCode: Code

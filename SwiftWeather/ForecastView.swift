@@ -25,14 +25,14 @@ import UIKit
   }
 
   func loadViewFromNib() -> UIView {
-    let bundle = NSBundle(forClass: self.dynamicType)
+    let bundle = Bundle(for: type(of: self))
     let nib = UINib(nibName: nibName(), bundle: bundle)
     // swiftlint:disable force_cast
-    let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+    let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
     // swiftlint:enable force_cast
 
     view.frame = bounds
-    view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     addSubview(view)
     return view
   }
@@ -57,7 +57,7 @@ import UIKit
     }
   }
 
-  func loadViewModel(viewModel: ForecastViewModel) {
+  func loadViewModel(_ viewModel: ForecastViewModel) {
     self.viewModel = viewModel
   }
 
@@ -133,7 +133,7 @@ import UIKit
   }
 
   // MARK: - Private
-  private func nibName() -> String {
-    return String(self.dynamicType)
+  fileprivate func nibName() -> String {
+    return String(describing: type(of: self))
   }
 }
