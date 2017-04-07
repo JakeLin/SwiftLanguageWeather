@@ -63,7 +63,7 @@ There is two major version for the app released before.
 * App indexing like CoreSpotlight and `NSUserActivity`
 * <s>Unit Tests</s>
 * UI Tests
-* Animations  
+* <s>Animations</s>  
 
 ## How to build
 
