@@ -22,14 +22,14 @@ class SwiftWeatherUITests: QuickSpec {
             context("location service is enabled") {
                 context("when in portrait") {
                     beforeEach {
-                        XCUIDevice.shared().orientation = .portrait
+                        XCUIDevice.shared.orientation = .portrait
                     }
                     itBehavesLike("a properly laidout wheather viewcontroller")
                 }
 
                 context("when in landscape") {
                     beforeEach {
-                        XCUIDevice.shared().orientation = .landscapeLeft
+                        XCUIDevice.shared.orientation = .landscapeLeft
                     }
                     itBehavesLike("a properly laidout wheather viewcontroller")
                 }
