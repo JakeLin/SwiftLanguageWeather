@@ -23,6 +23,7 @@ class WeatherViewController: UIViewController {
     super.viewDidLoad()
     viewModel = WeatherViewModel()
     viewModel?.startLocationService()
+    setA11yIdentifiers()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -108,4 +109,13 @@ class WeatherViewController: UIViewController {
         }
       }
     }
-  }
+
+    //MARK: Accessibility
+    func setA11yIdentifiers() {
+        locationLabel.accessibilityIdentifier = "a11y_current_city"
+        iconLabel.accessibilityIdentifier = "a11y_wheather_icon"
+        temperatureLabel.accessibilityIdentifier = "a11y_wheather_temperature"
+    }
+
+
+}
