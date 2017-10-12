@@ -1,25 +1,23 @@
 Swift Weather
 ============
 [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=562a9aac2492560100211378&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/562a9aac2492560100211378/build/latest)
-![Language](https://img.shields.io/badge/language-Swift%202-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%203-orange.svg)
 ![License](https://img.shields.io/github/license/JakeLin/SwiftWeather.svg?style=flat)
 
-SwiftWeather is an iOS weather app developed in Swift 2. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
+SwiftWeather is an iOS weather app developed in Swift 3. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
 
 ## Notices
 The current version is working with Xcode Version 7. If you are using different Xcode version, please check out the previous releases. 
 
-### How about Swift 3?
-We have investigated Swift 3. We need to wait for the third party libraries support Swift 3 first, then we can upgrade Swift Weather to support Swift 3.
-
 ## Version 3
-This version has been upgraded to support iOS 9 only using Swift 2.
+This version has been upgraded to support iOS 9 only using Swift 3.
 
 There is two major version for the app released before.
 
 * V1.0 - Support iOS 7+ using CocoaPods and AFNetworking. [README.v1.md](https://github.com/JakeLin/SwiftWeather/blob/master/README.v1.md) and [Release V1 - Using CocoaPods and AFNetworking](https://github.com/JakeLin/SwiftWeather/releases/tag/V1)
 * V2.0 - Support iOS 8+ using Carthage, Alamofire, and SwiftyJSON. [README.v2.md](https://github.com/JakeLin/SwiftWeather/blob/master/README.v2.md) and [Release V2.0](https://github.com/JakeLin/SwiftWeather/releases/tag/v2.0)
 * V2.1 -  Support iOS 8+ using Alamofire and SwiftyJSON. This version has removed Carthage because some developers don't have a paid Apple iOS developer account, and they have issues to build Carthage packages.
+* V3 -  Support iOS 9+ and Swift 3.
 
 
 ## Screenshots
@@ -102,3 +100,5 @@ $ echo "your-openweathermap-appid" > .access_tokens/openweathermap
 
 * Xcode 7
 * iOS 9
+
+
