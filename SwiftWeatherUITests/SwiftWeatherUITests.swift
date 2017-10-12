@@ -19,18 +19,20 @@ class SwiftWeatherUITests: QuickSpec {
         }
 
         describe("a wheather viewcontroller") {
-            context("when the app orientation is portrait") {
-                beforeEach {
-                    XCUIDevice.shared().orientation = .portrait
+            context("location service is enabled") {
+                context("when in portrait") {
+                    beforeEach {
+                        XCUIDevice.shared().orientation = .portrait
+                    }
+                    itBehavesLike("a properly laidout wheather viewcontroller")
                 }
-                itBehavesLike("a regular wheather viewcontroller")
-            }
 
-            context("when the app orientation is landscape") {
-                beforeEach {
-                    XCUIDevice.shared().orientation = .landscapeLeft
+                context("when in landscape") {
+                    beforeEach {
+                        XCUIDevice.shared().orientation = .landscapeLeft
+                    }
+                    itBehavesLike("a properly laidout wheather viewcontroller")
                 }
-                itBehavesLike("a regular wheather viewcontroller")
             }
         }
     }
@@ -39,18 +41,28 @@ class SwiftWeatherUITests: QuickSpec {
 class RegularWheatherViewControllerConfiguration: QuickConfiguration {
     override class func configure(_ configuration: Configuration) {
         let app = XCUIApplication()
+        let window = app.windows.element(boundBy: 0)
 
-        sharedExamples("a regular wheather viewcontroller") { (context: SharedExampleContext) in
+        sharedExamples("a properly laidout wheather viewcontroller") { (context: SharedExampleContext) in
             it("shows city") {
-                expect(app.staticTexts["a11y_current_city"].exists).to(beTruthy())
+                let cityLabel = app.staticTexts["a11y_current_city"]
+
+                expect(cityLabel.exists).to(beTruthy())
+                expect(window.frame.contains(cityLabel.frame)).to(beTruthy())
             }
 
             it("shows wheather icon") {
-                expect(app.staticTexts["a11y_wheather_icon"].exists).to(beTruthy())
+                let wheatherIconLabel = app.staticTexts["a11y_wheather_icon"]
+
+                expect(wheatherIconLabel.exists).to(beTruthy())
+                expect(window.frame.contains(wheatherIconLabel.frame)).to(beTruthy())
             }
 
             it("shows wheather temperature") {
-                expect(app.staticTexts["a11y_wheather_temperature"].exists).to(beTruthy())
+                let wheatherTemperatureLabel = app.staticTexts["a11y_wheather_temperature"]
+
+                expect(wheatherTemperatureLabel.exists).to(beTruthy())
+                expect(window.frame.contains(wheatherTemperatureLabel.frame)).to(beTruthy())
             }
         }
     }
