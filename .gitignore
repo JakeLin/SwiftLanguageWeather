@@ -81,3 +81,6 @@ Carthage.checkout
 
 # Access keys
 .access_tokens
+
+# rbenv
+.ruby-version
