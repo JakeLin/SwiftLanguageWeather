@@ -14,11 +14,33 @@ class SwiftWeatherUITests: QuickSpec {
 
         beforeSuite {
             self.continueAfterFailure = false
-            XCUIDevice.shared().orientation = .portrait
+
             app.launch()
         }
 
         describe("a wheather viewcontroller") {
+            context("when the app orientation is portrait") {
+                beforeEach {
+                    XCUIDevice.shared().orientation = .portrait
+                }
+                itBehavesLike("a regular wheather viewcontroller")
+            }
+
+            context("when the app orientation is landscape") {
+                beforeEach {
+                    XCUIDevice.shared().orientation = .landscapeLeft
+                }
+                itBehavesLike("a regular wheather viewcontroller")
+            }
+        }
+    }
+}
+
+class RegularWheatherViewControllerConfiguration: QuickConfiguration {
+    override class func configure(_ configuration: Configuration) {
+        let app = XCUIApplication()
+
+        sharedExamples("a regular wheather viewcontroller") { (context: SharedExampleContext) in
             it("shows city") {
                 expect(app.staticTexts["a11y_current_city"].exists).to(beTruthy())
             }
@@ -32,5 +54,5 @@ class SwiftWeatherUITests: QuickSpec {
             }
         }
     }
-
 }
+
