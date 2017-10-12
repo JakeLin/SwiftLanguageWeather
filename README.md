@@ -1,23 +1,23 @@
 Swift Weather
 ============
 [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=562a9aac2492560100211378&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/562a9aac2492560100211378/build/latest)
-![Language](https://img.shields.io/badge/language-Swift%203-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%204-orange.svg)
 ![License](https://img.shields.io/github/license/JakeLin/SwiftWeather.svg?style=flat)
 
-SwiftWeather is an iOS weather app developed in Swift 3. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
+SwiftWeather is an iOS weather app developed in Swift 4. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
 
 ## Notices
-The current version is working with Xcode Version 7. If you are using different Xcode version, please check out the previous releases. 
+The current version is working with Xcode Version 9. If you are using different Xcode version, please check out the previous releases. 
 
-## Version 3
-This version has been upgraded to support iOS 9 only using Swift 3.
+## Version 4
+This version has been upgraded to support iOS 10+ only using Swift 4.
 
-There is two major version for the app released before.
+There is three major version for the app released before.
 
 * V1.0 - Support iOS 7+ using CocoaPods and AFNetworking. [README.v1.md](https://github.com/JakeLin/SwiftWeather/blob/master/README.v1.md) and [Release V1 - Using CocoaPods and AFNetworking](https://github.com/JakeLin/SwiftWeather/releases/tag/V1)
 * V2.0 - Support iOS 8+ using Carthage, Alamofire, and SwiftyJSON. [README.v2.md](https://github.com/JakeLin/SwiftWeather/blob/master/README.v2.md) and [Release V2.0](https://github.com/JakeLin/SwiftWeather/releases/tag/v2.0)
 * V2.1 -  Support iOS 8+ using Alamofire and SwiftyJSON. This version has removed Carthage because some developers don't have a paid Apple iOS developer account, and they have issues to build Carthage packages.
-* V3 -  Support iOS 9+ and Swift 3.
+* V3.0 -  Support iOS 9+ and Swift 3.
 
 
 ## Screenshots
@@ -46,22 +46,15 @@ There is two major version for the app released before.
 ![Size Classes](https://raw.githubusercontent.com/JakeLin/SwiftWeather/master/screenshots/UIStackView-with-Size-Classes.png)
 
 * MVVM - Reactively update `ViewController` UI from `ViewModel`
-
 * Protocol-Oriented Programming - Still learning though and finding the best practice of that.
-
 * Value based programming - Use imutable value anywhere.
-
 * Icon fonts － Use [Weather Icons](https://erikflowers.github.io/weather-icons/)
- 
 * [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
-
 * Core Location
-
-## TODO
-* <s>App indexing like CoreSpotlight and `NSUserActivity`</s> 
-* <s>Unit Tests</s>
+* App indexing like CoreSpotlight and `NSUserActivity`
+* Unit Tests
 * UI Tests
-* <s>Animations</s>  
+* Animations
 
 ## How to build
 
@@ -98,7 +91,8 @@ $ echo "your-openweathermap-appid" > .access_tokens/openweathermap
 
 # Requirements
 
-* Xcode 7
-* iOS 9
+* Xcode 9
+* iOS 10+
+* Swift 4
 
 
