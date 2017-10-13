@@ -4,36 +4,67 @@
 //
 
 import XCTest
+import Quick
+import Nimble
 
-class SwiftWeatherUITests: XCTestCase {
+class SwiftWeatherUITests: QuickSpec {
 
-    override func setUp() {
-        super.setUp()
-
-        // Put setup code here. This method is called before the invocation of each test method in
-        // the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure
-        // it happens for each test method.
-        XCUIApplication().launch()
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method
-        // in the class.
-        super.tearDown()
-    }
-
-    func testApp() {
+    override func spec() {
         let app = XCUIApplication()
-        testNumberOfElements(app)
-    }
 
-    /* Actually test that images load...might want to find a more exact way of doing this... */
-    func testNumberOfElements(_ app: XCUIApplication) {
-        assert(app.staticTexts.count > 0)
-    }
+        beforeSuite {
+            self.continueAfterFailure = false
 
+            app.launch()
+        }
+
+        describe("a wheather viewcontroller") {
+            context("location service is enabled") {
+                context("when in portrait") {
+                    beforeEach {
+                        XCUIDevice.shared.orientation = .portrait
+                    }
+                    itBehavesLike("a properly laidout wheather viewcontroller")
+                }
+
+                context("when in landscape") {
+                    beforeEach {
+                        XCUIDevice.shared.orientation = .landscapeLeft
+                    }
+                    itBehavesLike("a properly laidout wheather viewcontroller")
+                }
+            }
+        }
+    }
 }
+
+class RegularWheatherViewControllerConfiguration: QuickConfiguration {
+    override class func configure(_ configuration: Configuration) {
+        let app = XCUIApplication()
+        let window = app.windows.element(boundBy: 0)
+
+        sharedExamples("a properly laidout wheather viewcontroller") { (context: SharedExampleContext) in
+            it("shows city") {
+                let cityLabel = app.staticTexts["a11y_current_city"]
+
+                expect(cityLabel.exists).to(beTruthy())
+                expect(window.frame.contains(cityLabel.frame)).to(beTruthy())
+            }
+
+            it("shows wheather icon") {
+                let wheatherIconLabel = app.staticTexts["a11y_wheather_icon"]
+
+                expect(wheatherIconLabel.exists).to(beTruthy())
+                expect(window.frame.contains(wheatherIconLabel.frame)).to(beTruthy())
+            }
+
+            it("shows wheather temperature") {
+                let wheatherTemperatureLabel = app.staticTexts["a11y_wheather_temperature"]
+
+                expect(wheatherTemperatureLabel.exists).to(beTruthy())
+                expect(window.frame.contains(wheatherTemperatureLabel.frame)).to(beTruthy())
+            }
+        }
+    }
+}
+

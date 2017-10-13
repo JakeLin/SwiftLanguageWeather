@@ -5,8 +5,12 @@ target 'SwiftWeather' do
     pod 'SwiftyJSON'
 end
 
-target 'SwiftWeatherTests' do
+abstract_target 'Tests' do
     pod 'Quick'
     pod 'Nimble'
+
+    target 'SwiftWeatherTests'
+    target 'SwiftWeatherUITests'
 end
+
 
