@@ -50,25 +50,26 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
     }
 
     print(url)
-    let request = URLRequest(url: url)
-    let task = session.dataTask(with: request,
-        completionHandler: { data, response, networkError in
-
+    let task = session.dataTask(with: url) { (data, response, error) in
       // Check network error
-      guard networkError == nil else {
+      guard error == nil else {
         let error = SWError(errorCode: .networkRequestFailed)
         completionHandler(nil, error)
         return
       }
-
+      
       // Check JSON serialization error
-      guard let unwrappedData = data else {
+      guard let data = data else {
         let error = SWError(errorCode: .jsonSerializationFailed)
         completionHandler(nil, error)
         return
       }
 
-      let json = JSON(data: unwrappedData)
+      guard let json = try? JSON(data: data) else {
+        let error = SWError(errorCode: .jsonParsingFailed)
+        completionHandler(nil, error)
+        return
+      }
 
       // Get temperature, location and icon and check parsing error
       guard let tempDegrees = json["list"][0]["main"]["temp"].double,
@@ -89,11 +90,10 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
       let weatherIcon = WeatherIcon(condition: weatherCondition, iconString: iconString)
       weatherBuilder.iconText = weatherIcon.iconText
 
-
       weatherBuilder.forecasts = self.getFirstFourForecasts(json)
 
       completionHandler(weatherBuilder.build(), nil)
-    })
+    }
 
     task.resume()
   }
