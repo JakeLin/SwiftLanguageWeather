@@ -8,6 +8,7 @@ import CoreLocation
 
 protocol LocationServiceDelegate {
   func locationDidUpdate(_ service: LocationService, location: CLLocation)
+    func locationDidFail(withError error: SWError)
 }
 
 class LocationService: NSObject {
@@ -38,6 +39,8 @@ extension LocationService : CLLocationManagerDelegate {
   }
 
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    let swError = SWError(errorCode: .unableToFindLocation)
+    delegate?.locationDidFail(withError: swError)
     print("Error finding location: \(error.localizedDescription)")
   }
 }

@@ -11,6 +11,7 @@ struct SWError {
     case networkRequestFailed     = -6001
     case jsonSerializationFailed  = -6002
     case jsonParsingFailed        = -6003
+    case unableToFindLocation  = -6004
   }
 
   let errorCode: Code
