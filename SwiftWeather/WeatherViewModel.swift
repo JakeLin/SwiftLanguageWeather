@@ -71,8 +71,10 @@ class WeatherViewModel {
         errorMessage.value = "We're having trouble processing weather data."
       case .jsonParsingFailed:
         errorMessage.value = "We're having trouble parsing weather data."
+      case .unableToFindLocation:
+        errorMessage.value = "We're having trouble getting user location."
       }
-
+    
       location.value = emptyString
       iconText.value = emptyString
       temperature.value = emptyString
@@ -97,5 +99,9 @@ extension WeatherViewModel: LocationServiceDelegate {
         self.update(unwrappedWeather)
       })
     }
+  }
+  
+  func locationDidFail(withError error: SWError) {
+      self.update(error)
   }
 }
