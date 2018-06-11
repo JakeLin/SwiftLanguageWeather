@@ -18,7 +18,6 @@ class LocationService: NSObject {
 
   override init() {
     super.init()
-
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
   }
@@ -29,7 +28,7 @@ class LocationService: NSObject {
   }
 }
 
-// MARK: - CLLocationManagerDelegate
+// MARK: - CLLocationManager Delegate
 extension LocationService : CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let location = locations.first {

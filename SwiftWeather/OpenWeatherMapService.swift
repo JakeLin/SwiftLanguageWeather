@@ -5,7 +5,6 @@
 
 import Foundation
 import CoreLocation
-
 import SwiftyJSON
 
 struct OpenWeatherMapService: WeatherServiceProtocol {
@@ -48,8 +47,7 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
       completionHandler(nil, error)
       return
     }
-
-    print(url)
+    
     let task = session.dataTask(with: url) { (data, response, error) in
       // Check network error
       guard error == nil else {
