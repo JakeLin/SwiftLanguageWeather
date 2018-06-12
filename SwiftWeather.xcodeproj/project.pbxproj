@@ -316,7 +316,6 @@
 				AECBA5E01B836BF20004A536 /* Resources */,
 				ADD0EBFC1C562E52002D8392 /* ShellScript */,
 				6691608BB84CB91D5EDADE36 /* [CP] Embed Pods Frameworks */,
-				32518075271F3E332F6C65A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,7 +335,6 @@
 				AECBA5F31B836BF20004A536 /* Frameworks */,
 				AECBA5F41B836BF20004A536 /* Resources */,
 				3211EE071253F1D6513A17BA /* [CP] Embed Pods Frameworks */,
-				DD8CF84103252EE893788AE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -357,7 +355,6 @@
 				AECBA5FE1B836BF20004A536 /* Frameworks */,
 				AECBA5FF1B836BF20004A536 /* Resources */,
 				EC9ED72913B1DE182823A53C /* [CP] Embed Pods Frameworks */,
-				1B9DE6A0CE065E744D7CB96E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -381,6 +378,7 @@
 				TargetAttributes = {
 					AECBA5E11B836BF20004A536 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 32GB2HU6K5;
 						LastSwiftMigration = 0900;
 					};
 					AECBA5F51B836BF20004A536 = {
@@ -445,21 +443,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B9DE6A0CE065E744D7CB96E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-SwiftWeatherUITests/Pods-Tests-SwiftWeatherUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2A25B97139655BE3B502C748 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -498,21 +481,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-SwiftWeatherTests/Pods-Tests-SwiftWeatherTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		32518075271F3E332F6C65A9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWeather/Pods-SwiftWeather-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6691608BB84CB91D5EDADE36 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,10 +488,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWeather/Pods-SwiftWeather-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,21 +557,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "token_file=.access_tokens/openweathermap\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace OWMAccessToken -string $token $TARGET_BUILD_DIR/$INFOPLIST_PATH\nelse\necho 'error: Missing OpenWeatherMap access token'\nopen 'http://openweathermap.org/appid'\necho \"error: Get an access token from <http://openweathermap.org/appid>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi";
-		};
-		DD8CF84103252EE893788AE8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-SwiftWeatherTests/Pods-Tests-SwiftWeatherTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		EC9ED72913B1DE182823A53C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -805,7 +768,7 @@
 			baseConfigurationReference = 900AFFBB41C69FC277CB0A33 /* Pods-SwiftWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 32GB2HU6K5;
 				INFOPLIST_FILE = SwiftWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushjet.SwiftWeather;
@@ -820,7 +783,7 @@
 			baseConfigurationReference = E835C39D4B929F35B6A57B12 /* Pods-SwiftWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 32GB2HU6K5;
 				INFOPLIST_FILE = SwiftWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushjet.SwiftWeather;

@@ -1,24 +1,53 @@
 PODS:
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - FacebookCore (0.3.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.27)
+  - FacebookShare (0.3.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3)
+    - FBSDKCoreKit (~> 4.27)
+    - FBSDKShareKit (~> 4.27)
+  - FBSDKCoreKit (4.33.0):
+    - Bolts (~> 1.7)
+  - FBSDKShareKit (4.33.0):
+    - FBSDKCoreKit (~> 4.33.0)
   - Nimble (7.0.3)
   - Quick (1.2.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - FacebookShare
   - Nimble
   - Quick
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Bolts
+    - FacebookCore
+    - FacebookShare
+    - FBSDKCoreKit
+    - FBSDKShareKit
     - Nimble
     - Quick
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
+  FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
+  FBSDKCoreKit: 572b047a7e029bc44542bcf8a59414e7ff2b543e
+  FBSDKShareKit: 1869cb24db2cea90666a50cb9d568deb38e2d16e
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 3509c4c63edbe9a7b092aab021ca4e248077b966
+PODFILE CHECKSUM: 28f6397e3ce4b1c0258bb51e941d6155f9477e75
 
 COCOAPODS: 1.5.0
