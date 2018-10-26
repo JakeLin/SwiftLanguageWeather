@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="weathericons-regular-webfont.ttf">
+            <string>WeatherIcons-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ltW-sF-bTr">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htv-ek-ss2">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="OvU-AS-Rdc">
+                                        <rect key="frame" x="124" y="60" width="166" height="321.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-Hp-9tQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="166" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpu-b6-x2O">
+                                                <rect key="frame" x="5.6666666666666572" y="44.999999999999986" width="155" height="202.66666666666663"/>
+                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="140"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQN-rJ-zsr">
+                                                <rect key="frame" x="34" y="249.66666666666666" width="98" height="71.666666666666657"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-fd-0Td">
+                                        <rect key="frame" x="20" y="528" width="374" height="128"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYl-zv-oEG" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="128"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lj-yU-A8M" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                <rect key="frame" x="93.666666666666686" y="0.0" width="93.333333333333314" height="128"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYP-BU-aZG" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                <rect key="frame" x="187" y="0.0" width="93.666666666666686" height="128"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWR-z6-Vja" customClass="ForecastView" customModule="SwiftWeather" customModuleProvider="target">
+                                                <rect key="frame" x="280.66666666666669" y="0.0" width="93.333333333333314" height="128"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="BYl-zv-oEG" firstAttribute="width" secondItem="zbP-fd-0Td" secondAttribute="width" multiplier="0.25" id="25T-AM-fXz"/>
+                                            <constraint firstItem="BYl-zv-oEG" firstAttribute="width" secondItem="1lj-yU-A8M" secondAttribute="width" id="6yj-Vv-peF"/>
+                                            <constraint firstItem="BYl-zv-oEG" firstAttribute="width" secondItem="LYP-BU-aZG" secondAttribute="width" id="Nbx-1y-ciW"/>
+                                            <constraint firstItem="BYl-zv-oEG" firstAttribute="width" secondItem="oWR-z6-Vja" secondAttribute="width" id="Q35-Ao-bqC"/>
+                                            <constraint firstAttribute="height" constant="128" id="urB-3U-z3c"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="OvU-AS-Rdc" firstAttribute="centerX" secondItem="htv-ek-ss2" secondAttribute="centerX" id="8bP-VY-QMu"/>
+                                    <constraint firstItem="OvU-AS-Rdc" firstAttribute="top" secondItem="htv-ek-ss2" secondAttribute="top" constant="60" id="OFd-Tc-sL9"/>
+                                    <constraint firstAttribute="bottom" secondItem="zbP-fd-0Td" secondAttribute="bottom" constant="60" id="PWc-uC-PtI"/>
+                                    <constraint firstItem="zbP-fd-0Td" firstAttribute="leading" secondItem="htv-ek-ss2" secondAttribute="leading" constant="20" id="YXw-xG-8Rd"/>
+                                    <constraint firstAttribute="trailing" secondItem="zbP-fd-0Td" secondAttribute="trailing" constant="20" id="hNy-de-a8x"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ltW-sF-bTr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="05i-xW-MtE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="htv-ek-ss2" secondAttribute="bottom" id="Ckz-dr-Ibi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ltW-sF-bTr" secondAttribute="trailing" id="NWX-mj-Lt5"/>
+                            <constraint firstItem="htv-ek-ss2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UWw-Cy-xMl"/>
+                            <constraint firstItem="htv-ek-ss2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YtP-Ws-IsF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ltW-sF-bTr" secondAttribute="bottom" id="fvb-iu-EpO"/>
+                            <constraint firstItem="ltW-sF-bTr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="peL-wj-f1h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="htv-ek-ss2" secondAttribute="trailing" id="z6a-bh-v8r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="1250" height="781"/>
+    </resources>
+</document>
