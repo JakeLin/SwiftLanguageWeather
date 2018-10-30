@@ -113,9 +113,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="errorMessageLabel" destination="MIs-7x-UtJ" id="9dK-Bf-tIc"/>
                         <outlet property="iconLabel" destination="Xpu-b6-x2O" id="X3h-9R-Cyo"/>
                         <outlet property="locationLabel" destination="bXP-Hp-9tQ" id="GuC-Tg-yYS"/>
+                        <outlet property="messageLabel" destination="MIs-7x-UtJ" id="UZD-Jp-7Il"/>
                         <outlet property="temperatureLabel" destination="bQN-rJ-zsr" id="Q7y-Fe-tG6"/>
                         <outletCollection property="forecastViews" destination="BYl-zv-oEG" collectionClass="NSMutableArray" id="EOy-3R-lcZ"/>
                         <outletCollection property="forecastViews" destination="1lj-yU-A8M" collectionClass="NSMutableArray" id="nR4-Wj-0ZV"/>

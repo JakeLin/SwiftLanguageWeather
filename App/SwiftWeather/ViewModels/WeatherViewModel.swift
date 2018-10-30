@@ -13,7 +13,7 @@ private let emptyString = ""
 
 class WeatherViewModel {
     // MARK: - Properties
-    let errorMessage: LiveData<String?>
+    let message: LiveData<String>
     
     let location: LiveData<String>
     let iconText: LiveData<String>
@@ -26,7 +26,7 @@ class WeatherViewModel {
     
     // MARK: - init
     init() {
-        errorMessage = LiveData(nil)
+        message = LiveData("Loading...")
         
         location = LiveData(emptyString)
         iconText = LiveData(emptyString)
@@ -47,7 +47,7 @@ class WeatherViewModel {
 
 private extension WeatherViewModel {
     func update(weather: Weather) {
-        errorMessage.postValue(value: nil)
+        message.postValue(value: emptyString)
         
         location.postValue(value: weather.location)
         iconText.postValue(value: weather.iconText)
@@ -60,13 +60,13 @@ private extension WeatherViewModel {
     func update(error: AppError) {
         switch error {
         case .urlError:
-            errorMessage.postValue(value: "The weather service is not working.")
+            message.postValue(value: "The weather service is not working.")
         case .networkRequestFailed:
-            errorMessage.postValue(value: "The network appears to be down.")
+            message.postValue(value: "The network appears to be down.")
         case .jsonParsingFailed:
-            errorMessage.postValue(value: "We're having trouble parsing weather data.")
+            message.postValue(value: "We're having trouble parsing weather data.")
         case .unableToFindLocation:
-            errorMessage.postValue(value: "We're having trouble getting user location.")
+            message.postValue(value: "We're having trouble getting user location.")
         }
         
         location.postValue(value: emptyString)

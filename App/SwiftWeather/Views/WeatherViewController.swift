@@ -12,8 +12,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var iconLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
-    @IBOutlet private weak var errorMessageLabel: UILabel!
-    @IBOutlet var forecastViews: [ForecastView]!
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private var forecastViews: [ForecastView]!
     
     private let viewModel = WeatherViewModel()
     
@@ -36,8 +36,8 @@ private extension WeatherViewController {
         viewModel.temperature.observe { [unowned self] in
             self.temperatureLabel.text = $0
         }
-        viewModel.errorMessage.observe { [unowned self] in
-            self.errorMessageLabel.text = $0
+        viewModel.message.observe { [unowned self] in
+            self.messageLabel.text = $0
         }
         
         viewModel.forecasts.observe { [unowned self] in
