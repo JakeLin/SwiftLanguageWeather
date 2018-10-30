@@ -69,7 +69,7 @@ $ git clone https://github.com/JakeLin/SwiftLanguageWeather.git
 2) Install pods
 
 ```bash
-$ cd SwiftLanguageWeather
+$ cd SwiftLanguageWeather/App
 $ pod install
 ```
 

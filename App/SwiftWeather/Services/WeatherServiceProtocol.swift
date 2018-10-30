@@ -9,9 +9,9 @@
 import Foundation
 import CoreLocation
 
-typealias WeatherCompletionHandler = (Weather?, SWError?) -> Void
+typealias WeatherCompletionHandler = (Weather?, AppError?) -> Void
 
 protocol WeatherServiceProtocol {
-    func retrieveWeatherInfo(_ location: CLLocation, completionHandler: @escaping WeatherCompletionHandler)
+    func requestWeather(location: CLLocation, completionHandler: @escaping WeatherCompletionHandler)
 }
 

@@ -12,7 +12,7 @@ import Foundation
 class LiveData<T> {
     typealias Observer = (T) -> Void
     var observer: Observer?
-    var value: T
+    private var value: T
     
     init(_ value: T) {
         self.value = value

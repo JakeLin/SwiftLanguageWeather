@@ -9,12 +9,10 @@
 import Foundation
 import CoreLocation
 
+private let emptyString = ""
+
 class WeatherViewModel {
-    // MARK: - Constants
-    fileprivate let emptyString = ""
-    
     // MARK: - Properties
-    let hasError: LiveData<Bool>
     let errorMessage: LiveData<String?>
     
     let location: LiveData<String>
@@ -23,12 +21,11 @@ class WeatherViewModel {
     let forecasts: LiveData<[ForecastViewModel]>
     
     // MARK: - Services
-    fileprivate var locationService: LocationService
-    fileprivate var weatherService: WeatherServiceProtocol
+    private var locationService: LocationService
+    private var weatherService: WeatherServiceProtocol
     
     // MARK: - init
     init() {
-        hasError = LiveData(false)
         errorMessage = LiveData(nil)
         
         location = LiveData(emptyString)
@@ -46,65 +43,59 @@ class WeatherViewModel {
         locationService.delegate = self
         locationService.requestLocation()
     }
-    
-    // MARK: - private
-    fileprivate func update(_ weather: Weather) {
-        hasError.value = false
-        errorMessage.value = nil
+}
+
+private extension WeatherViewModel {
+    func update(weather: Weather) {
+        errorMessage.postValue(value: nil)
         
-        location.value = weather.location
-        iconText.value = weather.iconText
-        temperature.value = weather.temperature
+        location.postValue(value: weather.location)
+        iconText.postValue(value: weather.iconText)
+        temperature.postValue(value: weather.temperature)
         
-        let tempForecasts = weather.forecasts.map { forecast in
+        let forecastsValue = weather.forecasts.map { forecast in
             return ForecastViewModel(forecast)
         }
-        forecasts.value = tempForecasts
+        forecasts.postValue(value: forecastsValue)
     }
     
-    fileprivate func update(_ error: SWError) {
-        hasError.value = true
-        
+    func update(error: AppError) {
         switch error {
         case .urlError:
-            errorMessage.value = "The weather service is not working."
+            errorMessage.postValue(value: "The weather service is not working.")
         case .networkRequestFailed:
-            errorMessage.value = "The network appears to be down."
-        case .jsonSerializationFailed:
-            errorMessage.value = "We're having trouble processing weather data."
+            errorMessage.postValue(value: "The network appears to be down.")
         case .jsonParsingFailed:
-            errorMessage.value = "We're having trouble parsing weather data."
+            errorMessage.postValue(value: "We're having trouble parsing weather data.")
         case .unableToFindLocation:
-            errorMessage.value = "We're having trouble getting user location."
+            errorMessage.postValue(value: "We're having trouble getting user location.")
         }
         
-        location.value = emptyString
-        iconText.value = emptyString
-        temperature.value = emptyString
-        self.forecasts.value = []
+        location.postValue(value: emptyString)
+        iconText.postValue(value: emptyString)
+        temperature.postValue(value: emptyString)
+        self.forecasts.postValue(value: [])
     }
 }
 
 // MARK: LocationServiceDelegate
 extension WeatherViewModel: LocationServiceDelegate {
-    func locationDidUpdate(_ service: LocationService, location: CLLocation) {
-        weatherService.retrieveWeatherInfo(location) { (weather, error) -> Void in
-            DispatchQueue.main.async(execute: {
-                if let unwrappedError = error {
-                    print(unwrappedError)
-                    self.update(unwrappedError)
-                    return
-                }
-                
-                guard let unwrappedWeather = weather else {
-                    return
-                }
-                self.update(unwrappedWeather)
-            })
+    func locationDidUpdate(location: CLLocation) {
+        weatherService.requestWeather(location: location) { (weather, error) -> Void in
+            if let error = error {
+                print(error)
+                self.update(error: error)
+                return
+            }
+            
+            guard let weather = weather else {
+                return
+            }
+            self.update(weather: weather)
         }
     }
     
-    func locationDidFail(withError error: SWError) {
-        self.update(error)
+    func locationDidFail(error: AppError) {
+        self.update(error: error)
     }
 }

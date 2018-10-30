@@ -1,5 +1,5 @@
 //
-//  SWError.swift
+//  AppError.swift
 //  SwiftWeather
 //
 //  Created by Jake Lin on 22/10/18.
@@ -8,10 +8,9 @@
 
 import Foundation
 
-enum SWError: Error {
+enum AppError: Error {
     case urlError
     case networkRequestFailed
-    case jsonSerializationFailed
     case jsonParsingFailed
     case unableToFindLocation
 }
