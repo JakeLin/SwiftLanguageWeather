@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var iconLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var errorMessageLabel: UILabel!
+    @IBOutlet var forecastViews: [ForecastView]!
     
     private let viewModel = WeatherViewModel()
     
@@ -37,6 +38,14 @@ private extension WeatherViewController {
         }
         viewModel.errorMessage.observe { [unowned self] in
             self.errorMessageLabel.text = $0
+        }
+        
+        viewModel.forecasts.observe { [unowned self] in
+            if $0.count >= 4 {
+                for (index, forecastView) in self.forecastViews.enumerated() {
+                    forecastView.load(viewModel: $0[index])
+                }
+            }
         }
     }
 }

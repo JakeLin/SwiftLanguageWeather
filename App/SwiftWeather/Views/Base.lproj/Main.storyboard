@@ -117,6 +117,10 @@
                         <outlet property="iconLabel" destination="Xpu-b6-x2O" id="X3h-9R-Cyo"/>
                         <outlet property="locationLabel" destination="bXP-Hp-9tQ" id="GuC-Tg-yYS"/>
                         <outlet property="temperatureLabel" destination="bQN-rJ-zsr" id="Q7y-Fe-tG6"/>
+                        <outletCollection property="forecastViews" destination="BYl-zv-oEG" collectionClass="NSMutableArray" id="EOy-3R-lcZ"/>
+                        <outletCollection property="forecastViews" destination="1lj-yU-A8M" collectionClass="NSMutableArray" id="nR4-Wj-0ZV"/>
+                        <outletCollection property="forecastViews" destination="LYP-BU-aZG" collectionClass="NSMutableArray" id="2wp-gG-D3u"/>
+                        <outletCollection property="forecastViews" destination="oWR-z6-Vja" collectionClass="NSMutableArray" id="Tgw-Os-5el"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

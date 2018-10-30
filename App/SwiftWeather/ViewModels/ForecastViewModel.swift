@@ -12,8 +12,14 @@ struct ForecastViewModel {
     let time: LiveData<String>
     let iconText: LiveData<String>
     let temperature: LiveData<String>
-    
-    init(_ forecast: Forecast) {
+
+    init() {
+        time = LiveData("")
+        iconText = LiveData("")
+        temperature = LiveData("")
+    }
+
+    init(forecast: Forecast) {
         time = LiveData(forecast.time)
         iconText = LiveData(forecast.iconText)
         temperature = LiveData(forecast.temperature)

@@ -53,9 +53,7 @@ private extension WeatherViewModel {
         iconText.postValue(value: weather.iconText)
         temperature.postValue(value: weather.temperature)
         
-        let forecastsValue = weather.forecasts.map { forecast in
-            return ForecastViewModel(forecast)
-        }
+        let forecastsValue = weather.forecasts.map { ForecastViewModel(forecast: $0) }
         forecasts.postValue(value: forecastsValue)
     }
     
