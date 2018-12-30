@@ -40,23 +40,7 @@ class WeatherViewController: UIViewController {
     //MARK: ViewModel
     var viewModel: WeatherViewModel? {
         didSet {
-            viewModel?.location.observe {
-                [unowned self] in
-                self.locationLabel.text = $0                
-                
-                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                attributeSet.title = self.locationLabel.text
-                
-                let item = CSSearchableItem(uniqueIdentifier: self.identifier, domainIdentifier: "com.rushjet.SwiftWeather", attributeSet: attributeSet)
-                CSSearchableIndex.default().indexSearchableItems([item]){error in
-                    if let error =  error {
-                        print("Indexing error: \(error.localizedDescription)")
-                    } else {
-                        print("Location item successfully indexed")
-                    }
-                }
-            }
-            
+            setLocationLabel()
             viewModel?.iconText.observe {
                 [unowned self] in
                 self.iconLabel.text = $0
@@ -66,15 +50,7 @@ class WeatherViewController: UIViewController {
                 [unowned self] in
                 self.temperatureLabel.text = $0
             }
-            
-            viewModel?.forecasts.observe {
-                [unowned self] (forecastViewModels) in
-                if forecastViewModels.count >= 4 {
-                    for (index, forecastView) in self.forecastViews.enumerated() {
-                        forecastView.loadViewModel(forecastViewModels[index])
-                    }
-                }
-            }
+            setForcastView()
         }
     }
     
@@ -134,5 +110,36 @@ class WeatherViewController: UIViewController {
         shareDialog.failsOnInvalidData = true
 
         try? shareDialog.show()
+    }
+    
+    //MARK: Private Functions
+    private func setLocationLabel() {
+        viewModel?.location.observe {
+            [unowned self] in
+            self.locationLabel.text = $0
+            
+            let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+            attributeSet.title = self.locationLabel.text
+            
+            let item = CSSearchableItem(uniqueIdentifier: self.identifier, domainIdentifier: "com.rushjet.SwiftWeather", attributeSet: attributeSet)
+            CSSearchableIndex.default().indexSearchableItems([item]){error in
+                if let error =  error {
+                    print("Indexing error: \(error.localizedDescription)")
+                } else {
+                    print("Location item successfully indexed")
+                }
+            }
+        }
+    }
+    
+    private func setForcastView() {
+        viewModel?.forecasts.observe {
+            [unowned self] (forecastViewModels) in
+            if forecastViewModels.count >= 4 {
+                for (index, forecastView) in self.forecastViews.enumerated() {
+                    forecastView.loadViewModel(forecastViewModels[index])
+                }
+            }
+        }
     }
 }
