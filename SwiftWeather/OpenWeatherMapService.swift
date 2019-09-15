@@ -10,21 +10,20 @@ import SwiftyJSON
 struct OpenWeatherMapService: WeatherServiceProtocol {
     fileprivate let urlPath = "http://api.openweathermap.org/data/2.5/forecast"
     
-    fileprivate func getFirstFourForecasts(_ json: JSON) -> [Forecast] {
+    fileprivate func getFirstFourForecasts(_ weather: WeatherResponse) -> [Forecast] {
         var forecasts: [Forecast] = []
         
         for index in 0...3 {
-            guard let forecastTempDegrees = json["list"][index]["main"]["temp"].double,
-                let rawDateTime = json["list"][index]["dt"].double,
-                let forecastCondition = json["list"][index]["weather"][0]["id"].int,
-                let forecastIcon = json["list"][index]["weather"][0]["icon"].string else {
+            guard let forecastTempDegrees = weather.list[index].main.temp,
+                let rawDateTime = weather.list[index].dt,
+                let forecastCondition = weather.list[index].weather[0].id,
+                let forecastIcon = weather.list[index].weather[0].icon else {
                     break
             }
-            
-            let country = json["city"]["country"].string
+            let country = weather.city.country
             let forecastTemperature = Temperature(country: country!,
-                                                  openWeatherMapDegrees: forecastTempDegrees)
-            let forecastTimeString = ForecastDateTime(date: rawDateTime, timeZone: TimeZone.current).shortTime
+                                                  openWeatherMapDegrees: Double(forecastTempDegrees))
+            let forecastTimeString = ForecastDateTime(date: Double(rawDateTime), timeZone: TimeZone.current).shortTime
             let weatherIcon = WeatherIcon(condition: forecastCondition, iconString: forecastIcon)
             let forcastIconText = weatherIcon.iconText
             
@@ -63,34 +62,45 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
                 return
             }
             
-            guard let json = try? JSON(data: data) else {
+          
+            // Get temperature, location and icon and check parsing error
+
+            do{
+                let decoder = JSONDecoder()
+                let weather = try decoder.decode(WeatherResponse.self, from: data)
+                
+                    print(weather)
+                
+                guard let tempDegrees = weather.list[0].main.temp,
+                    let country = weather.city.country,
+                    let city = weather.city.name,
+                    let weatherCondition = weather.list[0].weather[0].id,
+                    let iconString = weather.list[0].weather[0].icon else {
+                        let error = SWError(errorCode: .jsonParsingFailed)
+                        completionHandler(nil, error)
+                        return
+                }
+                
+                var weatherBuilder = WeatherBuilder()
+                let temperature = Temperature(country: country, openWeatherMapDegrees:Double(tempDegrees))
+                weatherBuilder.temperature = temperature.degrees
+                weatherBuilder.location = city
+                
+                let weatherIcon = WeatherIcon(condition: weatherCondition, iconString: iconString)
+                weatherBuilder.iconText = weatherIcon.iconText
+                
+                weatherBuilder.forecasts = self.getFirstFourForecasts(weather)
+                
+                completionHandler(weatherBuilder.build(), nil)
+                
+            }catch let err{
                 let error = SWError(errorCode: .jsonParsingFailed)
                 completionHandler(nil, error)
-                return
             }
             
-            // Get temperature, location and icon and check parsing error
-            guard let tempDegrees = json["list"][0]["main"]["temp"].double,
-                let country = json["city"]["country"].string,
-                let city = json["city"]["name"].string,
-                let weatherCondition = json["list"][0]["weather"][0]["id"].int,
-                let iconString = json["list"][0]["weather"][0]["icon"].string else {
-                    let error = SWError(errorCode: .jsonParsingFailed)
-                    completionHandler(nil, error)
-                    return
-            }
+           
             
-            var weatherBuilder = WeatherBuilder()
-            let temperature = Temperature(country: country, openWeatherMapDegrees:tempDegrees)
-            weatherBuilder.temperature = temperature.degrees
-            weatherBuilder.location = city
-            
-            let weatherIcon = WeatherIcon(condition: weatherCondition, iconString: iconString)
-            weatherBuilder.iconText = weatherIcon.iconText
-            
-            weatherBuilder.forecasts = self.getFirstFourForecasts(json)
-            
-            completionHandler(weatherBuilder.build(), nil)
+           
         }
         
         task.resume()
@@ -104,8 +114,9 @@ struct OpenWeatherMapService: WeatherServiceProtocol {
         // get appId from Info.plist
         let filePath = Bundle.main.path(forResource: "Info", ofType: "plist")!
         let parameters = NSDictionary(contentsOfFile:filePath)
-        let appId = parameters!["OWMAccessToken"]! as! String
-        
+//        let appId = parameters!["OWMAccessToken"]! as! String
+        let appId = "857f750037379e2c5deff86f861e3211"
+
         let latitude = String(location.coordinate.latitude)
         let longitude = String(location.coordinate.longitude)
         
