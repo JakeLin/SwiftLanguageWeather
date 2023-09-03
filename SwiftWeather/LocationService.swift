@@ -42,4 +42,19 @@ extension LocationService : CLLocationManagerDelegate {
     delegate?.locationDidFail(withError: swError)
     print("Error finding location: \(error.localizedDescription)")
   }
+  
+  // requestWhenInUseAuthorization issue #70
+  // Handle Authorization Status Changes
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
+    @available(iOS 14.0, *)
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse{
+            locationManager.requestLocation()
+        }
+    }
 }
