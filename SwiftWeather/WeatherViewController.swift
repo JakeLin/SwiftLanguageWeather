@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import FacebookShare
+//import FacebookShare
 import CoreSpotlight
 import MobileCoreServices
 
@@ -103,13 +103,13 @@ class WeatherViewController: UIViewController {
     }
     
     func shareOnFacebook(){
-        let photo = Photo(image: #imageLiteral(resourceName: "background"), userGenerated: false)
-        let myContent = PhotoShareContent(photos: [photo])
-        let shareDialog = ShareDialog(content: myContent)
-        shareDialog.mode = .native
-        shareDialog.failsOnInvalidData = true
-
-        try? shareDialog.show()
+//        let photo = Photo(image: #imageLiteral(resourceName: "background"), userGenerated: false)
+//        let myContent = PhotoShareContent(photos: [photo])
+//        let shareDialog = ShareDialog(content: myContent)
+//        shareDialog.mode = .native
+//        shareDialog.failsOnInvalidData = true
+//
+//        try? shareDialog.show()
     }
     
     //MARK: Private Functions
