@@ -24,3 +24,13 @@ class Observable<T> {
     self.value = value
   }
 }
+
+
+struct Something {
+    let add: String
+    let Nimadir: String
+    let good: String
+    let Its_work: String
+    let Cool: Int
+}
+ 
