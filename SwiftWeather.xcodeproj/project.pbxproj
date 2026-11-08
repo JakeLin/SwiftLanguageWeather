@@ -14,6 +14,10 @@
 		AE0DC2CD1B8E7B3900E67147 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0DC2CC1B8E7B3900E67147 /* Observable.swift */; };
 		AE26CCAB1B875C2400D518CB /* ForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE26CCAA1B875C2400D518CB /* ForecastView.xib */; };
 		AE2C7D6C1BA028C000A7A714 /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C7D6B1BA028C000A7A714 /* WeatherIcon.swift */; };
+		AE3C8D1A2C7B4F3100E1234 /* ModernWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3C8D192C7B4F3100E1234 /* ModernWeatherApp.swift */; };
+		AE3C8D1B2C7B4F3100E1234 /* ModernWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3C8D1A1C7B4F3100E1234 /* ModernWeatherService.swift */; };
+		AE3C8D1C2C7B4F3100E1234 /* ModernWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3C8D1B1C7B4F3100E1234 /* ModernWeatherView.swift */; };
+		AE3C8D1D2C7B4F3100E1234 /* ModernWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3C8D1C1C7B4F3100E1234 /* ModernWeatherViewModel.swift */; };
 		AE6C34E91B84742900F726C2 /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */; };
 		AEBE643B1B8D1F90004A0814 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE643A1B8D1F90004A0814 /* ForecastViewModel.swift */; };
 		AEBE643E1B8D2108004A0814 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBE643D1B8D2108004A0814 /* Forecast.swift */; };
@@ -68,6 +72,10 @@
 		AE0DC2CC1B8E7B3900E67147 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		AE26CCAA1B875C2400D518CB /* ForecastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastView.xib; sourceTree = "<group>"; };
 		AE2C7D6B1BA028C000A7A714 /* WeatherIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
+		AE3C8D192C7B4F3100E1234 /* ModernWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernWeatherApp.swift; sourceTree = "<group>"; };
+		AE3C8D1A1C7B4F3100E1234 /* ModernWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernWeatherService.swift; sourceTree = "<group>"; };
+		AE3C8D1B1C7B4F3100E1234 /* ModernWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernWeatherView.swift; sourceTree = "<group>"; };
+		AE3C8D1C1C7B4F3100E1234 /* ModernWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernWeatherViewModel.swift; sourceTree = "<group>"; };
 		AE6C34E81B84742900F726C2 /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		AEBE643A1B8D1F90004A0814 /* ForecastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		AEBE643D1B8D2108004A0814 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
@@ -233,6 +241,10 @@
 				AE6C34E71B84742900F726C2 /* fonts */,
 				AECBA5EC1B836BF20004A536 /* Assets.xcassets */,
 				AECBA5E51B836BF20004A536 /* AppDelegate.swift */,
+				AE3C8D192C7B4F3100E1234 /* ModernWeatherApp.swift */,
+				AE3C8D1A1C7B4F3100E1234 /* ModernWeatherService.swift */,
+				AE3C8D1B1C7B4F3100E1234 /* ModernWeatherView.swift */,
+				AE3C8D1C1C7B4F3100E1234 /* ModernWeatherViewModel.swift */,
 				AECBA5F11B836BF20004A536 /* Info.plist */,
 			);
 			path = SwiftWeather;
@@ -590,6 +602,10 @@
 				AECBA5E81B836BF20004A536 /* WeatherViewController.swift in Sources */,
 				AEBE643B1B8D1F90004A0814 /* ForecastViewModel.swift in Sources */,
 				AECBA5E61B836BF20004A536 /* AppDelegate.swift in Sources */,
+				AE3C8D1A2C7B4F3100E1234 /* ModernWeatherApp.swift in Sources */,
+				AE3C8D1B2C7B4F3100E1234 /* ModernWeatherService.swift in Sources */,
+				AE3C8D1C2C7B4F3100E1234 /* ModernWeatherView.swift in Sources */,
+				AE3C8D1D2C7B4F3100E1234 /* ModernWeatherViewModel.swift in Sources */,
 				AEF61B281BA23B1200E8F259 /* ForecastDateTime.swift in Sources */,
 				AEEDF6891B9F09E300C6067B /* Error.swift in Sources */,
 				AEEDF68B1B9F99F800C6067B /* WeatherBuilder.swift in Sources */,

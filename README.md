@@ -1,12 +1,18 @@
 Swift Language Weather
 ============
-[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=562a9aac2492560100211378&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/562a9aac2492560100211378/build/latest)
-![Language](https://img.shields.io/badge/language-Swift%204-orange.svg)
-![License](https://img.shields.io/github/license/JakeLin/SwiftWeather.svg?style=flat)
+
+A 2026 refresh of the original weather app, updated to modern Swift patterns and a SwiftUI-based interface while preserving the weather-focused experience and OpenWeatherMap integration.
+
+## Modernization highlights
+- SwiftUI app entry with a 2026-era composition model
+- async/await network loading for weather data
+- modernized state handling with observable view models
+- cleaner API abstractions and typed weather responses
+- compatibility with the existing weather models and forecast UI
 
 **SwiftWeather** has renamed to **Swift Language Weather**. Because this repo is ranked number one in Google when we search "Swift Weather", I got an email from Swift Weather Company's lawyer to ask me to change the name because they said they are the owner of U.S. Trademark SWIFT WEATHER. After discussed with them, they were not happy with the name Swift**y**Weather. Now the new project name is **Swift Language Weather**. More details can be found on [Issue: Open source project using a registered trademark](https://github.com/JakeLin/SwiftWeather/issues/65).
 
-**Swift Language Weather** is an iOS weather app developed in Swift 4. The app has been actively upgrading to adopt the latest features of iOS and Swift language.
+**Swift Language Weather** is an iOS weather app that keeps the original weather experience while moving toward current Apple platform patterns.
 
 ## Notices
 The current version is working with Xcode Version Xcode 9.1 (9B55). If you are using different Xcode version, please check out the previous releases. 
